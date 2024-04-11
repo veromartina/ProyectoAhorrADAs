@@ -1,0 +1,10 @@
+.container{
+    background-color: #cbc8c876;
+    height: 70px,
+};
+
+.card{
+    font-weight: 500;
+    background-color: pink;
+    height: 50px;
+}
