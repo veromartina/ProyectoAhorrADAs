@@ -1,0 +1,51 @@
+.hero {
+    display: block;
+    height: 93px;
+}
+.hero i{
+
+}
+#barra-navegacion {
+
+    padding: 1rem 2rem;
+    align-items: center;
+    display: flex;
+    min-height: 3.25rem;
+    height: 93px;
+    }
+    
+.navbar-item {
+        color: #fff;
+        display:flex;
+    }
+
+
+.titulo-h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+#nav-items {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    background-color: transparent;
+    top: 0px;
+    bottom: 20px;
+    right: 20px;
+    height: 90px;
+}
+
+.navbar-item {
+    color: #fff;
+    display:flex;
+}
+
+.navbar-item.navbar-item i {
+    color: #fff;
+    
+}
+
+.iconos {
+    display: none;
+}

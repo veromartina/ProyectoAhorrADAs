@@ -31,6 +31,10 @@ button
 	margin-right: 9px;
 }
 
+.hero h1 i{
+	font-size: 2.5rem;
+}
+
 .titulo-h1 {
 	font-size: 2rem;
 	font-weight: 400;
@@ -72,8 +76,7 @@ button {
 }
 
 #nav-items {
-	display: block;
-	display: none;
+	display: flex;
 	color: #4a4a4a;
 	background-color: #fff;
 	width: 100%;
