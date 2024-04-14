@@ -13,8 +13,6 @@ button
 
 .hero {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	background-color: #00d1b2;
 	color: #fff;
 	height: 52px;
@@ -33,7 +31,7 @@ button
 
 .titulo-h1 {
 	font-size: 2rem;
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.125;
 
 }
@@ -72,7 +70,6 @@ button {
 }
 
 #nav-items {
-	display: block;
 	display: none;
 	color: #4a4a4a;
 	background-color: #fff;
@@ -80,6 +77,10 @@ button {
 	position: absolute;
 	top: 52px;
 	height: 130px;
+}
+#nav-items a{
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .navbar-item {
@@ -89,13 +90,14 @@ button {
 	color: #4a4a4a;
 	line-height: 1.5;
 	padding: .5rem .75rem;
+	font-size: 16px;
+	font-weight: 400;
 
 }
 
 .navbar-item i {
 	color: #4a4a4a;
 	display: block;
-	cursor: pointer;
 	padding-left: 10px;
 	font-size: 1rem;
 
@@ -106,9 +108,9 @@ button {
 	display: flex;
 	justify-content: space-between;
 	margin: 0px;
+	height: 100%;
 }
 
 .fa-piggy-bank {
 	margin-left: 12px;
 }
-
