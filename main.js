@@ -8,7 +8,8 @@ let iconoCerrar = document.getElementById
 let navItems = document.getElementById
 ("nav-items");
 
-
+const ocultarOperaciones = document.getElementById("ocultar_operaciones")
+const nuevaOperacion = document.getElementById("nueva_operacion")
 
 iconoAbrir.addEventListener("click", () => { 
   iconoCerrar.style.display = "block";
@@ -21,4 +22,9 @@ iconoCerrar.addEventListener("click", () => {
   iconoAbrir.style.display = "block";
   navItems.style.display ="none";
   iconoCerrar.style.display = "none";
+})
+
+// revisar
+ocultarOperaciones.addEventListener("click", () =>{
+    nuevaOperacion.style.display = "block";
 })
