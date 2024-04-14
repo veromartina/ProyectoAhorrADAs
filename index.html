@@ -44,87 +44,88 @@
     <main>
         <section class="section mt-5">
             <div class="container">
-                <div class="column col-6">
-                    <!-- Balance -->
-                    <div class="box card p-3">
-                        <h2 class="title text-weight-bold">Balance</h2>
-                        <div class="columns">
-                            <div class="column size-5">Ganancia</div>
-                            <div class="column text-right text-success col-md-4 ms-auto">+$0</div>
+                <div class="row">
+                    <div class="column col-6">
+                        <!-- Balance -->
+                        <div class="box card p-3">
+                            <h2 class="title text-weight-bold">Balance</h2>
+                            <div class="columns">
+                                <div class="column size-5">Ganancia</div>
+                                <div class="column text-right text-success col-md-4 ms-auto">+$0</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column size-5">Gastos</div>
+                                <div class="column text-right text-danger col-md-4 ms-auto">-$0</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column size-4">Total</div>
+                                <div class="column text-right text-weight-bold col-md-4 ms-auto">$0</div>
+                            </div>
                         </div>
-                        <div class="columns">
-                            <div class="column size-5">Gastos</div>
-                            <div class="column text-right text-danger col-md-4 ms-auto">-$0</div>
-                        </div>
-                        <div class="columns">
-                            <div class="column size-4">Total</div>
-                            <div class="column text-right text-weight-bold col-md-4 ms-auto">$0</div>
-                        </div>
-                    </div>
-                    <!-- Filtros -->
-                    <div class="box card p-3 mt-4">
-                        <h2 class="title text-weight-bold">Filtros</h2>
-                        <div class="columns">
-                            <div class="column text-right">Ganancia <a href="#">Ocultar Filtros</a></div>
-                            
-                        </div>
-                        <div id="filtros">
-                            <div class="campos">
-                                <label for="" class="label">Tipo</label>
-                                <div class="form-control">
-                                    <div class="select">
-                                        <select name="" id="tipo_filtro">
-                                            <option value="todos">Todos</option>
-                                            <option value="gastos">Gastos</option>
-                                            <option value="ganancia">Ganancia</option>
-                                        </select>
+                        <!-- Filtros -->
+                        <div class="box card p-3 mt-4">
+                            <h2 class="title text-weight-bold">Filtros</h2>
+                            <div class="columns">
+                                <div class="column text-right">Ganancia <a href="#">Ocultar Filtros</a></div>
+                                
+                            </div>
+                            <div id="filtros">
+                                <div class="campos">
+                                    <label for="" class="label">Tipo</label>
+                                    <div class="form-control">
+                                        <div class="select">
+                                            <select name="" id="tipo_filtro">
+                                                <option value="todos">Todos</option>
+                                                <option value="gastos">Gastos</option>
+                                                <option value="ganancia">Ganancia</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="campos">
-                                <label for="" class="label">Categoría</label>
-                                <div class="form-control">
-                                    <div class="select">
-                                        <select name="" id="tipo_filtro">
-                                            <option value="todas">Todas</option>
-                                            <option value="comida">Comida</option>
-                                            <option value="servicios">Servicios</option>
-                                            <option value="salidas">Salidas</option>
-                                            <option value="educacion">Educación</option>
-                                            <option value="transporte">Transporte</option>
-                                            <option value="trabajo">Trabajo</option>
+                                <div class="campos">
+                                    <label for="" class="label">Categoría</label>
+                                    <div class="form-control">
+                                        <div class="select">
+                                            <select name="" id="tipo_filtro">
+                                                <option value="todas">Todas</option>
+                                                <option value="comida">Comida</option>
+                                                <option value="servicios">Servicios</option>
+                                                <option value="salidas">Salidas</option>
+                                                <option value="educacion">Educación</option>
+                                                <option value="transporte">Transporte</option>
+                                                <option value="trabajo">Trabajo</option>
 
-                                        </select>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="campos">
-                                <label for="" class="label">Desde</label>
-                                <div class="form-control">
-                                    <div>
-                                        <input type="date">
+                                <div class="campos">
+                                    <label for="" class="label">Desde</label>
+                                    <div class="form-control">
+                                        <div>
+                                            <input type="date">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="campos">
-                                <label for="" class="label">Ordenar por</label>
-                                <div class="form-control">
-                                    <div class="select">
-                                        <select name="" id="orden_filtro">
-                                            <option value="mas_recientes">Más recientes</option>
-                                            <option value="mayor_monto">Mayor monto</option>
-                                            <option value="menor_monto">Menor monto</option>
-                                            <option value="a/z">A-Z</option>
-                                            <option value="z/a">Z-A</option>
-                                        </select>
+                                <div class="campos">
+                                    <label for="" class="label">Ordenar por</label>
+                                    <div class="form-control">
+                                        <div class="select">
+                                            <select name="" id="orden_filtro">
+                                                <option value="mas_recientes">Más recientes</option>
+                                                <option value="mayor_monto">Mayor monto</option>
+                                                <option value="menor_monto">Menor monto</option>
+                                                <option value="a/z">A-Z</option>
+                                                <option value="z/a">Z-A</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
-            
 
-                <div class="column col-12 ">
+                <div class="column col-6 ">
                     <div class="box_operaciones card p-3 mt-4">
                         <div class="columns mb-4">
                             <div class="column">
@@ -133,6 +134,7 @@
                             <div class="column text-right-tablet">
                                 <button type="button" class="button_operacion" id="nueva_operacion"> + Nueva operación</button>
                             </div>
+                        </div>
                             <div class="hidden" id="ocultar_operaciones">
                                 <div class="columns text-weight-bold">
                                     <div class="column is-3">Descripción</div>
@@ -145,7 +147,7 @@
                             </div>
                             <div class="m-6 p-6">
                                 <figure class="imagen">
-                                    <img src="img/billetera.svg" alt="imagen">
+                                    <img src="img/billetera.png" width="350px"  alt="imagen">
                                 </figure>
                                 <h3 class="text-weight-bold text-center"> Sin resultados</h3>
                                 <p class="text-center">Cambia los filtros o agrega operaciones</p>
