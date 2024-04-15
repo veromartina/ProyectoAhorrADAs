@@ -8,8 +8,8 @@ let iconoCerrar = document.getElementById
 let navItems = document.getElementById
 ("nav-items");
 
-const ocultarOperaciones = document.getElementById("ocultar_operaciones")
-const nuevaOperacion = document.getElementById("nueva_operacion")
+// const ocultarOperaciones = document.getElementById("ocultar_operaciones")
+let nuevaOperacion = document.getElementById("nueva_operacion")
 const sectionBalance = document.getElementById("section-balance")
 
 iconoAbrir.addEventListener("click", () => { 
@@ -29,6 +29,14 @@ iconoCerrar.addEventListener("click", () => {
 })
 
 // revisar
-ocultarOperaciones.addEventListener("click", () =>{
-    nuevaOperacion.style.display = "block";
-})
+nuevaOperacion.addEventListener("click", function() {
+  let ocultarOperaciones = document.getElementById("ocultar_operaciones");
+  ocultarOperaciones.classList.toggle("hidden");
+});
+
+nuevaOperacion.addEventListener('click', () => {
+  nuevaOperacion.classList.add('rotating');
+  setTimeout(() => {
+    nuevaOperacion.classList.remove('rotating');
+  }, 1000); // ajusta la duración de la animación aquí (en milisegundos)
+});
