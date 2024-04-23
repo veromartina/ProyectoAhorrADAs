@@ -15,7 +15,6 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script src="main.js"></script>
     <script
       src="https://kit.fontawesome.com/5bbce2ab5d.js"
       crossorigin="anonymous"
@@ -38,6 +37,7 @@
           Observatory_textListCat:"#00947e",
           ClearDay_listBg: "#EBFFFC",
           RoyalBlue_linkList:"#3273dc",
+          Tundora:"#4a4a4a",
         },
         fontSize: {
           sizeH2: "2.5rem",
@@ -48,14 +48,23 @@
           alturaLinea: "1.125rem",
         },
 
+        width:{
+          anchoIcono: "3.25rem",
+        },
+
         height: {
           alturaHero: "52px",
+          alturaNav: "132px",
+          alturaHambur: "3.25rem",
         },
 
         fontFamily:{
           fontFamilyGral: "[BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif]",
         },
-
+        top:{
+          top52: "52px",
+        },
+        
       }
     }
   }
@@ -65,33 +74,34 @@
 
   <body>
     <header class="hero flex bg-CaribbeanGreen text-white h-alturaHero">
-      <nav class="overflow-hidden flex" id="barra-navegacion">
-        <div class="logo flex justify-evenly items-center py-2">
+      <nav class="overflow-hidden flex w-full h-full justify-between m-0 relative z-30 min-h-12" id="barra-navegacion">
+        <div class="logo flex justify-evenly items-center py-2 px-3">
           <h1 class="text-sizeHero font-semibold h-alturaLinea">
-            <i class="fa-solid fa-piggy-bank text-sizeHero"></i> AhorrADAs
+            <i class="fa-solid fa-piggy-bank text-sizeHero ml-3"></i> AhorrADAs
           </h1>
         </div>
 
-        <div class="iconos">
-          <a href="#menu" id="abrir" class="block cursor-pointer"
-            ><i class="fa-solid fa-bars" aria-hidden="true"></i
+        <div class="iconos hiddencursor-pointer relative h-alturaHambur w-anchoIcono ml-auto">
+          <a href="#menu" id="abrir" class=""
+            ><i class="fa-solid fa-bars w-4 pt-3.5 px-3 py-3" aria-hidden="true"></i
           ></a>
-          <a href="#" id="cerrar" class="block cursor-pointer hidden "
-            ><i class="fa-solid fa-close" aria-hidden="true"></i
+          <a href="#" id="cerrar" class="hidden"
+            ><i class="fa-solid fa-close w-4 pt-3.5 px-3 py-3" aria-hidden="true"></i
           ></a>
         </div>
 
-        <div id="nav-items">
-          <a class="navbar-item" id="ver-balance">
-            <i class="fas fa-chart-line mr-2 block cursor-pointer" aria-hidden="true"></i>Balance</a
+        <div class="hidden text-Tundora bg-white w-full absolute top52 h-alturaNav" id="items">
+
+          <a class="navbar-item no-underline cursor-pointer items-center justify-start text-Tundora leading-6 py-2 px-3 text-base font-normal flex" id="ver-balance">
+            <i class="fas fa-chart-line mr-2 flex cursor-pointer text-Tundora pl-2.5 text-base aria-hidden"true"></i>Balance</a
           >
 
-          <a class="navbar-item" id="ver-categorias">
-            <i class="fas fa-tag mr-2" aria-hidden="true"></i>Categorías</a
+          <a class="navbar-item no-underline cursor-pointer items-center justify-start text-Tundora leading-6 py-2 px-3 text-base font-normal flex" id="ver-categorias">
+            <i class="fas fa-tag mr-2 text-Tundora pl-2.5 text-base aria-hidden" aria-hidden="true"></i>Categorías</a
           >
 
-          <a class="navbar-item" id="ver-reportes"
-            ><i class="fas fa-chart-pie mr-2" aria-hidden="true"></i>Reportes</a
+          <a class="navbar-item no-underline cursor-pointer items-center justify-start text-Tundora leading-6 py-2 px-3 text-base font-normal flex" id="ver-reportes"
+            ><i class="fas fa-chart-pie mr-2 text-Tundora pl-2.5 text-base aria-hidden" aria-hidden="true"></i>Reportes</a
           >
         </div>
       </nav>
@@ -232,7 +242,7 @@
 
     </main>
     
-    
+  <script src="main.js"></script>  
   </body>
 </html>
 

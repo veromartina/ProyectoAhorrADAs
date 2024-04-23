@@ -62,7 +62,7 @@ button {
 }
 */
 /*
-#cerrar {
+#cerrar {  !!! VER SI VA TODO!=??
 	/*  cursor: pointer;
 	display: none;
 	/*	height: 3.25rem;
@@ -71,6 +71,7 @@ button {
 	margin-left: auto;
 }
 */
+/*
 #nav-items {
 	display: none;
 	color: #4a4a4a;
@@ -79,12 +80,13 @@ button {
 	position: absolute;
 	top: 52px;
 	height: 130px;
-}
+}*/
+/*
 #nav-items a{
 	text-decoration: none;
 	cursor: pointer;
-}
-
+}*/
+/*
 .navbar-item {
 	display: flex;
 	align-items: center;
@@ -94,28 +96,26 @@ button {
 	padding: .5rem .75rem;
 	font-size: 16px;
 	font-weight: 400;
-
-}
-
+} */
+/*
 .navbar-item i {
 	color: #4a4a4a;
 	display: block;
 	padding-left: 10px;
 	font-size: 1rem;
-
-}
-
+}*/
+/*
 #barra-navegacion {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	margin: 0px;
 	height: 100%;
-}
-
+}*/
+/*
 .fa-piggy-bank {
 	margin-left: 12px;
-}
+}*/
 
 /* MOBILE PANTALLA PRICIPAL MAIN */
 /* @media only screen and (max-width: 600px) {
