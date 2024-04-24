@@ -15,6 +15,12 @@ const sectionBalance = document.getElementById("section-balance")
 iconoAbrir.addEventListener("click", () => { 
   iconoCerrar.style.display = "block";
   navItems.style.display ="block";
+  navItems.style.backgroundColor ="#fff";
+  navItems.style.color ="#4a4a4a";
+  navItems.style.width ="100%";
+  navItems.style.position ="absolute";
+  navItems.style.top ="52px";
+  navItems.style.height ="130px";
   iconoAbrir.style.display = "none";
   sectionBalance.style.transform = "translateY(100px)"
 

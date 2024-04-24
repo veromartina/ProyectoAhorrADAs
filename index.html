@@ -13,45 +13,104 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script
+      src="https://kit.fontawesome.com/5bbce2ab5d.js"
+      crossorigin="anonymous"
+    ></script>
 
     <script
       src="https://kit.fontawesome.com/cd30d5437a.js"
       crossorigin="anonymous"
     ></script>
+
+<!--creacion de nuevas clases tailwindcss -->
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          CaribbeanGreen: "#00d1b2",
+          MineShaftTextos: "#363636",
+          Emerald_botonCat: "#48C74B",
+          Observatory_textListCat:"#00947e",
+          ClearDay_listBg: "#EBFFFC",
+          RoyalBlue_linkList:"#3273dc",
+          Tundora:"#4a4a4a",
+        },
+        fontSize: {
+          sizeH2: "2.5rem",
+          sizeHero:"2rem",
+          sizeHero1:"3rem",
+        },
+
+        lineHeight:{
+          alturaLinea: "1.125rem",
+        },
+
+        width:{
+          anchoIcono: "3.25rem",
+        },
+
+        height: {
+          alturaHero: "52px",
+          alturaNav: "132px",
+          alturaHambur: "3.25rem",
+          alturaHero1: "93px",
+          alturaNav1: "90px",
+        },
+
+        minHeigth: {
+          mHnav: "3.25rem",
+      },
+
+        marginRight: {
+          mr9px: "9px",
+        },
+
+        fontFamily:{
+          fontFamilyGral: "[BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif]",
+        },
+        top:{
+          top52: "52px",
+        },
+        
+      }
+    }
+  }
+</script>
+
   </head>
 
-  <body>
-    <header class="hero">
-      <nav id="barra-navegacion">
-        <div class="logo">
-          <h1 class="titulo-h1">
-            <i class="fa-solid fa-piggy-bank"></i> AhorrADAs
-          </h1>
+  <body class="font-fontFamilyGral m-0 p-0">
+    <header class="hero flex justify-around	 items-center bg-CaribbeanGreen text-white h-alturaHero lg:block lg:h-alturaHero1">
+      <nav class="overflow-hidden items-center w-full flex justify-between m-0 lg:py-4 lg:px-8 lg:flex lg:items-center :min-h-mHnav lg:h-alturaHero1" id="barra-navegacion">
+        <div class="logo justify-between">
+            <h1 class="titulo-h1 text-sizeHero font-semibold leading-alturaLinea lg:text-sizeHero1"><i class="fa-solid fa-piggy-bank ml-3 text-white text-sizeHero mr9px lg:text-sizeHero1"></i>
+            AhorrADAs</h1>
         </div>
 
-        <div class="iconos">
-          <a href="#menu" id="abrir"
-            ><i class="fa-solid fa-bars" aria-hidden="true"></i
-          ></a>
-          <a href="#" id="cerrar"
-            ><i class="fa-solid fa-close" aria-hidden="true"></i
-          ></a>
+        <div class="iconos cursor-pointer block relative w-anchoIcono p-2.5 no-underline lg:hidden">
+            <a href="#menu" class="cursor-pointer" id="abrir"><i class="fa-solid fa-bars text-xl" aria-hidden="true"></i></a>
+
+            <a href="#" class="cursor-pointer hidden" id="cerrar"><i class="fa-solid fa-close text-xl" aria-hidden="true"></i></a>
         </div>
 
-        <div id="nav-items">
-          <a class="navbar-item" id="ver-balance">
-            <i class="fas fa-chart-line mr-2" aria-hidden="true"></i>Balance</a
-          >
+        <div id="nav-items" class="hidden lg:flex lg:justify-end lg:absolute lg:bg-transparent lg:top-0 lg:bottom-5 lg:right-5 lg:h-alturaNav1">
 
-          <a class="navbar-item" id="ver-categorias">
-            <i class="fas fa-tag mr-2" aria-hidden="true"></i>Categorías</a
-          >
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-balance">
+            <i class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Balance</a>
 
-          <a class="navbar-item" id="ver-reportes"
-            ><i class="fas fa-chart-pie mr-2" aria-hidden="true"></i>Reportes</a
-          >
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-categorias">
+            <i class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Categorías</a>
+
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-reportes"><i class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+            aria-hidden="true"></i>Reportes</a>
         </div>
-      </nav>
+
+    </nav>
     </header>
 
     <main>
@@ -184,16 +243,12 @@
           </div>
         </div>
       </section>
+
+    <!--seccion categorias-->
+
     </main>
-    <script src="main.js"></script>
-    <script
-      src="https://kit.fontawesome.com/5bbce2ab5d.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    
+  <script src="main.js"></script>  
   </body>
 </html>
+
