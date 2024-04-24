@@ -43,6 +43,7 @@
         fontSize: {
           sizeH2: "2.5rem",
           sizeHero:"2rem",
+          sizeHero1:"3rem",
         },
 
         lineHeight:{
@@ -57,7 +58,14 @@
           alturaHero: "52px",
           alturaNav: "132px",
           alturaHambur: "3.25rem",
+          alturaHero1: "93px",
+          alturaNav1: "90px",
         },
+
+        minHeigth: {
+          mHnav: "3.25rem",
+      },
+
         marginRight: {
           mr9px: "9px",
         },
@@ -77,28 +85,28 @@
   </head>
 
   <body class="font-fontFamilyGral m-0 p-0">
-    <header class="hero flex justify-around	 items-center bg-CaribbeanGreen text-white h-alturaHero">
-      <nav class="overflow-hidden items-center w-full flex justify-between m-0" id="barra-navegacion">
+    <header class="hero flex justify-around	 items-center bg-CaribbeanGreen text-white h-alturaHero lg:block lg:h-alturaHero1">
+      <nav class="overflow-hidden items-center w-full flex justify-between m-0 lg:py-4 lg:px-8 lg:flex lg:items-center :min-h-mHnav lg:h-alturaHero1" id="barra-navegacion">
         <div class="logo justify-between">
-            <h1 class="titulo-h1 text-sizeHero font-semibold leading-alturaLinea"><i class="fa-solid fa-piggy-bank ml-3 text-white text-sizeHero mr9px"></i>
+            <h1 class="titulo-h1 text-sizeHero font-semibold leading-alturaLinea lg:text-sizeHero1"><i class="fa-solid fa-piggy-bank ml-3 text-white text-sizeHero mr9px lg:text-sizeHero1"></i>
             AhorrADAs</h1>
         </div>
 
-        <div class="iconos cursor-pointer block relative w-anchoIcono p-2.5 no-underline">
+        <div class="iconos cursor-pointer block relative w-anchoIcono p-2.5 no-underline lg:hidden">
             <a href="#menu" class="cursor-pointer" id="abrir"><i class="fa-solid fa-bars text-xl" aria-hidden="true"></i></a>
 
             <a href="#" class="cursor-pointer hidden" id="cerrar"><i class="fa-solid fa-close text-xl" aria-hidden="true"></i></a>
         </div>
 
-        <div id="nav-items" class="hidden">
+        <div id="nav-items" class="hidden lg:flex lg:justify-end lg:absolute lg:bg-transparent lg:top-0 lg:bottom-5 lg:right-5 lg:h-alturaNav1">
 
-        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3" id="ver-balance">
-            <i class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base" aria-hidden="true"></i>Balance</a>
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-balance">
+            <i class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Balance</a>
 
-        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3" id="ver-categorias">
-            <i class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base" aria-hidden="true"></i>Categorías</a>
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-categorias">
+            <i class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Categorías</a>
 
-        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3" id="ver-reportes"><i class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base"
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-reportes"><i class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
             aria-hidden="true"></i>Reportes</a>
         </div>
 
