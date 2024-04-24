@@ -6,7 +6,7 @@ let iconoCerrar = document.getElementById
 ("cerrar");
 
 let navItems = document.getElementById
-("items");
+("nav-items");
 
 // const ocultarOperaciones = document.getElementById("ocultar_operaciones")
 let nuevaOperacion = document.getElementById("nueva_operacion")
@@ -14,9 +14,10 @@ const sectionBalance = document.getElementById("section-balance")
 
 iconoAbrir.addEventListener("click", () => { 
   iconoCerrar.style.display = "block";
-  navItems.style.display ="flex";
+  navItems.style.display ="block";
   iconoAbrir.style.display = "none";
   sectionBalance.style.transform = "translateY(100px)"
+
 
 })
 
