@@ -23,8 +23,7 @@ iconoAbrir.addEventListener("click", () => {
   navItems.style.height ="130px";
   iconoAbrir.style.display = "none";
   sectionBalance.style.transform = "translateY(100px)"
-
-
+  seccionCategorias.style.transform = "translateY(120px)"
 })
 
 iconoCerrar.addEventListener("click", () => {
@@ -32,7 +31,100 @@ iconoCerrar.addEventListener("click", () => {
   navItems.style.display ="none";
   iconoCerrar.style.display = "none";
   sectionBalance.style.transform = "translateY(0px)"
+  seccionCategorias.style.transform = "translateY(0px)"
+
 })
+
+
+// **funcionalidad de los item del navegador hacia sus respectivas secciones.
+let verBalance = document.getElementById("ver-balance");
+let verCategorias = document.getElementById("ver-categorias");
+//let verReportes = document.getElementById("ver-reportes");
+
+let seccionCategorias = document.getElementById("categoria");
+// falta la seccion reporte.
+
+verCategorias.addEventListener("click", () => {
+  seccionCategorias.style.display = "flex";
+  sectionBalance.style.display = "none";
+})
+
+verBalance.addEventListener("click", () => { 
+  sectionBalance.style.display = "flex";
+  seccionCategorias.style.display = "none";
+//falta seccion reporte  
+});
+
+
+ 
+//***** Funcionalidad de la seccion categorias  FALTA TERMINAR*********
+const catIngresadas = document.getElementById("cat-ingresadas");
+const botonAgregarCategoria = document.getElementById("boton-agregar-categoria");
+/* 
+let contador = 1;
+botonAgregarCategoria.addEventListener("click",()=>{
+    let nuevaCat = document.createElement("li");
+    nuevaCat.textContent = "Categoria ${contador}";
+    contador ++
+    catIngresadas.appendChild(nuevaCat);
+})   */
+
+// Array para almacenar las categorías
+let categorias = [];
+
+function agregarCategoria() {
+  const categoriaInput = document.getElementById('categoria-input');
+  const nuevaCategoria = categoriaInput.value.trim();
+
+  if (nuevaCategoria !== '') {
+    categorias.push(nuevaCategoria);
+
+    // Limpiar el campo de entrada
+    categoriaInput.value = '';
+
+    mostrarCategorias();
+  }
+}
+
+function eliminarCategoria(index) {
+  categorias.splice(index, 1);
+  mostrarCategorias();
+}
+
+function mostrarCategorias() {
+  const listaCategorias = document.getElementById('listaCategorias');
+  listaCategorias.innerHTML = '';
+
+  categorias.forEach((categoria, index) => {
+    const li = document.createElement('li');
+    li.textContent = categoria;
+
+    const btnEditar = document.createElement('button');
+    btnEditar.textContent = 'Editar';
+
+
+    const btnEliminar = document.createElement('button');
+    btnEliminar.textContent = 'Eliminar';
+
+    btnEliminar.addEventListener('click', () => eliminarCategoria(index));
+
+    li.appendChild(btnEditar);
+    li.appendChild(btnEliminar);
+   
+
+
+    listaCategorias.appendChild(li);
+  });
+
+  function mostrarSeccionEditarCategoria() {
+    const seccionEditarCategoria = document.getElementById('editar-categoria');
+    seccionEditarCategoria.style.display = 'block';
+  }
+}
+
+
+
+
 
 // revisar
 nuevaOperacion.addEventListener("click", function() {

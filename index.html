@@ -39,6 +39,8 @@
           ClearDay_listBg: "#EBFFFC",
           RoyalBlue_linkList:"#3273dc",
           Tundora:"#4a4a4a",
+          Emerald_botonAgCat: "#48C774",
+          Wild_sand_body: "#F5F5F5",
         },
         fontSize: {
           sizeH2: "2.5rem",
@@ -84,7 +86,7 @@
 
   </head>
 
-  <body class="font-fontFamilyGral m-0 p-0">
+  <body class="font-fontFamilyGral m-0 p-0 bg-Wild_sand_body">
     <header class="hero flex justify-around	 items-center bg-CaribbeanGreen text-white h-alturaHero lg:block lg:h-alturaHero1">
       <nav class="overflow-hidden items-center w-full flex justify-between m-0 lg:py-4 lg:px-8 lg:flex lg:items-center :min-h-mHnav lg:h-alturaHero1" id="barra-navegacion">
         <div class="logo justify-between">
@@ -100,13 +102,13 @@
 
         <div id="nav-items" class="hidden lg:flex lg:justify-end lg:absolute lg:bg-transparent lg:top-0 lg:bottom-5 lg:right-5 lg:h-alturaNav1">
 
-        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-balance">
+        <a href="#section-balance" class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer" id="ver-balance">
             <i class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Balance</a>
 
-        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-categorias">
+        <a href="#categoria" class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer" id="ver-categorias">
             <i class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Categorías</a>
 
-        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex" id="ver-reportes"><i class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer" id="ver-reportes"><i class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
             aria-hidden="true"></i>Reportes</a>
         </div>
 
@@ -244,7 +246,72 @@
         </div>
       </section>
 
-    <!--seccion categorias-->
+    <!--seccion categoria-->
+
+    <section class="seccion-categorias m-3 hidden" id="categoria">
+      <div class="contenedor-principal-categoria m-0 m-auto relative w-70 p-2.5">
+        <div class="contenedor-categoria block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-4 rounded-md bg-white" style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434">
+  <!--corregir box-shadow-->
+          <h2 class="titulo mb-6 font-bold text-4xl break-words text-MineShaftTextos">Categorías</h2>
+          <label class="label mb-2 mt-12 block text-base font-bold cursor-default" for="categoria-input">Nombre</label>
+   
+          <div class="input-agregar flex justify-start mb-3">
+           <div class="input-nueva-categoria grow shrink box-border text-base relative mr-3"> 
+              <input type="text" name="" id="categoria-input" class="input max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80;">  <!--corregir box-shadow-->
+            </div>
+  
+            <div class="btn-agregar-cat flex justify-end box-border text-base relative shrink">
+              <button class="boton-agregar bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded" id="boton-agregar-categoria" onclick="agregarCategoria()">
+                Agregar
+              </button>
+  
+  <!-- <button onclick="agregarCategoria()">Agregar</button>
+  
+  <ul id="listaCategorias"></ul> -->
+  
+            </div>
+          </div>
+  
+          <div class="categorias-ingresadas mt-12" id="cat-ingresadas">
+            <div class="cont-cat-ingresadas mb-3">
+              <div class="colum-categorias flex items-center">
+                <ul id="listaCategorias"></ul>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+    </section>
+  
+    <!-- Editar Categoría -->
+  
+    <section class="editar-categ hidden">
+  
+      <div class="contenedor-columnas-editar" id="editar-categoria">
+        <div class="column">
+          <div class="caja-editar">
+            <h2 class="titulo">
+              Editar categoría
+            </h2>
+            <label class="" for="editar-categoria-input">Nombre</label>
+            <div class="">
+              <div class="">
+                <input class="input" type="text" name="" id="editar-categoria-input" />
+              </div>
+            </div>
+            <div class="">
+              <button class="" id="cancelar-categoria-boton">
+                Cancelar
+              </button>
+              <button class="" id="editar-categoria-boton">
+                Editar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
 
     </main>
     
