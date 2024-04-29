@@ -39,6 +39,7 @@
           ClearDay_listBg: "#EBFFFC",
           RoyalBlue_linkList:"#3273dc",
           Tundora:"#4a4a4a",
+          Emerald_botonAgCat: "#48C774",
         },
         fontSize: {
           sizeH2: "2.5rem",
@@ -244,7 +245,72 @@
         </div>
       </section>
 
-    <!--seccion categorias-->
+    <!--seccion categoria-->
+
+    <section class="seccion-categoria py-12 px-6 mt-6 block " id="categoria">
+      <div class="contenedor-principal-categoria m-0 m-auto relative w-70">
+        <div class="contenedor-categoria block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-5 rounded-md bg-white p-4" style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434">
+  <!--corregir box-shadow-->
+          <h2 class="titulo mb-6 font-bold text-4xl break-words text-MineShaftTextos">Categorías</h2>
+          <label class="label mb-2 mt-12 block text-base font-bold cursor-default" for="categoria-input">Nombre</label>
+   
+          <div class="input-agregar flex justify-start mb-3">
+           <div class="input-nueva-categoria grow shrink box-border text-base relative mr-3"> 
+              <input type="text" name="" id="categoria-input" class="input max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80;">  <!--corregir box-shadow-->
+            </div>
+  
+            <div class="btn-agregar-cat flex justify-end box-border text-base relative shrink">
+              <button class="boton-agregar bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded" id="boton-agregar-categoria" onclick="agregarCategoria()">
+                Agregar
+              </button>
+  
+  <!-- <button onclick="agregarCategoria()">Agregar</button>
+  
+  <ul id="listaCategorias"></ul> -->
+  
+            </div>
+          </div>
+  
+          <div class="categorias-ingresadas mt-12" id="cat-ingresadas">
+            <div class="cont-cat-ingresadas mb-3">
+              <div class="colum-categorias flex items-center">
+                <ul id="listaCategorias"></ul>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+    </section>
+  
+    <!-- Editar Categoría -->
+  
+    <section class="editar-categ">
+  
+      <div class="contenedor-columnas-editar" id="editar-categoria">
+        <div class="column">
+          <div class="caja-editar">
+            <h2 class="titulo">
+              Editar categoría
+            </h2>
+            <label class="" for="editar-categoria-input">Nombre</label>
+            <div class="">
+              <div class="">
+                <input class="input" type="text" name="" id="editar-categoria-input" />
+              </div>
+            </div>
+            <div class="">
+              <button class="" id="cancelar-categoria-boton">
+                Cancelar
+              </button>
+              <button class="" id="editar-categoria-boton">
+                Editar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
 
     </main>
     
