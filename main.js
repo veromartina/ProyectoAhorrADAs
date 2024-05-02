@@ -11,6 +11,7 @@ let navItems = document.getElementById
 // const ocultarOperaciones = document.getElementById("ocultar_operaciones")
 let nuevaOperacion = document.getElementById("nueva_operacion")
 const sectionBalance = document.getElementById("section-balance")
+const mainOperaciones = document.getElementById("main_operaciones")
 
 iconoAbrir.addEventListener("click", () => { 
   iconoCerrar.style.display = "block";
@@ -29,10 +30,11 @@ iconoCerrar.addEventListener("click", () => {
 })
 
 // revisar
-nuevaOperacion.addEventListener("click", function() {
-  let ocultarOperaciones = document.getElementById("ocultar_operaciones");
-  ocultarOperaciones.classList.toggle("hidden");
-});
+// nuevaOperacion.addEventListener("click", function() {
+//   let ocultarOperaciones = document.getElementById("ocultar_operaciones");
+//   ocultarOperaciones.classList.toggle("hidden");
+  
+// });
 
 nuevaOperacion.addEventListener('click', () => {
   nuevaOperacion.classList.add('rotating');

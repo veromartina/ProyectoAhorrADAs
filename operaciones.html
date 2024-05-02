@@ -20,6 +20,20 @@
       src="https://kit.fontawesome.com/cd30d5437a.js"
       crossorigin="anonymous"
     ></script>
+    <!-- <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#09473e',
+            },
+            margin:{
+              extralarge: '50px'
+            }
+          }
+        }
+      }
+    </script> -->
   </head>
 
   <body>
@@ -77,7 +91,7 @@
       </nav>
     </header>
 
-    <main class="flex justify-center items-center h-screen">
+    <main class="flex justify-center items-center h-screen" id="main_operaciones">
       <div class=" bg-white rounded-xl shadow-md overflow-hidden  lg:w-full md:w-3/4 ">
         <div class="px-6 py-4 container mx-0">
           <div class="font-bold text-xl mb-2">Nueva operación</div>
@@ -123,7 +137,7 @@
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fecha" type="date">
               </div>
               <div class="flex items-center justify-center">
-                <button class="text-black font-bold py-2 px-4 rounded bg-gray-200 hover:bg-gray-500 focus:ring-2 focus:ring-gray-300 border-gray-500">
+                <button class="text-black font-bold py-2 px-4 rounded bg-gray-200 hover:bg-gray-500 focus:ring-2 focus:ring-gray-300 border-gray-500 ">
                   Cancelar
                 </button>
                 <button class="text-black font-bold py-2 px-4 rounded bg-green-200 hover:bg-green-700 focus:ring-2 focus:ring-green-300 border-gray-500">
