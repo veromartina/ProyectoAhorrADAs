@@ -65,4 +65,25 @@
   .ocultar-filtros a:hover {
     text-decoration: underline;
   }
+  /* .boton_agregar {
+	margin: 10px;
+	padding: 0;
+	background-color:#00D1B2;
+	border: none;
+
+}
+
+.boton_agregar:hover{
+  background-color: #09473e;
+  font-style: italic;
+  font-weight: 900;
+}
+
+.boton_cancelar{
+  background-color: gray;
+  margin: 10px;
+}
+  .operaciones{
+    width: 50%;
+  } */
 }
