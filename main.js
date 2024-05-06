@@ -60,14 +60,6 @@ verBalance.addEventListener("click", () => {
 //***** Funcionalidad de la seccion categorias  FALTA TERMINAR*********
 const catIngresadas = document.getElementById("cat-ingresadas");
 const botonAgregarCategoria = document.getElementById("boton-agregar-categoria");
-/* 
-let contador = 1;
-botonAgregarCategoria.addEventListener("click",()=>{
-    let nuevaCat = document.createElement("li");
-    nuevaCat.textContent = "Categoria ${contador}";
-    contador ++
-    catIngresadas.appendChild(nuevaCat);
-})   */
 
 // Array para almacenar las categorías
 let categorias = [];
@@ -78,10 +70,7 @@ function agregarCategoria() {
 
   if (nuevaCategoria !== '') {
     categorias.push(nuevaCategoria);
-
-    // Limpiar el campo de entrada
-    categoriaInput.value = '';
-
+    categoriaInput.value = ''; // Limpiar el campo de entrada
     mostrarCategorias();
   }
 }
@@ -90,6 +79,7 @@ function eliminarCategoria(index) {
   categorias.splice(index, 1);
   mostrarCategorias();
 }
+
 
 function mostrarCategorias() {
   const listaCategorias = document.getElementById('listaCategorias');
@@ -101,7 +91,12 @@ function mostrarCategorias() {
 
     const btnEditar = document.createElement('button');
     btnEditar.textContent = 'Editar';
-
+    btnEditar.addEventListener("click", () => {
+  
+      seccionCategorias.style.display = "none"; // Ocultar la sección de categorías
+      const seccionEditarCateg = document.getElementById('editar-categ');
+      seccionEditarCateg.style.display = 'block'; //no FUNCIONA VERRR
+    });
 
     const btnEliminar = document.createElement('button');
     btnEliminar.textContent = 'Eliminar';
@@ -112,15 +107,19 @@ function mostrarCategorias() {
     li.appendChild(btnEliminar);
    
 
-
     listaCategorias.appendChild(li);
   });
 
+
+
   function mostrarSeccionEditarCategoria() {
-    const seccionEditarCategoria = document.getElementById('editar-categoria');
-    seccionEditarCategoria.style.display = 'block';
+    const seccionEditarCateg = document.getElementById('editar-categ');
+    seccionEditarCateg.style.display = 'block';
   }
 }
+
+
+
 
 
 
@@ -137,4 +136,4 @@ nuevaOperacion.addEventListener('click', () => {
   setTimeout(() => {
     nuevaOperacion.classList.remove('rotating');
   }, 1000); // ajusta la duración de la animación aquí (en milisegundos)
-});
+})
