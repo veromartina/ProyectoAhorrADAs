@@ -45,7 +45,7 @@ let seccionCategorias = document.getElementById("categoria");
 // falta la seccion reporte.
 
 verCategorias.addEventListener("click", () => {
-  seccionCategorias.style.display = "flex";
+  seccionCategorias.style.display = "block";
   sectionBalance.style.display = "none";
 })
 
