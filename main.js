@@ -50,7 +50,7 @@ verCategorias.addEventListener("click", () => {
 })
 
 verBalance.addEventListener("click", () => { 
-  sectionBalance.style.display = "flex";
+  sectionBalance.style.display = "block";
   seccionCategorias.style.display = "none";
 //falta seccion reporte  
 });
@@ -88,11 +88,19 @@ function mostrarCategorias() {
   categorias.forEach((categoria, index) => {
     const li = document.createElement('li');
     li.textContent = categoria;
+    li.style.backgroundColor ="red";
+    li.style.Width="30%";
+
+    const ContenedorBotones = document.createElement('div');
+    ContenedorBotones.classList.add('contenedor_botones');
+    ContenedorBotones.style.backgroundColor ="blue";
 
     const btnEditar = document.createElement('button');
     btnEditar.textContent = 'Editar';
+    btnEditar.style.Width="40%";
+    btnEditar.style.paddingLeft= "15px";
+
     btnEditar.addEventListener("click", () => {
-  
       seccionCategorias.style.display = "none"; // Ocultar la sección de categorías
       const seccionEditarCateg = document.getElementById('editar-categ');
       seccionEditarCateg.style.display = 'block'; //no FUNCIONA VERRR
@@ -100,6 +108,8 @@ function mostrarCategorias() {
 
     const btnEliminar = document.createElement('button');
     btnEliminar.textContent = 'Eliminar';
+    btnEliminar.style.Width="40%";
+    btnEliminar.style.paddingRight= "10px";
 
     btnEliminar.addEventListener('click', () => eliminarCategoria(index));
 
