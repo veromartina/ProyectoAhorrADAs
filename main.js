@@ -22,8 +22,9 @@ iconoAbrir.addEventListener("click", () => {
   navItems.style.top ="52px";
   navItems.style.height ="130px";
   iconoAbrir.style.display = "none";
-  sectionBalance.style.transform = "translateY(100px)"
-  seccionCategorias.style.transform = "translateY(120px)"
+  sectionBalance.style.transform = "translateY(100px)";
+  seccionCategorias.style.transform = "translateY(120px)";
+  edicionCateg.style.transform = "translateY(120px)";
 })
 
 iconoCerrar.addEventListener("click", () => {
@@ -32,6 +33,7 @@ iconoCerrar.addEventListener("click", () => {
   iconoCerrar.style.display = "none";
   sectionBalance.style.transform = "translateY(0px)"
   seccionCategorias.style.transform = "translateY(0px)"
+  edicionCateg.style.transform = "translateY(0px)";
 
 })
 
@@ -43,6 +45,8 @@ let verCategorias = document.getElementById("ver-categorias");
 
 let seccionCategorias = document.getElementById("categoria");
 // falta la seccion reporte.
+
+let edicionCateg = document.getElementById("editar-categorias");
 
 verCategorias.addEventListener("click", () => {
   seccionCategorias.style.display = "block";
@@ -91,9 +95,11 @@ function mostrarCategorias() {
     li.style.backgroundColor ="red";
     li.style.Width="30%";
 
-    const ContenedorBotones = document.createElement('div');
-    ContenedorBotones.classList.add('contenedor_botones');
-    ContenedorBotones.style.backgroundColor ="blue";
+    const contenedorBotones = document.createElement('div');
+    contenedorBotones.classList.add('contenedor_botones');
+    contenedorBotones.style.Color ="blue";
+    contenedorBotones.style.paddingLeft ="30px";
+
 
     const btnEditar = document.createElement('button');
     btnEditar.textContent = 'Editar';
@@ -102,7 +108,7 @@ function mostrarCategorias() {
 
     btnEditar.addEventListener("click", () => {
       seccionCategorias.style.display = "none"; // Ocultar la sección de categorías
-      const seccionEditarCateg = document.getElementById('editar-categ');
+      const seccionEditarCateg = document.getElementById('editar-categorias');
       seccionEditarCateg.style.display = 'block'; //no FUNCIONA VERRR
     });
 
@@ -123,7 +129,7 @@ function mostrarCategorias() {
 
 
   function mostrarSeccionEditarCategoria() {
-    const seccionEditarCateg = document.getElementById('editar-categ');
+    const seccionEditarCateg = document.getElementById('editar-categorias');
     seccionEditarCateg.style.display = 'block';
   }
 }

@@ -64,6 +64,10 @@
             mr9px: "9px",
           },
 
+          marginBottom: {
+            mb12px: "12px",
+          },
+
           padding: {
             pSecCateg: "20px",
             contPrinCateg: "12px"
@@ -267,7 +271,7 @@
             Categorías</h2>
           <label class="label mt-12 mb-2 block text-base font-bold cursor-default" for="categoria-input">Nombre</label>
 
-          <div class="input-agregar flex justify-start mb-2.5">
+          <div class="input-agregar flex justify-start mb-mb12px">
             <div class="input-nueva-categoria grow shrink box-border text-base relative mr-3">
               <input type="text" name="" id="categoria-input"
                 class="input max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"
@@ -301,25 +305,29 @@
 
     <!-- Editar Categoría -->
 
-    <section class="edicionCat py-12 px-6 mt-6 hidden" id="editar-categ">
+    <section class="edicionCateg py-12 px-6 mt-6 hidden" id="editar-categorias">
 
-      <div class="contenedor-columnas-editar m-auto m-0 relative w-auto	" id="editar-categoria">
+      <div class="contenedor-principal-editar m-0 m-auto relative size-full	">
         <div class="column">
-          <div class="caja-editar p-3	bg-white rounded-br-md text-Tundora block p-pSecCateg" style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434"> <!--corregir box shadow-->
-            <h2 class="titulo">
+          <div class="box-editar w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white"
+          style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434"> <!--corregir box shadow-->
+            <h2 class="titulo-editar flex text-left h-20 mb-6 font-bold text-sizeH2 break-words h-alturaNav1 text-MineShaftTextos">
               Editar categoría
             </h2>
-            <label class="" for="editar-categoria-input">Nombre</label>
-            <div class="">
-              <div class="">
-                <input class="input" type="text" name="" id="editar-categoria-input" />
+            <label class="label-editar mt-12 mb-2 block text-base font-bold cursor-default text-MineShaftTextos" for="editar-categoria-input">Nombre</label>
+
+            <div class="input-edicion flex justify-start mb-mb12px">
+              <div class="input-editar grow shrink box-border text-base relative mr-3">
+                <input id="editar-categoria-input" class="input-a-editar max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"
+                style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80" type="text" name=""/>
               </div>
             </div>
-            <div class="">
-              <button class="" id="cancelar-categoria-boton">
-                Cancelar
+
+            <div class="botones-volver-editar flex justify-end box-border text-base relative shrink">
+              <button class="volver-boton-categ bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded" id="volver-categ">
+                Volver
               </button>
-              <button class="" id="editar-categoria-boton">
+              <button class="boton-editar-categ bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded" id="editar-categ">
                 Editar
               </button>
             </div>
