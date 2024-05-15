@@ -22,8 +22,9 @@ iconoAbrir.addEventListener("click", () => {
   navItems.style.top ="52px";
   navItems.style.height ="130px";
   iconoAbrir.style.display = "none";
-  sectionBalance.style.transform = "translateY(100px)"
-  seccionCategorias.style.transform = "translateY(120px)"
+  sectionBalance.style.transform = "translateY(100px)";
+  seccionCategorias.style.transform = "translateY(120px)";
+  edicionCateg.style.transform = "translateY(120px)";
 })
 
 iconoCerrar.addEventListener("click", () => {
@@ -32,6 +33,7 @@ iconoCerrar.addEventListener("click", () => {
   iconoCerrar.style.display = "none";
   sectionBalance.style.transform = "translateY(0px)"
   seccionCategorias.style.transform = "translateY(0px)"
+  edicionCateg.style.transform = "translateY(0px)";
 
 })
 
@@ -44,13 +46,15 @@ let verCategorias = document.getElementById("ver-categorias");
 let seccionCategorias = document.getElementById("categoria");
 // falta la seccion reporte.
 
+let edicionCateg = document.getElementById("editar-categorias");
+
 verCategorias.addEventListener("click", () => {
-  seccionCategorias.style.display = "flex";
+  seccionCategorias.style.display = "block";
   sectionBalance.style.display = "none";
 })
 
 verBalance.addEventListener("click", () => { 
-  sectionBalance.style.display = "flex";
+  sectionBalance.style.display = "block";
   seccionCategorias.style.display = "none";
 //falta seccion reporte  
 });
@@ -60,14 +64,6 @@ verBalance.addEventListener("click", () => {
 //***** Funcionalidad de la seccion categorias  FALTA TERMINAR*********
 const catIngresadas = document.getElementById("cat-ingresadas");
 const botonAgregarCategoria = document.getElementById("boton-agregar-categoria");
-/* 
-let contador = 1;
-botonAgregarCategoria.addEventListener("click",()=>{
-    let nuevaCat = document.createElement("li");
-    nuevaCat.textContent = "Categoria ${contador}";
-    contador ++
-    catIngresadas.appendChild(nuevaCat);
-})   */
 
 // Array para almacenar las categorías
 let categorias = [];
@@ -78,10 +74,7 @@ function agregarCategoria() {
 
   if (nuevaCategoria !== '') {
     categorias.push(nuevaCategoria);
-
-    // Limpiar el campo de entrada
-    categoriaInput.value = '';
-
+    categoriaInput.value = ''; // Limpiar el campo de entrada
     mostrarCategorias();
   }
 }
@@ -91,6 +84,7 @@ function eliminarCategoria(index) {
   mostrarCategorias();
 }
 
+
 function mostrarCategorias() {
   const listaCategorias = document.getElementById('listaCategorias');
   listaCategorias.innerHTML = '';
@@ -98,13 +92,30 @@ function mostrarCategorias() {
   categorias.forEach((categoria, index) => {
     const li = document.createElement('li');
     li.textContent = categoria;
+    li.style.backgroundColor ="red";
+    li.style.Width="30%";
+
+    const contenedorBotones = document.createElement('div');
+    contenedorBotones.classList.add('contenedor_botones');
+    contenedorBotones.style.Color ="blue";
+    contenedorBotones.style.paddingLeft ="30px";
+
 
     const btnEditar = document.createElement('button');
     btnEditar.textContent = 'Editar';
+    btnEditar.style.Width="40%";
+    btnEditar.style.paddingLeft= "15px";
 
+    btnEditar.addEventListener("click", () => {
+      seccionCategorias.style.display = "none"; // Ocultar la sección de categorías
+      const seccionEditarCateg = document.getElementById('editar-categorias');
+      seccionEditarCateg.style.display = 'block'; //no FUNCIONA VERRR
+    });
 
     const btnEliminar = document.createElement('button');
     btnEliminar.textContent = 'Eliminar';
+    btnEliminar.style.Width="40%";
+    btnEliminar.style.paddingRight= "10px";
 
     btnEliminar.addEventListener('click', () => eliminarCategoria(index));
 
@@ -112,15 +123,19 @@ function mostrarCategorias() {
     li.appendChild(btnEliminar);
    
 
-
     listaCategorias.appendChild(li);
   });
 
+
+
   function mostrarSeccionEditarCategoria() {
-    const seccionEditarCategoria = document.getElementById('editar-categoria');
-    seccionEditarCategoria.style.display = 'block';
+    const seccionEditarCateg = document.getElementById('editar-categorias');
+    seccionEditarCateg.style.display = 'block';
   }
 }
+
+
+
 
 
 
@@ -137,4 +152,4 @@ nuevaOperacion.addEventListener('click', () => {
   setTimeout(() => {
     nuevaOperacion.classList.remove('rotating');
   }, 1000); // ajusta la duración de la animación aquí (en milisegundos)
-});
+})
