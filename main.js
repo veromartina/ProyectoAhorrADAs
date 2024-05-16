@@ -9,8 +9,10 @@ let navItems = document.getElementById
 ("nav-items");
 
 // const ocultarOperaciones = document.getElementById("ocultar_operaciones")
-let nuevaOperacion = document.getElementById("nueva_operacion")
+const btnNuevaOperacion = document.getElementById("nueva_operacion")
 const sectionBalance = document.getElementById("section-balance")
+const ventanaNuevaOperacion = document.getElementById("ventanaNuevaOperacion")
+const mainOperaciones = document.getElementById("main_operaciones")
 
 iconoAbrir.addEventListener("click", () => { 
   iconoCerrar.style.display = "block";
@@ -122,19 +124,126 @@ function mostrarCategorias() {
   }
 }
 
+// capturo el id del select de categoria
+const categoria_filtro = document.getElementById("categoria_filtro");
+
+// creo una funcion para cargar las categorias
+function cargarCategorias(categorias){
+  categorias.forEach((categoria) => {
+    let nuevaCategoria = document.createElement("option");
+    nuevaCategoria.value = categoria;
+    nuevaCategoria.textContent = categoria;
+    categoria_filtro.appendChild(nuevaCategoria)
+
+  })
+};
+
+
+// creo una funcion para cargar el localstorage
+function cargarStorage(){
+  const categorias = localStorage.getItem("categorias");
+  const operaciones = localStorage.getItem("operaciones");
+  console.log(operaciones)
+  if (!categorias){
+    const categoriasDefault = ["Comidas", "Servicios", "Salidas", "Educacion", "Transporte", "Trabajo"]
+    localStorage.setItem("categorias", categoriasDefault)
+    cargarCategorias(categoriasDefault)
+  }else{
+    let nuevaCategoria = "";
+    let nuevasCategoriasArray = [];
+    for(let i=0 ; i < nuevasCategoriasArray.length; i++){
+      if(categorias[i] !== ","){
+        nuevaCategoria += categorias[i]
+        if(i === categorias.length - 1){
+          nuevasCategoriasArray.push(nuevaCategoria)
+        }
+      }else{
+        nuevasCategoriasArray.push(nuevaCategoria)
+        nuevaCategoria = ""
+      }
+    }
+    cargarCategorias(nuevasCategoriasArray)
+  }
+};
+
+cargarStorage();
 
 
 
+// capturo los elementos del form
+const nuevaOperacion_descripcion = document.getElementById("nuevaOperacion-descripcion");
+const nuevaOperacion_monto = document.getElementById("nuevaOperacion-monto");
+const nuevaOperacion_tipo = document.getElementById("nuevaOperacion-tipo");
+const nuevaOperacion_categoria = document.getElementById("nuevaOperacion-categoria");
+const nuevaOperacion_fecha = document.getElementById("nuevaOperacion-fecha");
+const botonAgregarOperacion = document.getElementById("botonAgregarOperacion");
+const botonCancelarOperacion = document.getElementById("botonCancelarOperacion");
+const formNuevaOperacion = document.getElementById("formNuevaOperacion");
+const operaciones = document.getElementById("operaciones");
 
-// revisar
-nuevaOperacion.addEventListener("click", function() {
-  let ocultarOperaciones = document.getElementById("ocultar_operaciones");
-  ocultarOperaciones.classList.toggle("hidden");
-});
-
-nuevaOperacion.addEventListener('click', () => {
-  nuevaOperacion.classList.add('rotating');
+btnNuevaOperacion.addEventListener('click', () => {
+  btnNuevaOperacion.classList.add('rotating');
   setTimeout(() => {
-    nuevaOperacion.classList.remove('rotating');
+    btnNuevaOperacion.classList.remove('rotating');
   }, 1000); // ajusta la duración de la animación aquí (en milisegundos)
 });
+
+// HAGO CLICK EN EL BTN NUEVA OPERACION
+btnNuevaOperacion.addEventListener('click', () => {
+  console.log("hiciste click en nueva operacion")
+  sectionBalance.style.display = "none";
+  ventanaNuevaOperacion.style.display = "block";
+});
+
+
+
+// CREO UNA FUNCION PARA CAPTURAR LOS DATOS DEL FORM
+function crearOperacion() {
+  let nuevaOpe = {
+    descripcion: nuevaOperacion_descripcion.value,
+    monto: nuevaOperacion_monto.value,
+    tipo: nuevaOperacion_tipo.value,
+    categoria: nuevaOperacion_categoria.value,
+    fecha: nuevaOperacion_fecha.value
+  }
+
+  // console.log(nuevaOpe) --->me muestra el objeto con los datos
+
+
+
+  // creo una variable para guardar los datos del local storage
+  const operaciones = localStorage.getItem("operaciones")
+  // console.log(operaciones) --> muestra null en la consola
+  if(operaciones === null){
+    console.log("operaciones es nulo")
+    let nuevoArray = [{nuevaOpe}]
+    localStorage.setItem("operaciones", JSON.stringify(nuevoArray))
+  }else{
+    console.log("operaciones tiene datos")
+    let parsedStorage = JSON.parse(localStorage.getItem("operaciones"))
+    parsedStorage.push(nuevaOpe)
+    localStorage.setItem("operaciones", JSON.stringify(parsedStorage))
+
+  }
+  console.log("operacion creada")
+ 
+}
+
+
+// al hacer click en agregar en el form llamo a la funcion crear operaciones
+botonAgregarOperacion.addEventListener("click", function (event) {
+  event.stopPropagation()
+  event.preventDefault()
+  event.stopImmediatePropagation()
+  crearOperacion()
+});
+
+formNuevaOperacion.addEventListener('submit', (e)=>{
+    console.log(e)
+    e.preventDefault()
+    e.stopImmediatePropagation()
+    e.stopPropagation()
+});
+
+
+
