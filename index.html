@@ -73,6 +73,10 @@
             pSecCateg: "20px",
             contPrinCateg: "12px",
             pTopBotBtn: "7px",
+            customPb: 'calc(.5em - 1px)',
+            customPt: 'calc(.5em - 1px)',
+            pRigLef: "16px",
+      },
 
           },
 
@@ -85,7 +89,7 @@
 
         }
       }
-    }
+  
   </script>
 
 </head>
@@ -327,13 +331,15 @@
             </div>
 
             <div class="botones-volver-editar flex justify-end items-center flex-wrap mt-12 -mb-2">
-              <button class="volver-boton-categ mb-2 mr-2	bg-Wild_sand_body border-transparent text- Preview border cursor-pointer	justify-center px-4 p-" id="volver-categ">
-              <button class="volver-boton-categ mb-2 mr-2	bg-Wild_sand_body border-transparent text- Preview border cursor-pointer	justify-center py-3.5 p-pTopBotBtn text-center rounded" id="volver-categ">
+
+              <button class="volver-boton-categ mb-2 mr-2	bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef" id="volver-categ">
                 Volver
               </button>
-              <button class="boton-editar-categ bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded" id="editar-categ">
+
+              <button class="boton-editar-categ bg-Emerald_botonAgCat mb-2 mr-2 border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef" id="editar-categ">
                 Editar
               </button>
+
             </div>
           </div>
         </div>
