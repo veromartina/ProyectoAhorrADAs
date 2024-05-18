@@ -224,17 +224,24 @@
                   </div>
                 </div>
                 <div class="hidden" id="ocultar_operaciones">
-                  <div class="columns text-weight-bold">
-                    <div class="column is-3">Descripción</div>
-                    <div class="column is-3">Categoría</div>
-                    <div class="column is-2 text-right">Fecha</div>
-                    <div class="column is-2 text-right">Monto</div>
-                    <div class="column is-2 text-right">Acciones</div>
-                  </div>
-                  <div id="operaciones"></div>
+                  <table id="operaciones" class="min-w-full divide-y divide-gray-200">
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monto</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="operaciones-body" class="bg-white divide-y divide-gray-200">
+                        <!-- Aquí se insertarán las filas -->
+                    </tbody>
+                  </table>
                 </div>
-                <div class="m-6 p-6">
-                  <figure class="imagen">
+                
+                <div class="m-6 p-6" id="no_resultados">
+                  <figure class="imagen" id="figure_imagen">
                     <img src="img/billetera.png" width="350px" alt="imagen" />
                   </figure>
                   <h3 class="text-weight-bold text-center">Sin resultados</h3>
