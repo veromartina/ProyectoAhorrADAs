@@ -84,8 +84,8 @@ function agregarCategoria() {
 }
 
 
-function eliminarCategoria(index) {
-  categorias.splice(index, 1);
+function eliminarCategoria(indice) {
+  categorias.splice(indice, 1);
   mostrarCategorias();
 }
 
@@ -93,7 +93,7 @@ function mostrarCategorias() {
   const listaCategorias = document.getElementById('listaCategorias');
   listaCategorias.innerHTML = '';
 
-  categorias.forEach((categoria, index) => {
+  categorias.forEach((categoria, indice) => {
     const li = document.createElement('li');
     li.textContent = categoria;
     li.style.backgroundColor ="red";
@@ -120,30 +120,46 @@ function mostrarCategorias() {
       editarCategoriaInput.value = categoria; //me muestra el input que deseo editar
     });
 
-    btnEliminar.addEventListener('click', () => eliminarCategoria(index));
+    btnEliminar.addEventListener('click', () => eliminarCategoria(indice));
     li.appendChild(btnEditar);
     li.appendChild(btnEliminar);
     listaCategorias.appendChild(li);
   });
 } 
 
+//funcionalidad boton "volver" de editar categoria
   const volverCateg = document.getElementById("volver-categ");
     volverCateg.addEventListener("click", () => {
     seccionEditarCateg.style.display = "none"; 
     seccionCategorias.style.display = "block"; 
   });
 
-  //NO FUNCIONA VER!!!!
-  const editarCateg = document.getElementById("editar-categ");
-  editarCategoriaInput.value = value; //me muestra el input que deseo editar
-  editarCateg.addEventListener("click",() =>{
-  li.textContent = editarCategoriaInput.textContent;
+
+  /*NO FUNCIONA VER!!!!*/
+  
+function prepararEdicionCategoria(nuevoValor) {
+  editarCategoriaInput.value = nuevoValor; 
  
-  });
+  editarCateg.addEventListener("click",() =>{
+  const nuevaCategoria = editarCategoriaInput.value.trim().toLowerCase(); // Convertir a minúsculas y eliminar espacios
+
+  // Verificar si la nueva categoría ya existe en el array 'categorias' y si no está vacía
+  const categoriaExistente = categorias.find((cat) => cat.toLowerCase() === nuevaCategoria);
+
+  if (nuevaCategoria && !categoriaExistente) {
+    categorias = editarCategoriaInput.value.trim(); // Actualizar la categoría original (sin convertir a minúsculas)
+    categorias.value = editarCategoriaInput.value;// deberia reemplazar el nombre de la categoria por el nuevo.
+    mostrarCategorias();
+  
+  } else {
+    alert('La categoría ya existe o está vacía.');
+  }
+})
+};
+
+
   
  
-
-
 
 
 
@@ -160,4 +176,4 @@ nuevaOperacion.addEventListener('click', () => {
   setTimeout(() => {
     nuevaOperacion.classList.remove('rotating');
   }, 1000); // ajusta la duración de la animación aquí (en milisegundos)
-})
+});
