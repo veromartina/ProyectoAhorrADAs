@@ -22,6 +22,7 @@ iconoAbrir.addEventListener("click", () => {
   iconoAbrir.style.display = "none";
   sectionBalance.style.transform = "translateY(100px)";
   seccionCategorias.style.transform = "translateY(120px)";
+  seccionReportes.style.transform = "translateY(120px)";
   edicionCateg.style.transform = "translateY(120px)";
 })
 
@@ -31,29 +32,38 @@ iconoCerrar.addEventListener("click", () => {
   iconoCerrar.style.display = "none";
   sectionBalance.style.transform = "translateY(0px)"
   seccionCategorias.style.transform = "translateY(0px)"
+  seccionReportes.style.transform = "translateY(0px)"
   edicionCateg.style.transform = "translateY(0px)";
 
 })
 
 // **funcionalidad de los item del navegador hacia sus respectivas secciones.
+//item del menu hamburguesa
 const verBalance = document.getElementById("ver-balance");
 const verCategorias = document.getElementById("ver-categorias");
-//let verReportes = document.getElementById("ver-reportes");
+const verReportes = document.getElementById("ver-reportes");
 
+//abrir y cerrar secciones 
 const seccionCategorias = document.getElementById("categoria");
-// falta la seccion reporte.
-
+const seccionReportes = document.getElementById("vista-reportes");
 const edicionCateg = document.getElementById("editar-categorias");
+
+verBalance.addEventListener("click", () => { 
+  sectionBalance.style.display = "block";
+  seccionCategorias.style.display = "none"; 
+  seccionReportes.style.display ="none";
+});
 
 verCategorias.addEventListener("click", () => {
   seccionCategorias.style.display = "block";
   sectionBalance.style.display = "none";
-})
+  seccionReportes.style.display ="none";
+});
 
-verBalance.addEventListener("click", () => { 
-  sectionBalance.style.display = "block";
-  seccionCategorias.style.display = "none";
-//falta seccion reporte  
+verReportes.addEventListener("click", () => { 
+  seccionReportes.style.display = "block";
+  sectionBalance.style.display = "none";
+  seccionCategorias.style.display = "none"; 
 });
 
  
