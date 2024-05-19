@@ -7,8 +7,11 @@ const navItems = document.getElementById
 ("nav-items");
 
 // const ocultarOperaciones = document.getElementById("ocultar_operaciones")
-const nuevaOperacion = document.getElementById("nueva_operacion")
-const sectionBalance = document.getElementById("section-balance")
+const nuevaOperacion = document.getElementById("nueva_operacion");
+const sectionBalance = document.getElementById("section-balance");
+const seccionCategorias = document.getElementById("categoria");
+const edicionCateg = document.getElementById("editar-categorias");
+const seccionReportes = document.getElementById("reportes");
 
 iconoAbrir.addEventListener("click", () => { 
   iconoCerrar.style.display = "block";
@@ -44,10 +47,6 @@ const verCategorias = document.getElementById("ver-categorias");
 const verReportes = document.getElementById("ver-reportes");
 
 //abrir y cerrar secciones 
-const seccionCategorias = document.getElementById("categoria");
-const seccionReportes = document.getElementById("vista-reportes");
-const edicionCateg = document.getElementById("editar-categorias");
-
 verBalance.addEventListener("click", () => { 
   sectionBalance.style.display = "block";
   seccionCategorias.style.display = "none"; 
