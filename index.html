@@ -76,20 +76,20 @@
             customPb: 'calc(.5em - 1px)',
             customPt: 'calc(.5em - 1px)',
             pRigLef: "16px",
-      },
-
           },
 
-          fontFamily: {
-            fontFamilyGral: "[BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif]",
-          },
-          top: {
-            top52: "52px",
-          },
+        },
 
-        }
+        fontFamily: {
+          fontFamilyGral: "[BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif]",
+        },
+        top: {
+          top52: "52px",
+        },
+
       }
-  
+    }
+
   </script>
 
 </head>
@@ -292,10 +292,6 @@
                 Agregar
               </button>
 
-              <!-- <button onclick="agregarCategoria()">Agregar</button>
-  
-  <ul id="listaCategorias"></ul> -->
-
             </div>
           </div>
 
@@ -316,30 +312,70 @@
 
       <div class="contenedor-principal-editar m-0 m-auto relative size-full	">
         <div class="column">
-          <div class="box-editar w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white"
-          style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434"> <!--corregir box shadow-->
-            <h2 class="titulo-editar flex text-left h-20 mb-6 font-bold text-sizeH2 break-words h-alturaNav1 text-MineShaftTextos">
+          <div
+            class="box-editar w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white"
+            style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434"> <!--corregir box shadow-->
+            <h2
+              class="titulo-editar flex text-left h-20 mb-6 font-bold text-sizeH2 break-words h-alturaNav1 text-MineShaftTextos">
               Editar categoría
             </h2>
-            <label class="label-editar mt-12 mb-2 block text-base font-bold cursor-default text-MineShaftTextos" for="editar-categoria-input">Nombre</label>
+            <label class="label-editar mt-12 mb-2 block text-base font-bold cursor-default text-MineShaftTextos"
+              for="editar-categoria-input">Nombre</label>
 
             <div class="input-edicion flex justify-start mb-mb12px">
               <div class="input-editar grow shrink box-border text-base relative mr-3">
-                <input id="editar-categoria-input" class="input-a-editar max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"
-                style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80" type="text" name=""/>
+                <input id="editar-categoria-input"
+                  class="input-a-editar max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"
+                  style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80" type="text" name="" />
               </div>
             </div>
 
             <div class="botones-volver-editar flex justify-end items-center flex-wrap mt-12 -mb-2">
 
-              <button class="volver-boton-categ mb-2 mr-2	bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef" id="volver-categ">
+              <button
+                class="volver-boton-categ mb-2 mr-2	bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef"
+                id="volver-categ">
                 Volver
               </button>
 
-              <button class="boton-editar-categ bg-Emerald_botonAgCat mb-2 mr-2	bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef" id="editar-categ">
+              <button
+                class="boton-editar-categ bg-Emerald_botonAgCat mb-2 mr-2	bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef"
+                id="editar-categ">
                 Editar
               </button>
 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION REPORTES PANTALLA PRINCIPAL-->
+    <section class="reporte py-12 px-6 mt-6 hidden" id="reportes">
+      <div class="cont-gral-reportes m-0 relative">
+        <div class="contenedor-reporte -m-3">
+          <div class="cont-rep p-contPrinCateg">
+            <div class="caja-contenedora bg-white rounded-md text-Tundora p-pSecCateg" style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80;">
+              <h2 class="titulo-h2-reporte text-left mb-6 mt-4 font-bold break-words text-MineShaftTextos text-sizeH2 leading-alturaLinea pb-2">
+                Reportes
+              </h2>
+              <div id="sin-reportes">
+                <div class= "cont-fig-texto pb-12 pt-10 mt-9 mb-12">
+                  <figure class="imagen-reporte max-w-xs m-0 m-auto p-0 block relative">
+                    <img src="./img/reporteIMG.png" class="img-rep block h-auto max-w-full" alt="imagen" />
+                  </figure>
+                  <h4 class="titulo-h4-reporte font-semibold text-center text-2xl mt-12 mb-3.5">
+                    Operaciones insuficientes
+                  </h4>
+                  <p class="texto-reporte text-center">
+                    Prueba agregando más operaciones
+                  </p>
+                </div>
+              </div>
+
+              <!-- 
+              FALTA VER seccion Resumen
+              -->
             </div>
           </div>
         </div>
