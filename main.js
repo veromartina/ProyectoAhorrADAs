@@ -105,23 +105,24 @@ function mostrarCategorias() {
   categorias.forEach((categoria, indice) => {
     const li = document.createElement('li');
     li.textContent = categoria;
-    li.style.backgroundColor ="red";
-    li.style.Width="30%";
+    /*li.style.backgroundColor ="red";*/
+    li.style.Width ="100%";
+    li.style.display ="flex";
+    li.style.justifyContent = "space-around";
 
-    const contenedorBotones = document.createElement('div'); //CONTIENE LOS DOS BOTONES(ELIMINAR-EDITAR)
-    contenedorBotones.classList.add('contenedor_botones');
-    contenedorBotones.style.Color ="blue";
-    contenedorBotones.style.paddingLeft ="30px";
-
-    const btnEditar = document.createElement('button');
+    const btnEditar = document.createElement('a');
     btnEditar.textContent = 'Editar';
-    btnEditar.style.Width="40%";
-    btnEditar.style.paddingLeft= "15px";
+    /*btnEditar.style.Width="40%";*/
+    btnEditar.style.paddingLeft = "25px";
+    btnEditar.style.paddingRight = "25px";
+    btnEditar.style.cursor = "pointer";
 
-    const btnEliminar = document.createElement('button');
+
+    const btnEliminar = document.createElement('a');
     btnEliminar.textContent = 'Eliminar';
     btnEliminar.style.Width="40%";
-    btnEliminar.style.paddingRight= "10px";
+    btnEliminar.style.cursor = "pointer";
+    /*btnEliminar.style.paddingRight= "10px";*/
 
     btnEditar.addEventListener("click", () => {
       seccionCategorias.style.display = "none"; // Ocultar la sección de categorías      
