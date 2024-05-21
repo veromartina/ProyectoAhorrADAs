@@ -119,24 +119,24 @@
 
     <main>
       <section class="section mt-5" id="section-balance">
-        <div class="container">
-          <div class="row">
+        <div class="container  w-full mx-auto">
+          <div class="row ">
             <div class="col-md-6">
               <!-- empieza primera columna -->
 
-              <div class="box card p-3">
+              <div class="box card p-3 mt-4">
                 <h2 class="title text-weight-bold">Balance</h2>
                 <div class="row">
-                  <div class="col-md-5">Ganancia</div>
-                  <div class="col-md-7 text-md-end text-success">+$0</div>
+                  <div class="col-md-6">Ganancia</div>
+                  <div class="col-md-6 text-md-end text-success" id="ganancias">+$0</div>
                 </div>
                 <div class="row">
                   <div class="col-md-5">Gastos</div>
-                  <div class="col-md-7 text-md-end text-danger">-$0</div>
+                  <div class="col-md-7 text-md-end text-danger"  id="gastos">-$0</div>
                 </div>
                 <div class="row">
                   <div class="col-md-4">Total</div>
-                  <div class="col-md-8 text-md-end text-weight-bold">$0</div>
+                  <div class="col-md-8 text-md-end text-weight-bold" id="total">$0</div>
                 </div>
               </div>
               <!-- Filtros -->
@@ -204,43 +204,36 @@
               <!-- termina primera columna -->
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 w-full">
               <!-- empieza segunda columna -->
-              <div class="box_operaciones card p-3 mt-4">
+              <div class="box card p-3 w-full max-w-4xl mx-auto">
                 <div class="columns mb-4">
                   <div class="column">
                     <h4 class="text-weight-bold">Operaciones</h4>
-
-                    <div class="column">
-                      <button
-                        type="button"
-                        class="button_operacion"
-                        id="nueva_operacion"
-                        
-                      >
+                    <div class="column w-full">
+                      <button type="button" class="button_operacion" id="nueva_operacion">
                         <a href="#" class="text-weight-bold shadow appearance-none border rounded">+ Nueva operación</a>
                       </button>
                     </div>
                   </div>
                 </div>
-                <div class="hidden" id="ocultar_operaciones">
+                <div class="hidden" id="ocultarOperaciones">
                   <table id="operaciones" class="min-w-full divide-y divide-gray-200">
                     <thead>
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monto</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
-                        </tr>
+                      <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monto</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                      </tr>
                     </thead>
                     <tbody id="operaciones-body" class="bg-white divide-y divide-gray-200">
-                        <!-- Aquí se insertarán las filas -->
+                      <!-- Aquí se insertarán las filas -->
                     </tbody>
                   </table>
                 </div>
-                
-                <div class="m-6 p-6" id="no_resultados">
+                <div class="m-6 p-6" id="noResultados">
                   <figure class="imagen" id="figure_imagen">
                     <img src="img/billetera.png" width="350px" alt="imagen" />
                   </figure>
@@ -249,10 +242,10 @@
                     Cambia los filtros o agrega operaciones
                   </p>
                 </div>
-              
+              </div>
               <!-- termina segunda columna -->
             </div>
-          </div>
+            
         </div>
       </section>
 
@@ -263,15 +256,15 @@
             <ul class="flex flex-col gap-6">
                 <li class="flex flex-col gap-2">
                     <label class="font-bold text-gray-800">Descripción</label>
-                    <input id="nuevaOperacion-descripcion" type="text" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+                    <input id="nuevaOperacion-descripcion" type="text" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
                 </li>
                 <li class="flex flex-col gap-2">
                     <label class="font-bold text-gray-800">Monto</label>
-                    <input id="nuevaOperacion-monto" type="number" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+                    <input id="nuevaOperacion-monto" type="number" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
                 </li>
                 <li class="flex flex-col gap-2">
                     <label class="font-bold text-gray-800">Tipo</label>
-                    <select id="nuevaOperacion-tipo" name="select" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+                    <select id="nuevaOperacion-tipo" name="select" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
                         <option selected disabled>Seleccione una opcion</option>
                         <option value="gasto">Gasto</option>
                         <option value="ganancia" >Ganancia</option>
@@ -279,7 +272,7 @@
                 </li>
                 <li class="flex flex-col gap-2">
                     <label class="font-bold text-gray-800">Categoría</label>
-                    <select id="nuevaOperacion-categoria" name="select" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+                    <select id="nuevaOperacion-categoria" name="select" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
                         <option selected disabled>Seleccione una opcion</option>
                         <option value="comida">Comida</option>
                         <option value="servicio" >Servicios</option>
@@ -291,7 +284,7 @@
                 </li>
                 <li class="flex flex-col gap-2">
                     <label class="font-bold text-gray-800">Fecha</label>
-                    <input id="nuevaOperacion-fecha" type="date" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+                    <input id="nuevaOperacion-fecha" type="date" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
                 </li>
                 <li class="flex justify-end gap-3">
                     <button id="botonCancelarOperacion" class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white">Cancelar</button>
@@ -301,7 +294,49 @@
         </form>
     </section>
 
-
+<!-- EDITAR OPERACION -->
+<section id="ventanaEditarOperacion" class="flex flex-col bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 hidden">
+  <h2 class="text-3xl font-bold text-gray-800">Editar operación</h2>
+  <form class="" >
+      <ul class="flex flex-col gap-6">
+          <li class="flex flex-col gap-2">
+              <label class="font-bold text-gray-800">Descripción</label>
+              <input type="text" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+          </li>
+          <li class="flex flex-col gap-2">
+              <label class="font-bold text-gray-800">Monto</label>
+              <input type="number" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+          </li>
+          <li class="flex flex-col gap-2">
+              <label class="font-bold text-gray-800">Tipo</label>
+              <select name="select" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+                  <option value="gasto">Gasto</option>
+                  <option value="ganancia" selected>Ganancia</option>
+              </select>
+          </li>
+          <li class="flex flex-col gap-2">
+              <label class="font-bold text-gray-800">Categoría</label>
+              <select name="select" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+                  
+                  <option value="comida">Comida</option>
+                  <option value="servicio" >Servicios</option>
+                  <option value="salida" >Salidas</option>
+                  <option value="educacion" >Educación</option>
+                  <option value="transporte" >Transporte</option>
+                  <option value="trabajo">Trabajo</option>
+              </select>
+          </li>
+          <li class="flex flex-col gap-2">
+              <label class="font-bold text-gray-800">Fecha</label>
+              <input type="date" class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+          </li>
+          <li class="flex justify-end gap-3">
+              <button class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white">Cancelar</button>
+              <button  class="bg-green-500 p-2 rounded hover:bg-sky-700 hover:text-white">Agregar</button>
+          </li>
+      </ul>
+  </form>
+</section>
 
 
     <!--seccion categoria-->
@@ -373,6 +408,9 @@
 
     </main>
     
-  <script src="main.js"></script>  
+    
+  <script src="main.js">
+    
+  </script>  
   </body>
 </html>
