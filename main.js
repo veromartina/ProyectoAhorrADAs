@@ -92,12 +92,6 @@ function agregarCategoria() {
   categoriaInput.value = '';  // Limpiar el campo
 }
 
-
-function eliminarCategoria(indice) {
-  categorias.splice(indice, 1);
-  mostrarCategorias();
-}
-
 function mostrarCategorias() {
   const listaCategorias = document.getElementById('listaCategorias');
   listaCategorias.innerHTML = '';
@@ -124,28 +118,50 @@ function mostrarCategorias() {
     btnEliminar.style.cursor = "pointer";
     /*btnEliminar.style.paddingRight= "10px";*/
 
+
     btnEditar.addEventListener("click", () => {
       seccionCategorias.style.display = "none"; // Ocultar la sección de categorías      
       seccionEditarCateg.style.display = 'block';
       editarCategoriaInput.value = categoria; //me muestra el input que deseo editar
-      const categoriaIndex = categorias.findIndex(cat => cat.toLowerCase() === editarCategoriaInput.value.trim().toLowerCase())
-      document.getElementById("editar-categ").addEventListener("click", function () {
+      const categoriaIndex = categorias.findIndex(cat => cat.toLowerCase() === editarCategoriaInput.value.trim().toLowerCase()) //busca el índice de la categoría que se desea editar en el array categorias.
+      //findIndex(metodo)busca el primer elemento que cumpla con la condición proporcionada por la función flecha.
 
+
+      document.getElementById("editar-categ").addEventListener("click", function () {
         if (categoriaIndex !== -1) {
-          console.log("MILANESA")
-          categorias[categoriaIndex] = editarCategoriaInput.value
-          mostrarCategorias()
+          const nuevaCategoria = editarCategoriaInput.value.trim().toLowerCase(); // Convertir nuevaCategoria a minúsculas para hacer las comparaciones(mayúsculas y minúsculas)
+
+          if (!nuevaCategoria) {//verificar si el string está vacío
+            alert("El nombre de la categoría no puede estar vacío.");
+            return;
+          }
+
+          if (categorias.map(cat => cat.toLowerCase()).includes(nuevaCategoria)) { //map para convertir todas las categorías existentes a minúsculas,includes para ver si nuevaCategoria ya existe.
+            alert("El nombre de la categoría ya existe.");
+            return;
+          }
+
+          categorias[categoriaIndex] = editarCategoriaInput.value.trim();//reemplaza el valor de la categoría en el índice categoriaIndex con el nuevo valor que el usuario ha ingresado.
+          mostrarCategorias();
           seccionEditarCateg.style.display = "none";
-          seccionCategorias.style.display = "block";
+          seccionCategorias.style.display = "block"; //me devuelve a la pantalla anterior para mostrarme la lista editada
         }
-      })
+      });
+
     });
 
+
+    function eliminarCategoria(indice) {
+      categorias.splice(indice, 1);
+      mostrarCategorias();
+    }
+
     btnEliminar.addEventListener('click', () => eliminarCategoria(indice));
-    li.appendChild(btnEditar);
-    li.appendChild(btnEliminar);
-    listaCategorias.appendChild(li);
+    li.appendChild(btnEditar);  //agrega el botón btnEditar como un hijo del elemento li.
+    li.appendChild(btnEliminar); ///agrega el botón btnEliminar como un hijo del elemento li.
+    listaCategorias.appendChild(li); //agrega el elemento de lista li (que ahora contiene los botones de editar y eliminar) al contenedor de la lista de categorías.Esto hace que la categoría (junto con sus botones de acción) sea visible en la interfaz de usuario.
   });
+
 }
 
 //funcionalidad boton "volver" de editar categoria
@@ -155,37 +171,30 @@ volverCateg.addEventListener("click", () => {
   seccionCategorias.style.display = "block";
 });
 
-
-/*NO FUNCIONA VER!!!!*/
-
-
-
 function prepararEdicionCategoria(nuevoValor) {
   editarCategoriaInput.value = nuevoValor;
 
   document.getElementById("editar-categ").addEventListener("click", () => {
-    const nuevaCategoria = editarCategoriaInput.value.trim().toLowerCase(); // Convertir a minúsculas y eliminar espacios
+    const nuevaCategoria = editarCategoriaInput.value.trim().toLowerCase(); // Convertir a minúsculas y eliminar espacios.
 
     // Verificar si la nueva categoría ya existe en el array 'categorias' y si no está vacía
     const categoriaExistente = categorias.findIndex((cat) => cat.toLowerCase() === nuevaCategoria);
     console.log(categoriaExistente)
     console.log(nuevaCategoria && !categoriaExistente)
-
-
   })
 };
 
 
 
-  
- 
+
+
 
 
 
 
 
 // revisar
-nuevaOperacion.addEventListener("click", function() {
+nuevaOperacion.addEventListener("click", function () {
   let ocultarOperaciones = document.getElementById("ocultar_operaciones");
   ocultarOperaciones.classList.toggle("hidden");
 });
