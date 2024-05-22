@@ -209,18 +209,56 @@ function calcularBalance() {
     }
   });
 
-  const tipoSeleccionado = nuevaOperacion_tipo.value;
-
-  if (tipoSeleccionado === 'Ganancia') {
-    document.getElementById("total").textContent = `+$${totalGanancias.toFixed(2)}`;
-  } else if (tipoSeleccionado === 'Gasto') {
-    document.getElementById("total").textContent = `-$${totalGastos.toFixed(2)}`;
-  }
+  document.getElementById("ganancias").textContent = `+$${totalGanancias.toFixed(2)}`;
+  document.getElementById("gastos").textContent = `-$${totalGastos.toFixed(2)}`;
+  document.getElementById("total").textContent = `$${(totalGanancias - totalGastos).toFixed(2)}`;
 }
-// Mostrar operaciones guardadas
-function mostrarOperaciones() {
-  const operacionesGuardadas = JSON.parse(localStorage.getItem("operaciones")) || [];
 
+// Filtros
+const tipo_filtro = document.getElementById("tipo_filtro");
+const categoria_filtro_elemento = document.getElementById("categoria_filtro");
+const fecha_filtro = document.getElementById("tipo_fecha");
+const orden_filtro = document.getElementById("orden_filtro");
+
+tipo_filtro.addEventListener("change", mostrarOperaciones);
+categoria_filtro_elemento.addEventListener("change", mostrarOperaciones);
+fecha_filtro.addEventListener("change", mostrarOperaciones);
+orden_filtro.addEventListener("change", mostrarOperaciones);
+
+// Mostrar operaciones guardadas
+function mostrarOperaciones() { 
+  const operacionesGuardadas = JSON.parse(localStorage.getItem("operaciones")) || [];
+  
+  const filtroCategoria = categoria_filtro_elemento.value;
+  const filtroTipo = tipo_filtro.value;
+  const filtroFecha = fecha_filtro.value;
+  const filtroOrden = orden_filtro.value;
+
+  let operacionesFiltradas = operacionesGuardadas.filter(operacion => {
+    return (filtroCategoria === "todas" || operacion.categoria.toLowerCase() === filtroCategoria.toLowerCase()) &&
+           (filtroTipo === "todos" || operacion.tipo.toLowerCase() === filtroTipo.toLowerCase()) &&
+           (!filtroFecha || operacion.fecha >= filtroFecha);
+  });
+
+  if (filtroOrden) {
+    switch (filtroOrden) {
+      case "mas_recientes":
+        operacionesFiltradas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+        break;
+      case "mayor_monto":
+        operacionesFiltradas.sort((a, b) => b.monto - a.monto);
+        break;
+      case "menor_monto":
+        operacionesFiltradas.sort((a, b) => a.monto - b.monto);
+        break;
+      case "a/z":
+        operacionesFiltradas.sort((a, b) => a.descripcion.localeCompare(b.descripcion));
+        break;
+      case "z/a":
+        operacionesFiltradas.sort((a, b) => b.descripcion.localeCompare(a.descripcion));
+        break;
+    }
+  }
   operaciones.innerHTML = '';
   operacionesGuardadas.forEach((operacion, index) => {
       const tr = document.createElement('tr');
