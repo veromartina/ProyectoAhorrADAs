@@ -298,7 +298,10 @@ function calcularBalance() {
   document.getElementById("ganancias").textContent = `+$${totalGanancias.toFixed(2)}`;
   document.getElementById("gastos").textContent = `-$${totalGastos.toFixed(2)}`;
   document.getElementById("total").textContent = `$${(totalGanancias - totalGastos).toFixed(2)}`;
+  
 }
+
+
 
 // Filtros
 const tipo_filtro = document.getElementById("tipo_filtro");
@@ -347,17 +350,17 @@ function mostrarOperaciones() {
   }
   operaciones.innerHTML = '';
   operacionesGuardadas.forEach((operacion, index) => {
-      const tr = document.createElement('tr');
+    const tr = document.createElement('tr');
      tr.className =  'bg-white';
 
 
      tr.innerHTML = `
-     <td class="px-6 py-4 whitespace-nowrap">${operacion.descripcion}</td>
-     <td class="px-6 py-4 whitespace-nowrap">${operacion.tipo}</td>
-     <td class="px-6 py-4 whitespace-nowrap">${operacion.categoria}</td>
-     <td class="px-6 py-4 whitespace-nowrap">${operacion.fecha}</td>
-     <td class="px-6 py-4 whitespace-nowrap">${operacion.monto}</td>
-     <td class="px-6 py-4 whitespace-nowrap">
+     <td class="px-3 py-3 whitespace-nowrap">${operacion.descripcion}</td>
+     <td class="px-3 py-3 whitespace-nowrap">${operacion.tipo}</td>
+     <td class="px-3 py-3 whitespace-nowrap">${operacion.categoria}</td>
+     <td class="px-3 py-3 whitespace-nowrap">${operacion.fecha}</td>
+     <td class="px-3 py-3 whitespace-nowrap">${operacion.monto}</td>
+     <td class="px-3 py-3 whitespace-nowrap">
        <div class="flex justify-end gap-2">
          <button class="bg-blue-500 text-white p-1 rounded" onclick="editarOperacion(${index})">Editar</button>
          <button class="bg-red-500 text-white p-1 rounded" onclick="eliminarOperacion(${index})">Eliminar</button>
@@ -504,6 +507,8 @@ function actualizarOperacion(index) {
   // Restaurar el formulario y la interfaz
   botonAgregarOperacion.textContent = "Agregar";
   botonAgregarOperacion.onclick = agregarOperacion;
+  
+  
 
   ventanaNuevaOperacion.style.display = "none";
   sectionBalance.style.display = "block";

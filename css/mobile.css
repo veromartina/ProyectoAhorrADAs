@@ -75,5 +75,17 @@
   .ocultar-filtros a:hover {
 	text-decoration: underline;
   }
+
+    /* Para que la tabla no exceda el ancho del contenedor */
+table {
+	width: 100%; /* la tabla ocupa el 100% del contenedor */
+	table-layout: fixed; /* Controlo la distribución del ancho de las columnas */
   }
+  
+  th, td {
+	word-wrap: break-word; /* Permite el ajuste de palabras largas */
+  }
+  }
+
+
 
