@@ -226,8 +226,6 @@ function prepararEdicionCategoria(nuevoValor) {
 
 
 
-
-/*
 // capturo el id del select de categoria
 const categoria_filtro = document.getElementById("categoria_filtro");
 
@@ -241,8 +239,6 @@ function cargarCategorias(categorias){
 
   })
 };
-
-*/
 
 
 // Meli
