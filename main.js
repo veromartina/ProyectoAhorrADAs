@@ -74,7 +74,7 @@ verReportes.addEventListener("click", () => {
 });
 
 
-//***** Funcionalidad de la seccion categorias  FALTA TERMINAR estilos!!!!!!
+//***** Funcionalidad de la seccion categorias
 
 const catIngresadas = document.getElementById("cat-ingresadas");
 const botonAgregarCategoria = document.getElementById("boton-agregar-categoria");
@@ -82,7 +82,11 @@ const editarCategoriaInput = document.getElementById("editar-categoria-input");
 const categoriaInput = document.getElementById('categoria-input');
 const seccionEditarCateg = document.getElementById('editar-categorias');
 
-let categorias = [];
+let categorias = JSON.parse(localStorage.getItem('categorias')) || []; // Cargar categorías desde localStorage
+
+function guardarCategorias() {
+  localStorage.setItem("categorias", JSON.stringify(categorias));
+}
 
 function agregarCategoria() {
   const nuevaCategoria = categoriaInput.value.trim().toLowerCase(); // Convertir a minúsculas y eliminar espacios
@@ -98,23 +102,25 @@ function agregarCategoria() {
   }
 
   categoriaInput.value = '';  // Limpiar el campo
+  mostrarCategorias();
 }
 
 function mostrarCategorias() {
   const listaCategorias = document.getElementById('listaCategorias');
   listaCategorias.innerHTML = '';
+
   categorias.forEach((categoria, indice) => {
     const li = document.createElement('li');
-    li.className = "w-full mb-3";
+    li.className = "flex w-full mb-3";
 
     const divOuter = document.createElement('div');
-    divOuter.className = "flex items-center";
+    divOuter.className = "flex items-center p-3 w-full";
 
     const divCategory = document.createElement('div');
     divCategory.className = "flex-1";
 
     const pCategory = document.createElement('p');
-    pCategory.className = "bg-blue-200 text-blue-800 px-3 py-1 rounded";
+    pCategory.className = "w-full  text-blue-800 px-3 py-1 rounded";
     pCategory.textContent = categoria;
 
     const divButtons = document.createElement('div');
@@ -149,22 +155,26 @@ function mostrarCategorias() {
 
       document.getElementById("editar-categ").addEventListener("click", function () {
         if (categoriaIndex !== -1) {
-          const nuevaCategoria = editarCategoriaInput.value.trim().toLowerCase(); // Convertir nuevaCategoria a minúsculas para hacer las comparaciones(mayúsculas y minúsculas)
+            const nuevaCategoria = editarCategoriaInput.value.trim().toLowerCase(); // Convertir nuevaCategoria a minúsculas para hacer las comparaciones(mayúsculas y minúsculas)
 
-          if (!nuevaCategoria) {//verificar si el string está vacío
-            alert("El nombre de la categoría no puede estar vacío.");
-            return;
+            if (nuevaCategoria === "") {//verificar si el string está vacío
+                alert("El nombre de la categoría no puede estar vacío.");
+                return;
+            }
+
+            if (categorias.map(cat => cat.toLowerCase()).includes(nuevaCategoria.toLowerCase())) { //map para convertir todas las categorías existentes a minúsculas,includes para ver si nuevaCategoria ya existe.
+              alert("El nombre de la categoría ya existe.");
+              return;
           }
+          // Si pasa las verificaciones, actualizar la categoría
+          categorias[categoriaIndex] = nuevaCategoria; // Guardar la nueva categoría tal como fue ingresada
+          guardarCategorias(); // Guardar las categorías en localStorage
+          mostrarCategorias(); // Actualizar la lista de categorías
 
-          if (categorias.map(cat => cat.toLowerCase()).includes(nuevaCategoria)) { //map para convertir todas las categorías existentes a minúsculas,includes para ver si nuevaCategoria ya existe.
-            alert("El nombre de la categoría ya existe.");
-            return;
-          }
-
-          categorias[categoriaIndex] = editarCategoriaInput.value.trim();//reemplaza el valor de la categoría en el índice categoriaIndex con el nuevo valor que el usuario ha ingresado.
-          mostrarCategorias();
+          
           seccionEditarCateg.style.display = "none";
           seccionCategorias.style.display = "block"; //me devuelve a la pantalla anterior para mostrarme la lista editada
+
         }
       });
 
@@ -173,6 +183,7 @@ function mostrarCategorias() {
 
     function eliminarCategoria(indice) {
       categorias.splice(indice, 1);
+      guardarCategorias();
       mostrarCategorias();
     }
 
@@ -192,6 +203,13 @@ volverCateg.addEventListener("click", () => {
   seccionCategorias.style.display = "block";
 });
 
+// Inicializar categorías al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarCategorias();
+});
+
+// Funcionalidad del botón para agregar categoría
+
 function prepararEdicionCategoria(nuevoValor) {
   editarCategoriaInput.value = nuevoValor;
   document.getElementById("editar-categ").addEventListener("click", () => {
@@ -209,7 +227,7 @@ function prepararEdicionCategoria(nuevoValor) {
 
 
 
-
+/*
 // capturo el id del select de categoria
 const categoria_filtro = document.getElementById("categoria_filtro");
 
@@ -224,7 +242,7 @@ function cargarCategorias(categorias){
   })
 };
 
-
+*/
 
 
 // Meli
