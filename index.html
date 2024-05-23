@@ -1,118 +1,138 @@
 <!DOCTYPE html>
 
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet"/>
-    <title>AhorrADAs</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/styles.css" />
 
-    <script
-      src="https://kit.fontawesome.com/5bbce2ab5d.js"
-      crossorigin="anonymous"
-    ></script>
+  <title>AhorrADAs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <script
-      src="https://kit.fontawesome.com/cd30d5437a.js"
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://kit.fontawesome.com/5bbce2ab5d.js" crossorigin="anonymous"></script>
 
-<!--creacion de nuevas clases tailwindcss -->
+  <script src="https://kit.fontawesome.com/cd30d5437a.js" crossorigin="anonymous"></script>
 
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          CaribbeanGreen: "#00d1b2",
-          MineShaftTextos: "#363636",
-          Emerald_botonCat: "#48C74B",
-          Observatory_textListCat:"#00947e",
-          ClearDay_listBg: "#EBFFFC",
-          RoyalBlue_linkList:"#3273dc",
-          Tundora:"#4a4a4a",
-          Emerald_botonAgCat: "#48C774",
-          Wild_sand_body: "#F5F5F5",
+  <!--creacion de nuevas clases tailwindcss -->
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            CaribbeanGreen: "#00d1b2",
+            MineShaftTextos: "#363636",
+            Emerald_botonCat: "#48C74B",
+            Observatory_textListCat: "#00947e",
+            ClearDay_listBg: "#EBFFFC",
+            RoyalBlue_linkList: "#3273dc",
+            Tundora: "#4a4a4a",
+            Emerald_botonAgCat: "#48C774",
+            Wild_sand_body: "#F5F5F5",
+            Preview: "#000000b3",
+          },
+          fontSize: {
+            sizeH2: "2.5rem",
+            sizeHero: "2rem",
+            sizeHero1: "3rem",
+          },
+
+          lineHeight: {
+            alturaLinea: "1.125rem",
+          },
+
+          width: {
+            anchoIcono: "3.25rem",
+            contCateg: "232px"
+          },
+
+          height: {
+            alturaHero: "52px",
+            alturaNav: "132px",
+            alturaHambur: "3.25rem",
+            alturaHero1: "93px",
+            alturaNav1: "90px",
+          },
+
+          minHeigth: {
+            mHnav: "3.25rem",
+          },
+
+          marginRight: {
+            mr9px: "9px",
+          },
+
+          marginBottom: {
+            mb12px: "12px",
+          },
+
+          padding: {
+            pSecCateg: "20px",
+            contPrinCateg: "12px",
+            pTopBotBtn: "7px",
+            customPb: 'calc(.5em - 1px)',
+            customPt: 'calc(.5em - 1px)',
+            pRigLef: "16px",
+          },
+
         },
-        fontSize: {
-          sizeH2: "2.5rem",
-          sizeHero:"2rem",
-          sizeHero1:"3rem",
-        },
 
-        lineHeight:{
-          alturaLinea: "1.125rem",
-        },
-
-        width:{
-          anchoIcono: "3.25rem",
-        },
-
-        height: {
-          alturaHero: "52px",
-          alturaNav: "132px",
-          alturaHambur: "3.25rem",
-          alturaHero1: "93px",
-          alturaNav1: "90px",
-        },
-
-        minHeigth: {
-          mHnav: "3.25rem",
-      },
-
-        marginRight: {
-          mr9px: "9px",
-        },
-
-        fontFamily:{
+        fontFamily: {
           fontFamilyGral: "[BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif]",
         },
-        top:{
+        top: {
           top52: "52px",
         },
-        
+
       }
     }
-  }
-</script>
 
-  </head>
+  </script>
 
-  <body class="font-fontFamilyGral m-0 p-0 bg-Wild_sand_body">
-    <header class="hero flex justify-around	 items-center bg-CaribbeanGreen text-white h-alturaHero lg:block lg:h-alturaHero1">
-      <nav class="overflow-hidden items-center w-full flex justify-between m-0 lg:py-4 lg:px-8 lg:flex lg:items-center :min-h-mHnav lg:h-alturaHero1" id="barra-navegacion">
-        <div class="logo justify-between">
-            <h1 class="titulo-h1 text-sizeHero font-semibold leading-alturaLinea lg:text-sizeHero1"><i class="fa-solid fa-piggy-bank ml-3 text-white text-sizeHero mr9px lg:text-sizeHero1"></i>
-            AhorrADAs</h1>
-        </div>
+</head>
 
-        <div class="iconos cursor-pointer block relative w-anchoIcono p-2.5 no-underline lg:hidden">
-            <a href="#menu" class="cursor-pointer" id="abrir"><i class="fa-solid fa-bars text-xl" aria-hidden="true"></i></a>
+<body class="font-fontFamilyGral m-0 p-0 bg-Wild_sand_body">
+  <header
+    class="hero flex justify-around	 items-center bg-CaribbeanGreen text-white h-alturaHero lg:block lg:h-alturaHero1">
+    <nav
+      class="overflow-hidden items-center w-full flex justify-between m-0 lg:py-4 lg:px-8 lg:flex lg:items-center :min-h-mHnav lg:h-alturaHero1"
+      id="barra-navegacion">
+      <div class="logo justify-between">
+        <h1 class="titulo-h1 text-sizeHero font-semibold leading-alturaLinea lg:text-sizeHero1"><i
+            class="fa-solid fa-piggy-bank ml-3 text-white text-sizeHero mr9px lg:text-sizeHero1"></i>
+          AhorrADAs</h1>
+      </div>
 
-            <a href="#" class="cursor-pointer hidden" id="cerrar"><i class="fa-solid fa-close text-xl" aria-hidden="true"></i></a>
-        </div>
+      <div class="iconos cursor-pointer block relative w-anchoIcono p-2.5 no-underline lg:hidden">
+        <a href="#menu" class="cursor-pointer" id="abrir"><i class="fa-solid fa-bars text-xl"
+            aria-hidden="true"></i></a>
 
-        <div id="nav-items" class="hidden lg:flex lg:justify-end lg:absolute lg:bg-transparent lg:top-0 lg:bottom-5 lg:right-5 lg:h-alturaNav1">
+        <a href="#" class="cursor-pointer hidden" id="cerrar"><i class="fa-solid fa-close text-xl"
+            aria-hidden="true"></i></a>
+      </div>
 
-        <a href="#section-balance" class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer" id="ver-balance">
-            <i class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Balance</a>
+      <div id="nav-items"
+        class="hidden lg:flex lg:justify-end lg:absolute lg:bg-transparent lg:top-0 lg:bottom-5 lg:right-5 lg:h-alturaNav1">
 
-        <a href="#categoria" class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer" id="ver-categorias">
-            <i class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white" aria-hidden="true"></i>Categorías</a>
+        <a href="#section-balance"
+          class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer"
+          id="ver-balance">
+          <i class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+            aria-hidden="true"></i>Balance</a>
 
-        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer" id="ver-reportes"><i class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+        <a href="#categoria"
+          class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer"
+          id="ver-categorias">
+          <i class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+            aria-hidden="true"></i>Categorías</a>
+
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer"
+          id="ver-reportes"><i
+            class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
             aria-hidden="true"></i>Reportes</a>
-        </div>
+      </div>
 
     </nav>
     </header>
@@ -139,26 +159,34 @@
                   <div class="col-md-8 text-md-end text-weight-bold" id="total">$0</div>
                 </div>
               </div>
-              <!-- Filtros -->
-              <div class="box card p-3 mt-4">
-                <div class="title-container">
-                  <h2 class="title text-weight-bold">Filtros</h2>
+              <div class="row">
+                <div class="col-md-5">Gastos</div>
+                <div class="col-md-7 text-md-end text-danger">-$0</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">Total</div>
+                <div class="col-md-8 text-md-end text-weight-bold">$0</div>
+              </div>
+            </div>
+            <!-- Filtros -->
+            <div class="box card p-3 mt-4">
+              <div class="title-container">
+                <h2 class="title text-weight-bold">Filtros</h2>
 
-                  <div class="ocultar_filtros">
-                    <a href="#">Ocultar Filtros</a>
-                  </div>
+                <div class="ocultar_filtros">
+                  <a href="#">Ocultar Filtros</a>
                 </div>
-                <div id="filtros">
-                  <div class="campos">
-                    <label for="" class="label">Tipo</label>
-                    <div class="form-control">
-                      <div class="select">
-                        <select name="" id="tipo_filtro">
-                          <option value="todos">Todos</option>
-                          <option value="gastos">Gastos</option>
-                          <option value="ganancia">Ganancia</option>
-                        </select>
-                      </div>
+              </div>
+              <div id="filtros">
+                <div class="campos">
+                  <label for="" class="label">Tipo</label>
+                  <div class="form-control">
+                    <div class="select">
+                      <select name="" id="tipo_filtro">
+                        <option value="todos">Todos</option>
+                        <option value="gastos">Gastos</option>
+                        <option value="ganancia">Ganancia</option>
+                      </select>
                     </div>
                   </div>
                   <div class="campos">
@@ -185,24 +213,59 @@
                       </div>
                     </div>
                   </div>
-                  <div class="campos">
-                    <label for="" class="label">Ordenar por</label>
-                    <div class="form-control">
-                      <div class="select">
-                        <select name="" id="orden_filtro">
-                          <option value="mas_recientes">Más recientes</option>
-                          <option value="mayor_monto">Mayor monto</option>
-                          <option value="menor_monto">Menor monto</option>
-                          <option value="a/z">A-Z</option>
-                          <option value="z/a">Z-A</option>
-                        </select>
-                      </div>
+                </div>
+                <div class="campos">
+                  <label for="" class="label">Ordenar por</label>
+                  <div class="form-control">
+                    <div class="select">
+                      <select name="" id="orden_filtro">
+                        <option value="mas_recientes">Más recientes</option>
+                        <option value="mayor_monto">Mayor monto</option>
+                        <option value="menor_monto">Menor monto</option>
+                        <option value="a/z">A-Z</option>
+                        <option value="z/a">Z-A</option>
+                      </select>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- termina primera columna -->
             </div>
+            <!-- termina primera columna -->
+          </div>
+
+          <div class="col-md-6">
+            <!-- empieza segunda columna -->
+            <div class="box_operaciones card p-3 mt-4">
+              <div class="columns mb-4">
+                <div class="column">
+                  <h4 class="text-weight-bold">Operaciones</h4>
+
+                  <div class="column">
+                    <button type="button" class="button_operacion" id="nueva_operacion">
+                      + Nueva operación
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden" id="ocultar_operaciones">
+                <div class="columns text-weight-bold">
+                  <div class="column is-3">Descripción</div>
+                  <div class="column is-3">Categoría</div>
+                  <div class="column is-2 text-right">Fecha</div>
+                  <div class="column is-2 text-right">Monto</div>
+                  <div class="column is-2 text-right">Acciones</div>
+                </div>
+                <div id="operaciones"></div>
+              </div>
+              <div class="m-6 p-6">
+                <figure class="imagen">
+                  <img src="img/billetera.png" width="350px" alt="imagen" />
+                </figure>
+                <h3 class="text-weight-bold text-center">Sin resultados</h3>
+                <p class="text-center">
+                  Cambia los filtros o agrega operaciones
+                </p>
+              </div>
 
             <div class="col-md-6 w-full">
               <!-- empieza segunda columna -->
@@ -247,7 +310,7 @@
             </div>
             
         </div>
-      </section>
+    </section>
 
        <!-- NUEVA OPERACION -->
        <section id="ventanaNuevaOperacion" class="flex flex-col bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 lg:my-40 hidden">
@@ -341,76 +404,126 @@
 
     <!--seccion categoria-->
 
-    <section class="seccion-categorias m-3 hidden" id="categoria">
-      <div class="contenedor-principal-categoria m-0 m-auto relative w-70 p-2.5">
-        <div class="contenedor-categoria block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-4 rounded-md bg-white" style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434">
-  <!--corregir box-shadow-->
-          <h2 class="titulo mb-6 font-bold text-4xl break-words text-MineShaftTextos">Categorías</h2>
-          <label class="label mb-2 mt-12 block text-base font-bold cursor-default" for="categoria-input">Nombre</label>
-   
-          <div class="input-agregar flex justify-start mb-3">
-           <div class="input-nueva-categoria grow shrink box-border text-base relative mr-3"> 
-              <input type="text" name="" id="categoria-input" class="input max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80;">  <!--corregir box-shadow-->
+    <section class="seccion-categorias py-12 px-6 mt-6 hidden" id="categoria">
+      <div class="contenedor-principal-categoria m-0 m-auto relative p-contPrinCateg">
+        <div
+          class="contenedor-categoria w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white"
+          style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434">
+          <!--corregir box-shadow-->
+          <h2
+            class="titulo text-left h-11 mb-6 font-bold break-words text-MineShaftTextos text-sizeH2 leading-alturaLinea">
+            Categorías</h2>
+          <label class="label mt-12 mb-2 block text-base font-bold cursor-default" for="categoria-input">Nombre</label>
+
+          <div class="input-agregar flex justify-start mb-mb12px">
+            <div class="input-nueva-categoria grow shrink box-border text-base relative mr-3">
+              <input type="text" name="" id="categoria-input"
+                class="input max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"
+                style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80;"> <!--corregir box-shadow-->
             </div>
-  
+
             <div class="btn-agregar-cat flex justify-end box-border text-base relative shrink">
-              <button class="boton-agregar bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded" id="boton-agregar-categoria" onclick="agregarCategoria()">
+              <button
+                class="boton-agregar bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded"
+                id="boton-agregar-categoria" onclick="agregarCategoria()">
                 Agregar
               </button>
-  
-  <!-- <button onclick="agregarCategoria()">Agregar</button>
-  
-  <ul id="listaCategorias"></ul> -->
-  
+
             </div>
           </div>
-  
+
           <div class="categorias-ingresadas mt-12" id="cat-ingresadas">
-            <div class="cont-cat-ingresadas mb-3">
-              <div class="colum-categorias flex items-center">
+            <div class="cont-cat-ingresadas w-full mb-3">
+              <div class="colum-categorias items-center">
                 <ul id="listaCategorias"></ul>
               </div>
             </div>
           </div>
-  
+
         </div>
     </section>
-  
-    <!-- Editar Categoría -->
-  
-    <section class="editar-categ hidden">
-  
-      <div class="contenedor-columnas-editar" id="editar-categoria">
+
+    <!-- Editar Categoría. -->
+
+    <section class="edicionCateg py-12 px-6 mt-6 hidden" id="editar-categorias">
+
+      <div class="contenedor-principal-editar m-0 m-auto relative size-full	">
         <div class="column">
-          <div class="caja-editar">
-            <h2 class="titulo">
+          <div
+            class="box-editar w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white"
+            style="box-shadow: 0 0.5em 1em -0.125px #e2e8ef, 0 2px 4px -1px #343434"> <!--corregir box shadow-->
+            <h2
+              class="titulo-editar flex text-left h-20 mb-6 font-bold text-sizeH2 break-words h-alturaNav1 text-MineShaftTextos">
               Editar categoría
             </h2>
-            <label class="" for="editar-categoria-input">Nombre</label>
-            <div class="">
-              <div class="">
-                <input class="input" type="text" name="" id="editar-categoria-input" />
+            <label class="label-editar mt-12 mb-2 block text-base font-bold cursor-default text-MineShaftTextos"
+              for="editar-categoria-input">Nombre</label>
+
+            <div class="input-edicion flex justify-start mb-mb12px">
+              <div class="input-editar grow shrink box-border text-base relative mr-3">
+                <input id="editar-categoria-input"
+                  class="input-a-editar max-w-full w-full h-10 border-slate-300 border rounded text-gray-700"
+                  style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80" type="text" name="" />
               </div>
             </div>
-            <div class="">
-              <button class="" id="cancelar-categoria-boton">
-                Cancelar
+
+            <div class="botones-volver-editar flex justify-end items-center flex-wrap mt-12 -mb-2">
+
+              <button
+                class="volver-boton-categ mb-2 mr-2	bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef"
+                id="volver-categ">
+                Volver
               </button>
-              <button class="" id="editar-categoria-boton">
+
+              <button
+                class="boton-editar-categ bg-Emerald_botonAgCat mb-2 mr-2	bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef"
+                id="editar-categ">
                 Editar
               </button>
+
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- SECCION REPORTES PANTALLA PRINCIPAL-->
+    <section class="reporte py-12 px-6 mt-6 hidden" id="reportes">
+      <div class="cont-gral-reportes m-0 relative">
+        <div class="contenedor-reporte -m-3">
+          <div class="cont-rep p-contPrinCateg">
+            <div class="caja-contenedora bg-white rounded-md text-Tundora p-pSecCateg" style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80;">
+              <h2 class="titulo-h2-reporte text-left mb-6 mt-4 font-bold break-words text-MineShaftTextos text-sizeH2 leading-alturaLinea pb-2">
+                Reportes
+              </h2>
+              <div id="sin-reportes">
+                <div class= "cont-fig-texto pb-12 pt-10 mt-9 mb-12">
+                  <figure class="imagen-reporte max-w-xs m-0 m-auto p-0 block relative">
+                    <img src="./img/reporteIMG.png" class="img-rep block h-auto max-w-full" alt="imagen" />
+                  </figure>
+                  <h4 class="titulo-h4-reporte font-semibold text-center text-2xl mt-12 mb-3.5">
+                    Operaciones insuficientes
+                  </h4>
+                  <p class="texto-reporte text-center">
+                    Prueba agregando más operaciones
+                  </p>
+                </div>
+              </div>
+
+              <!-- 
+              FALTA VER seccion Resumen
+              -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    </main>
-    
-    
-  <script src="main.js">
-    
-  </script>  
-  </body>
+
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+
 </html>
