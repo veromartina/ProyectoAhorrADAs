@@ -302,12 +302,12 @@ function calcularBalance() {
 
 // Filtros
 const tipo_filtro = document.getElementById("tipo_filtro");
-const categoria_filtro_elemento = document.getElementById("categoria_filtro");
+
 const fecha_filtro = document.getElementById("tipo_fecha");
 const orden_filtro = document.getElementById("orden_filtro");
 
 tipo_filtro.addEventListener("change", mostrarOperaciones);
-categoria_filtro_elemento.addEventListener("change", mostrarOperaciones);
+categoria_filtro.addEventListener("change", mostrarOperaciones);
 fecha_filtro.addEventListener("change", mostrarOperaciones);
 orden_filtro.addEventListener("change", mostrarOperaciones);
 
@@ -315,7 +315,7 @@ orden_filtro.addEventListener("change", mostrarOperaciones);
 function mostrarOperaciones() { 
   const operacionesGuardadas = JSON.parse(localStorage.getItem("operaciones")) || [];
   
-  const filtroCategoria = categoria_filtro_elemento.value;
+  const filtroCategoria = categoria_filtro.value;
   const filtroTipo = tipo_filtro.value;
   const filtroFecha = fecha_filtro.value;
   const filtroOrden = orden_filtro.value;
