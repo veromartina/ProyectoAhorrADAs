@@ -15,6 +15,15 @@
   margin: 0 auto;
 }
 
+  /* Para que la tabla no exceda el ancho del contenedor */
+  table {
+    width: 100%; /* la tabla ocupa el 100% del contenedor */
+    table-layout: fixed; /* Controlo la distribución del ancho de las columnas */
+    }
+    
+    th, td {
+    word-wrap: break-word; /* Permite el ajuste de palabras largas */
+    }
 
 
 .button_operacion{
@@ -93,3 +102,11 @@
   text-decoration: underline;
 }
 
+/* Media query para pantallas más grandes (escritorio) */
+@media (min-width: 992px) {
+  .box {
+    max-width: 100%; /* O el valor deseado para pantallas grandes, por ejemplo 1200px */
+  }
+
+
+}
