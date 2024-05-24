@@ -279,7 +279,7 @@ function cargarStorage(){
     for(let i=0 ; i < nuevasCategoriasArray.length; i++){
       if(categorias[i] !== ","){
         nuevaCategoria += categorias[i]
-        if(i === categorias.length - 1){
+        if(i === nuevasCategoriasArray.length - 1){
           nuevasCategoriasArray.push(nuevaCategoria)
         }
       }else{
