@@ -105,10 +105,10 @@ function mostrarCategorias() {
   listaCategorias.innerHTML = '';
   categorias.forEach((categoria, indice) => {
     const li = document.createElement('li');
-    li.className = "w-full mb-3";
+    li.className = "flex w-full mb-3";
 
     const divOuter = document.createElement('div');
-    divOuter.className = "flex items-center";
+    divOuter.className = "flex items-center p-3 w-full";
 
     const divCategory = document.createElement('div');
     divCategory.className = "flex-1";
