@@ -207,42 +207,6 @@ function prepararEdicionCategoria(nuevoValor) {
   })
 };
 
-//PARA CONSULTAR EN CLASE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NO FUNCIONA
-//relacionar la categoria ingresada al listado de categorias de los filtros 
-
-/*function agregarCategoriaFiltro(categoria) {
-  const nuevaCategoria = document.createElement('option');
-  nuevaCategoria.value = categoria;
-  nuevaCategoria.textContent = categoria;
-  categoria_filtro.appendChild(nuevaCategoria);
-}
-/*
-function actualizarCategoriaFiltro(categoriaVieja, categoriaNueva) {
-  const opciones = categoria_filtro.options;
-  for (let i = 0; i < opciones.length; i++) {
-    if (opciones[i].value === categoriaVieja) {
-      opciones[i].value = categoriaNueva;
-      opciones[i].textContent = categoriaNueva;
-      break;
-    }
-  }
-
-function eliminarCategoriaFiltro(categoria) {
-  const opciones = categoria_filtro.options;
-  for (let i = 0; i < opciones.length; i++) {
-    if (opciones[i].value === categoria) {
-      categoria_filtro.removeChild(opciones[i]);
-      break;
-    }
-  }
-}
-
-// COMO UTILIZO LOCALSTORAGE EN LA SECCION CATEGORIAS SIENDO QUE YA SE CREO UNO MELI. HAY QUE CREAR OTRO? COMO? cree uno pero no funciona por el existente de meli,es por tener el mismo nombre? como se hace siendo que el valor de nueva categoria se utiliza en tanto para la seccion categoria como para filtros de balance. 
-envio a meli una copia del local storage que intente aplicar ,el mismo funciona pero sin tener el localstorage de meli en el mismo archivo.
-//hasta aca para consultar en clase */
-
-
-
 
 
 // capturo el id del select de categoria
