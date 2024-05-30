@@ -94,11 +94,14 @@ function agregarCategoria() {
 
   if (nuevaCategoria && !categoriaExistente) {
     categorias.push(categoriaInput.value.trim()); // Agregar la categoría original (sin convertir a minúsculas)
+    
     mostrarCategorias();
+    cargarCategorias(categorias);  //!!!! para mostarla en el el filtro PERO SE DUPLICAN!!!!!!!
+    formNuevaOperacion();
   } else {
     alert('La categoría ya existe o está vacía.');
   }
-
+  
   categoriaInput.value = '';  // Limpiar el campo
 
 }
