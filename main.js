@@ -95,14 +95,14 @@ function agregarCategoria() {
   if (nuevaCategoria && !categoriaExistente) {
     categorias.push(categoriaInput.value.trim()); // Agregar la categoría original (sin convertir a minúsculas)
     
+    categoriaInput.value = '';  // Limpiar el campo
     mostrarCategorias();
     cargarCategorias(categorias);  //!!!! para mostarla en el el filtro PERO SE DUPLICAN!!!!!!!
     formNuevaOperacion();
+    
   } else {
     alert('La categoría ya existe o está vacía.');
   }
-  
-  categoriaInput.value = '';  // Limpiar el campo
 
 }
 
@@ -169,6 +169,7 @@ function mostrarCategorias() {
 
           categorias[categoriaIndex] = editarCategoriaInput.value.trim();//reemplaza el valor de la categoría en el índice categoriaIndex con el nuevo valor que el usuario ha ingresado.
           mostrarCategorias();
+          cargarCategorias(categorias);  //!!!! para mostarla en el el filtro PERO SE DUPLICAN!!!!!!!
           seccionEditarCateg.style.display = "none";
           seccionCategorias.style.display = "block"; //me devuelve a la pantalla anterior para mostrarme la lista editada
         }
@@ -180,12 +181,14 @@ function mostrarCategorias() {
     function eliminarCategoria(indice) {
       categorias.splice(indice, 1);
       mostrarCategorias();
+      /*cargarCategorias();//para eliminarla en el el filtro NO FUNCIONA */
     }
 
     btnEliminar.addEventListener('click', () => eliminarCategoria(indice));
     li.appendChild(btnEditar);  //agrega el botón btnEditar como un hijo del elemento li.
     li.appendChild(btnEliminar); ///agrega el botón btnEliminar como un hijo del elemento li.
     listaCategorias.appendChild(li); //agrega el elemento de lista li (que ahora contiene los botones de editar y eliminar) al contenedor de la lista de categorías.Esto hace que la categoría (junto con sus botones de acción) sea visible en la interfaz de usuario.
+    
   });
 
 }
