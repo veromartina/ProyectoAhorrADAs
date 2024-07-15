@@ -16,6 +16,8 @@ const btnNuevaOperacion = document.getElementById("nueva_operacion");
 const ventanaNuevaOperacion = document.getElementById("ventanaNuevaOperacion");
 const mainOperaciones = document.getElementById("main_operaciones");
 
+const operaciones = document.getElementById("operaciones");
+
 iconoAbrir.addEventListener("click", () => {
   iconoCerrar.style.display = "block";
   navItems.style.display = "block";
@@ -49,6 +51,11 @@ const verBalance = document.getElementById("ver-balance");
 const verCategorias = document.getElementById("ver-categorias");
 const verReportes = document.getElementById("ver-reportes");
 
+//Aca inicializo todo OK
+sectionBalance.style.display = "block";
+seccionCategorias.style.display = "none";
+seccionReportes.style.display = "none";
+
 //abrir y cerrar secciones
 verBalance.addEventListener("click", () => {
   sectionBalance.style.display = "block";
@@ -66,6 +73,9 @@ verReportes.addEventListener("click", () => {
   seccionReportes.style.display = "block";
   sectionBalance.style.display = "none";
   seccionCategorias.style.display = "none";
+  const operacionesGuardadas =
+    JSON.parse(localStorage.getItem("operaciones")) || [];
+  calcularReportes(operacionesGuardadas);
 });
 
 // ***** Funcionalidad de la sección categorías
@@ -81,7 +91,6 @@ const seccionEditarCateg = document.getElementById("editar-categorias");
 const volverCateg = document.getElementById("volver-categ");
 const listaCategorias = document.getElementById("listaCategorias");
 const categoria_filtro = document.getElementById("categoria_filtro");
-
 
 //*Limpia todos los datos almacenados en localStorage
 //localStorage.clear();
@@ -119,8 +128,6 @@ function cargarCategorias(categorias) {
     nuevaOperacion_categoria.appendChild(nuevaCategoriaOperacion);
   });
 }
-
-const operaciones = document.getElementById("operaciones");
 
 function cargarStorage() {
   const categoriasGuardadas = localStorage.getItem("categorias");
@@ -277,23 +284,25 @@ document.addEventListener("DOMContentLoaded", () => {
   calcularBalance();
 });
 
+const gananciasBalance = document.getElementById("ganancias");
+
 function calcularBalance() {
   const operacionesGuardadas =
     JSON.parse(localStorage.getItem("operaciones")) || [];
   let totalGanancias = 0;
   let totalGastos = 0;
-
   operacionesGuardadas.forEach((operacion) => {
-    if (operacion.tipo === "Ganancia") {
-      totalGanancias += parseFloat(operacion.monto);
-    } else if (operacion.tipo === "Gasto") {
-      totalGastos += parseFloat(operacion.monto);
+    if (operacion.tipo === "ganancia") {
+      totalGanancias += +operacion.monto;
+    } else if (operacion.tipo === "gasto") {
+      totalGastos += +operacion.monto;
     }
   });
 
   document.getElementById(
     "ganancias"
   ).textContent = `+$${totalGanancias.toFixed(2)}`;
+
   document.getElementById("gastos").textContent = `-$${totalGastos.toFixed(2)}`;
   document.getElementById("total").textContent = `$${(
     totalGanancias - totalGastos
@@ -531,12 +540,11 @@ function actualizarOperacion(index) {
 
 function ocultarElementos() {
   const operaciones = localStorage.getItem("operaciones");
-  
+
   document.getElementById("ocultar-img-texto").classList.add("hidden");
 }
 
-
-const reportes = calcularReportes(operaciones);
+const reportes = calcularReportes(localStorage.getItem("operaciones"));
 // Mostrar la sección de resumen
 
 verReportes.addEventListener("click", () => {
@@ -546,9 +554,9 @@ verReportes.addEventListener("click", () => {
 });
 
 // Actualizar tabla de resumen
-const resumenDatos = calcularReportes(operaciones);
-const tablaResumen = document.getElementById('tabla-resumen');
-tablaResumen.innerHTML = '';
+const resumenDatos = calcularReportes(localStorage.getItem("operaciones"));
+const tablaResumen = document.getElementById("tabla-resumen");
+tablaResumen.innerHTML = "";
 /*const resumenDatos = [
     { descripcion: 'Categoría con mayor ganancia', nombre: reportes.categoriaMayorGanancia.nombre, valor: `+$${reportes.categoriaMayorGanancia.monto.toFixed(2)}` },
     { descripcion: 'Categoría con mayor gasto', nombre: reportes.categoriaMayorGasto.nombre, valor: `-$${reportes.categoriaMayorGasto.monto.toFixed(2)}` },
@@ -556,111 +564,217 @@ tablaResumen.innerHTML = '';
     { descripcion: 'Mes con mayor ganancia', nombre: reportes.mesMayorGanancia.nombre, valor: `+$${reportes.mesMayorGanancia.monto.toFixed(2)}` },
     { descripcion: 'Mes con mayor gasto', nombre: reportes.mesMayorGasto.nombre, valor: `-$${reportes.mesMayorGasto.monto.toFixed(2)}` },
 ];*/
-resumenDatos.forEach(item => {
-    let fila = document.createElement('tr');
-    fila.innerHTML = `
+resumenDatos.forEach((item) => {
+  let fila = document.createElement("tr");
+  fila.innerHTML = `
         <td class="border px-4 py-2 border-none">${item.descripcion}</td>
         <td class="border px-4 py-2 border-none">${item.nombre}</td>
         <td class="border px-4 py-2 border-none">${item.valor}</td>
     `;
-    tablaResumen.appendChild(fila);
+  tablaResumen.appendChild(fila);
 });
 // Mostrar las secciones de totales
-totalesCategoria.classList.remove('hidden');
-totalesMes.classList.remove('hidden');
+totalesCategoria.classList.remove("hidden");
+totalesMes.classList.remove("hidden");
 
 //actualizar tabla de categorías
-const tablaCategorias = document.getElementById('tabla-categorias');
-tablaCategorias.innerHTML = '';
-for (let [categoria, { ganancia, gasto }] of Object.entries(reportes.categorias)) {
-    let balance = ganancia - gasto;
-    let fila = document.createElement('tr');
-    fila.innerHTML = `
+const tablaCategorias = document.getElementById("tabla-categorias");
+tablaCategorias.innerHTML = "";
+for (let [categoria, { ganancia, gasto }] of Object.entries(
+  reportes.categorias
+)) {
+  let balance = ganancia - gasto;
+  let fila = document.createElement("tr");
+  fila.innerHTML = `
         <td class="border px-4 py-2 border-none text-center">${categoria}</td>
-        <td class="border px-4 py-2 border-none text-center">+$${ganancia.toFixed(2)}</td>
-        <td class="border px-4 py-2 border-none text-center">-$${gasto.toFixed(2)}</td>
-        <td class="border px-4 py-2 border-none text-center">${balance >= 0 ? '+' : ''}$${balance.toFixed(2)}</td>
+        <td class="border px-4 py-2 border-none text-center">+$${ganancia.toFixed(
+          2
+        )}</td>
+        <td class="border px-4 py-2 border-none text-center">-$${gasto.toFixed(
+          2
+        )}</td>
+        <td class="border px-4 py-2 border-none text-center">${
+          balance >= 0 ? "+" : ""
+        }$${balance.toFixed(2)}</td>
     `;
-    tablaCategorias.appendChild(fila);
+  tablaCategorias.appendChild(fila);
 }
 // Actualizar tabla de meses
-const tablaMeses = document.getElementById('tabla-meses');
-tablaMeses.innerHTML = '';
+const tablaMeses = document.getElementById("tabla-meses");
+tablaMeses.innerHTML = "";
 for (let [mes, { ganancia, gasto }] of Object.entries(reportes.meses)) {
-    let balance = ganancia - gasto;
-    let fila = document.createElement('tr');
-    fila.innerHTML = `
+  let balance = ganancia - gasto;
+  let fila = document.createElement("tr");
+  fila.innerHTML = `
         <td class="border px-4 py-2 border-none text-center">${mes}</td>
-        <td class="border px-4 py-2 border-none text-center">+$${ganancia.toFixed(2)}</td>
-        <td class="border px-4 py-2 border-none text-center">-$${gasto.toFixed(2)}</td>
-        <td class="border px-4 py-2 border-none text-center">${balance >= 0 ? '+' : ''}$${balance.toFixed(2)}</td>
+        <td class="border px-4 py-2 border-none text-center">+$${ganancia.toFixed(
+          2
+        )}</td>
+        <td class="border px-4 py-2 border-none text-center">-$${gasto.toFixed(
+          2
+        )}</td>
+        <td class="border px-4 py-2 border-none text-center">${
+          balance >= 0 ? "+" : ""
+        }$${balance.toFixed(2)}</td>
     `;
-    tablaMeses.appendChild(fila);
+  tablaMeses.appendChild(fila);
 }
-javascript (auto)
+javascript(auto);
 
+function calcularReportes(operaciones) {
+  let categorias = {};
+  let meses = {};
+  let totalesPorCategoria = {};
+  let totalesPorMes = {};
+  console.log(operaciones);
+  if (operaciones.length > 0) {
+    operaciones.forEach((op) => {
+      let { categoria, monto, tipo, fecha } = op;
+      monto = parseFloat(monto);
+      let mes = fecha.slice(0, 7); // Obtener año y mes en formato YYYY-MM
 
-function calcularReportes(operaciones) { let categorias = {}; let meses = {};
-
-operaciones.forEach(op => {
-    let { categoria, monto, tipo, fecha } = op;
-    monto = parseFloat(monto);
-    let mes = fecha.slice(0, 7); // Obtener año y mes en formato YYYY-MM
-    if (!categorias[categoria]) {
+      if (!categorias[categoria]) {
         categorias[categoria] = { ganancia: 0, gasto: 0 };
-    }
-    if (!meses[mes]) {
+      }
+      if (!meses[mes]) {
         meses[mes] = { ganancia: 0, gasto: 0 };
-    }
-    if (tipo === 'ganancia') {
+      }
+      if (!totalesPorCategoria[categoria]) {
+        totalesPorCategoria[categoria] = { ganancia: 0, gasto: 0 };
+      }
+      if (!totalesPorMes[mes]) {
+        totalesPorMes[mes] = { ganancia: 0, gasto: 0 };
+      }
+
+      if (tipo === "ganancia") {
         categorias[categoria].ganancia += monto;
         meses[mes].ganancia += monto;
-    } else if (tipo === 'gasto') {
+        totalesPorCategoria[categoria].ganancia += monto;
+        totalesPorMes[mes].ganancia += monto;
+      } else if (tipo === "gasto") {
         categorias[categoria].gasto += monto;
         meses[mes].gasto += monto;
-    }
-});
-let categoriaMayorGanancia = { nombre: '', monto: 0 };
-let categoriaMayorGasto = { nombre: '', monto: 0 };
-let categoriaMayorBalance = { nombre: '', monto: 0 };
-let mesMayorGanancia = { nombre: '', monto: 0 };
-let mesMayorGasto = { nombre: '', monto: 0 };
-for (let [nombre, { ganancia, gasto }] of Object.entries(categorias)) {
+        totalesPorCategoria[categoria].gasto += monto;
+        totalesPorMes[mes].gasto += monto;
+      }
+    });
+  }
+
+  let categoriaMayorGanancia = { nombre: "", monto: 0 };
+  let categoriaMayorGasto = { nombre: "", monto: 0 };
+  let categoriaMayorBalance = { nombre: "", monto: 0 };
+  let mesMayorGanancia = { nombre: "", monto: 0 };
+  let mesMayorGasto = { nombre: "", monto: 0 };
+
+  for (let [nombre, { ganancia, gasto }] of Object.entries(categorias)) {
     let balance = ganancia - gasto;
     if (ganancia > categoriaMayorGanancia.monto) {
-        categoriaMayorGanancia = { nombre, monto: ganancia };
+      categoriaMayorGanancia = { nombre, monto: ganancia };
     }
     if (gasto > categoriaMayorGasto.monto) {
-        categoriaMayorGasto = { nombre, monto: gasto };
+      categoriaMayorGasto = { nombre, monto: gasto };
     }
-    if (balance > categoriaMayorBalance.monto) {
-        categoriaMayorBalance = { nombre, monto: balance };
+    if (Object.keys(categorias).length === 1) {
+      categoriaMayorBalance = { nombre, monto: balance };
+      /* REFORMAR ACA */
+    } else if (balance > categoriaMayorBalance.monto) {
+      categoriaMayorBalance = { nombre, monto: balance };
     }
-}
-for (let [nombre, { ganancia, gasto }] of Object.entries(meses)) {
+  }
+
+  for (let [nombre, { ganancia, gasto }] of Object.entries(meses)) {
     if (ganancia > mesMayorGanancia.monto) {
-        mesMayorGanancia = { nombre, monto: ganancia };
+      mesMayorGanancia = { nombre, monto: ganancia };
     }
     if (gasto > mesMayorGasto.monto) {
-        mesMayorGasto = { nombre, monto: gasto };
+      mesMayorGasto = { nombre, monto: gasto };
     }
-}
-return {
+  }
+
+  if (operaciones.length > 1) {
+    let operacionesDiv = document.getElementById("sin-reportes");
+    operacionesDiv.replaceChildren();
+
+    let sectionResumen = document.createElement("section");
+    let resumenHeading = document.createElement("h2");
+    resumenHeading.innerHTML = "Resumen";
+    sectionResumen.appendChild(resumenHeading);
+
+    let categoriaConMayorGanancia = document.createElement("p");
+    categoriaConMayorGanancia.textContent = `Categoria con Mayor Ganancia: ${categoriaMayorGanancia.nombre} Monto: ${categoriaMayorGanancia.monto}`;
+    sectionResumen.appendChild(categoriaConMayorGanancia);
+
+    let categoriaConMayorGasto = document.createElement("p");
+    categoriaConMayorGasto.textContent = `Categoria con Mayor Gasto: ${categoriaMayorGasto.nombre} Monto: ${categoriaMayorGasto.monto}`;
+    sectionResumen.appendChild(categoriaConMayorGasto);
+
+    let categoriaConMayorBalance = document.createElement("p");
+    categoriaConMayorBalance.textContent = `Categoria con Mayor Balance: ${categoriaMayorBalance.nombre} Monto: ${categoriaMayorBalance.monto}`;
+    sectionResumen.appendChild(categoriaConMayorBalance);
+
+    let mesConMayorGanancia = document.createElement("p");
+    mesConMayorGanancia.textContent = `Mes con Mayor Ganancia: ${mesMayorGanancia.nombre} Monto: ${mesMayorGanancia.monto}`;
+    sectionResumen.appendChild(mesConMayorGanancia);
+
+    let mesConMayorGasto = document.createElement("p");
+    mesConMayorGasto.textContent = `Mes con Mayor Gasto: ${mesMayorGasto.nombre} Monto: ${mesMayorGasto.monto}`;
+    sectionResumen.appendChild(mesConMayorGasto);
+
+    let totalesPorCategoriaSection = document.createElement("section");
+    totalesPorCategoriaSection.innerHTML = "<h2>Totales por Categoría</h2>";
+    for (let [nombre, { ganancia, gasto }] of Object.entries(
+      totalesPorCategoria
+    )) {
+      let p = document.createElement("p");
+      p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
+      totalesPorCategoriaSection.appendChild(p);
+    }
+    sectionResumen.appendChild(totalesPorCategoriaSection);
+
+    let totalesPorMesSection = document.createElement("section");
+    totalesPorMesSection.innerHTML = "<h2>Totales por Mes</h2>";
+    for (let [nombre, { ganancia, gasto }] of Object.entries(totalesPorMes)) {
+      let p = document.createElement("p");
+      p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
+      totalesPorMesSection.appendChild(p);
+    }
+    sectionResumen.appendChild(totalesPorMesSection);
+
+    operacionesDiv.appendChild(sectionResumen);
+  } else {
+    let operacionesDiv = document.getElementById("sin-reportes");
+    operacionesDiv.replaceChildren();
+    operacionesDiv.innerHTML = `<div class="cont-fig-texto pb-12 pt-10 mt-9 mb-12">
+                  <figure class="imagen-reporte max-w-xs m-0 m-auto p-0 block relative">
+                    <img src="./img/reporteIMG.png" class="img-rep block h-auto max-w-full" alt="imagen">
+                  </figure>
+                  <h4 class="titulo-h4-reporte font-semibold text-center text-2xl mt-12 mb-3.5">
+                    Operaciones insuficientes
+                  </h4>
+                  <p class="texto-reporte text-center">
+                    Prueba agregando más operaciones
+                  </p>
+                </div>`;
+  }
+
+  return {
     categorias,
-    meses, //datos de los meses en el objeto de retorno
+    meses,
+    totalesPorCategoria,
+    totalesPorMes,
     categoriaMayorGanancia,
     categoriaMayorGasto,
     categoriaMayorBalance,
     mesMayorGanancia,
     mesMayorGasto,
-};
+  };
 }
 // Obtener las operaciones del localStorage y mostrar los reportes
 function cargarOperacionesYMostrarReportes() {
   if (!localStorage.getItem("operaciones")) {
     const reportsSection = document.getElementById("reports-section");
     reportsSection.style.display = "none";
-  }//oculta la sección de informes si no hay operaciones almacenadas en el localStorage.
+  } //oculta la sección de informes si no hay operaciones almacenadas en el localStorage.
 
   const operaciones_json = localStorage.getItem("operaciones");
   const operaciones_array = JSON.parse(operaciones_json) || [];
@@ -668,9 +782,9 @@ function cargarOperacionesYMostrarReportes() {
     ocultarImgYTexto();
     mostrarReportes(operaciones_array);
   } else {
-    reportesSection.classList.add('hidden');
-    totalesCategoria.classList.add('hidden');
-    totalesMes.classList.add('hidden');
+    reportesSection.classList.add("hidden");
+    totalesCategoria.classList.add("hidden");
+    totalesMes.classList.add("hidden");
   }
 }
-document.addEventListener('DOMContentLoaded', myFunction);
+document.addEventListener("DOMContentLoaded", myFunction);
