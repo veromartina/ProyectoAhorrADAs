@@ -102,10 +102,11 @@
   text-decoration: underline;
 }
 
-/* Media query para pantallas más grandes (escritorio) */
+/* pantallas más grandes (escritorio) */
 @media (min-width: 992px) {
   .box {
     max-width: 100%; /* O el valor deseado para pantallas grandes, por ejemplo 1200px */
+    
   }
 
 

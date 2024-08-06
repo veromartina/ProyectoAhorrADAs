@@ -551,4 +551,3 @@ function actualizarOperacion(index) {
   // Mostrar las operaciones actualizadas
   mostrarOperaciones();
 }
-
