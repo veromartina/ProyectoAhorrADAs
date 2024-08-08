@@ -347,6 +347,11 @@ function mostrarOperaciones() {
           (a, b) => new Date(b.fecha) - new Date(a.fecha)
         );
         break;
+      case "menos_recientes":
+        operacionesFiltradas.sort(
+          (a, b) => new Date(a.fecha) - new Date(b.fecha)
+        );
+        break;
       case "mayor_monto":
         operacionesFiltradas.sort((a, b) => b.monto - a.monto);
         break;
@@ -367,8 +372,11 @@ function mostrarOperaciones() {
   }
   operaciones.innerHTML = "";
   operacionesGuardadas.forEach((operacion, index) => {
+    const div = document.createElement('div');
+    div.classList = "sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around "
+    
     const tr = document.createElement("tr");
-    tr.className = "bg-white";
+    tr.classList = "bg-white";
 
     tr.innerHTML = `
      <td class="px-3 py-3 whitespace-nowrap">${operacion.descripcion}</td>
@@ -377,13 +385,14 @@ function mostrarOperaciones() {
      <td class="px-3 py-3 whitespace-nowrap">${operacion.fecha}</td>
      <td class="px-3 py-3 whitespace-nowrap">${operacion.monto}</td>
      <td class="px-3 py-3 whitespace-nowrap">
-       <div class="flex justify-end gap-2">
+       <div class="flex justify-end gap-4">
          <button class="bg-blue-500 text-white p-1 rounded" onclick="editarOperacion(${index})">Editar</button>
          <button class="bg-red-500 text-white p-1 rounded" onclick="eliminarOperacion(${index})">Eliminar</button>
        </div>
      </td>
    `;
-    operaciones.appendChild(tr);
+   div.append(tr)
+    operaciones.appendChild(div);
   });
 
   if (operacionesGuardadas.length > 0) {
@@ -504,6 +513,7 @@ function editarOperacion(index) {
   // Cambiar el comportamiento del botón de agregar para que actualice la operación
   botonAgregarOperacion.textContent = "Actualizar";
   botonAgregarOperacion.onclick = function (event) {
+    
     event.preventDefault();
     actualizarOperacion(index);
   };
@@ -527,8 +537,9 @@ function actualizarOperacion(index) {
 
   // Restaurar el formulario y la interfaz
   botonAgregarOperacion.textContent = "Agregar";
+  
   botonAgregarOperacion.onclick = agregarOperacion;
-
+  
   ventanaNuevaOperacion.style.display = "none";
   sectionBalance.style.display = "block";
 

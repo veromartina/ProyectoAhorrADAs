@@ -42,12 +42,12 @@
     <!-- Meta Tags Generated with https://metatags.io -->
 
     <title>AhorrADAs</title>
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
-    />
+    /> -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script
@@ -208,112 +208,78 @@
     </header>
 
     <main>
-      <section class="section mt-5" id="section-balance">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <!-- empieza primera columna -->
-
-              <!-- balance -->
-              <div class="box card p-3 mt-4">
-                <h2 class="title text-weight-bold">Balance</h2>
-                <div class="row">
-                  <div class="col-md-6">Ganancia</div>
-                  <div class="col-md-6 text-md-end text-success" id="ganancias">
-                    +$0
-                  </div>
+      <!-- CONTENEDOR PRINCIPAL -->
+      <div class="sm:flex sm:flex-row sm:w-screen md:flex md:flex-row md:w-screen  lg:flex lg:flex-row lg:w-screen  xl:flex xl:flex-row xl:w-screen" id="section-balance">
+        <div class="md:w-2/5">
+            <!-- SECCION BALANCE -->
+            <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
+                <div class="mx-2">
+                    <h2 class="text-zinc-800 text-lg font-bold">Balance</h2>
                 </div>
-                <div class="row">
-                  <div class="col-md-5">Gastos</div>
-                  <div class="col-md-7 text-md-end text-danger" id="gastos">
-                    -$0
-                  </div>
+                <table class="w-full">
+                    <tr>
+                        <td class="p-1">Ganancias</td>
+                        <td class="text-green-600 text-right p-2" id="ganancias">+$0</td>
+                    </tr>
+                    <tr>
+                        <td class="p-1">Gastos</td>
+                        <td class="text-red-600 text-right p-2" id="Gastos">-$0</td>
+                    </tr>
+                    <tr>
+                        <td class="p-1 text-xl">Total</td>
+                        <td class="text-right p-2" id="total">$0</td>
+                    </tr>
+                </table>
+            </section>
+    
+            <!-- SECCION FILTROS -->
+            <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
+                <div class="flex justify-between m-3">
+                    <h2 class="text-lg font-bold">Filtros</h2>
+                    <p class="text-cyan-700">Ocultar Filtros</p>
                 </div>
-                <div class="row">
-                  <div class="col-md-4">Total</div>
-                  <div class="col-md-8 text-md-end text-weight-bold" id="total">
-                    $0
-                  </div>
+    
+                <div class="flex flex-col gap-2 m-3">
+                    <label for="tipo_filtro">Tipo</label>
+                    <select name="tipo" id="tipo_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
+                        <option value="todos">Todos</option>
+                        <option value="gastos">Gastos</option>
+                        <option value="ganancia">Ganancias</option>
+                    </select>
+    
+                    <label for="categoria_filtro">Categoría</label>
+                    <select name="categoria" id="categoria_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
+                        <option value="todas">Todas</option>
+                        <option value="comida">Comida</option>
+                        <option value="servicios">Servicios</option>
+                    </select>
+    
+                    <label for="tipo_fecha">Desde</label>
+                    <input type="date" name="tipo_fecha" id="tipo_fecha" class="rounded-md p-2 cursor-pointer hover:text-gray-600" />
+    
+                    <label for="orden_filtro">Ordenar</label>
+                    <select name="orden_filtro" id="orden_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
+                        <option value="mas_recientes">Más reciente</option>
+                        <option value="menos_recientes">Menos reciente</option>
+                        <option value="mayor_monto">Mayor monto</option>
+                        <option value="menor_monto">Menor monto</option>
+                        <option value="a/z">A/Z</option>
+                        <option value="z/a">Z/A</option>
+                    </select>
                 </div>
-              </div>
-
-              <!-- Filtros -->
-              <div class="box card p-3 mt-4">
-                <div class="title-container">
-                  <h2 class="title text-weight-bold">Filtros</h2>
-
-                  <div class="ocultar_filtros">
-                    <a href="#">Ocultar Filtros</a>
-                  </div>
+            </section>
+        </div>
+    
+        <!-- SECCION OPERACIONES -->
+            <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
+              <div class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around ">
+                <h2 class="text-lg font-bold m-3">Operaciones</h2>
+                    <button id="nueva_operacion" class="bg-teal-300 rounded-md p-1 m-2 md:dark:md:hover:bg-teal-400" type="submit">
+                        + Nueva operación
+                    </button>
                 </div>
-                <div id="filtros">
-                  <div class="campos">
-                    <label for="filtros" class="label">Tipo</label>
-                    <div class="form-control">
-                      <div class="select">
-                        <select name="select" id="tipo_filtro">
-                          <option value="todos">Todos</option>
-                          <option value="gastos">Gastos</option>
-                          <option value="ganancia">Ganancia</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="campos">
-                      <label for="campos" class="label">Categoría</label>
-                      <div class="form-control">
-                        <div class="select">
-                          <select name="categoria_filtro" id="categoria_filtro">
-                            <option value="todas">Todas</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="campos">
-                      <label for="campos" class="label">Desde</label>
-                      <div class="form-control">
-                        <div>
-                          <input type="date" id="tipo_fecha" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="campos">
-                    <label for="campos" class="label">Ordenar por</label>
-                    <div class="form-control">
-                      <div class="select">
-                        <select name="orden_filtro" id="orden_filtro">
-                          <option value="mas_recientes">Más recientes</option>
-                          <option value="mayor_monto">Mayor monto</option>
-                          <option value="menor_monto">Menor monto</option>
-                          <option value="a/z">A-Z</option>
-                          <option value="z/a">Z-A</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- termina primera columna -->
-            </div>
-
-            <!-- empieza segunda columna -->
-            <div class="col w-full">
-              <div class="box card p-3 w-full max-w-4xl mx-auto">
-                <div class="columns mb-4">
-                  <div class="column">
-                    <h4 class="text-weight-bold">Operaciones</h4>
-                    <div class="column w-full">
-                      <button
-                        type="button"
-                        class="button_operacion text-weight-bold shadow appearance-none border rounded"
-                        id="nueva_operacion"
-                      >
-                        +Nueva operación
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="hidden" id="ocultarOperaciones">
+                
+                <div class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around" id="ocultarOperaciones">
                   <table
                     id="operaciones"
                     class="min-w-full divide-y divide-gray-200"
@@ -354,22 +320,16 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="m-6 p-6" id="noResultados">
-                  <figure class="imagen" id="figure_imagen">
-                    <img src="img/billetera.png" alt="imagen" class="w-72" />
-                  </figure>
-                  <h3 class="text-weight-bold text-center">Sin resultados</h3>
-                  <p class="text-center">
-                    Cambia los filtros o agrega operaciones
-                  </p>
-                </div>
-              </div>
-              <!-- termina segunda columna -->
-            </div>
-          </div>
-        </div>
-      </section>
 
+                <div class="" id="noResultados">
+
+                <img class="p-5 sm:w-1/2 sm:m-auto md:w-1/2 md:m-auto lg:w-1/2 lg:m-auto xl:w-1/2 xl:sm:m-auto" src="./img/billetera.png" alt="imagen principal" />
+                <h4 class="text-lg font-bold text-zinc-600 text-center m-10">Sin resultados</h4>
+                <p class="text-center m-8 text-slate-800">Cambia los filtros o agrega operaciones</p>
+              </div>
+              </section>
+        </div>
+    
       <!-- NUEVA OPERACION -->
       <section
         id="ventanaNuevaOperacion"
