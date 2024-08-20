@@ -693,7 +693,7 @@ function calcularReportes(operaciones) {
     let resumenH2 = document.createElement("h2");
     resumenH2.innerHTML = "Resumen";
     sectionResumen.appendChild(resumenH2);
-    resumenH2.classList = "mb-6 pb-4 text-2xl	font-semibold text-[#363636]"
+    resumenH2.classList = "mb-6 pb-4 text-2xl	font-semibold text-MineShaftTextos"
 
     let categoriaConMayorGanancia = document.createElement("p");
     categoriaConMayorGanancia.textContent = `Categoria con Mayor Ganancia: ${categoriaMayorGanancia.nombre} Monto: ${categoriaMayorGanancia.monto}`;
