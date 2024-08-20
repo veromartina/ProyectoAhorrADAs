@@ -557,13 +557,7 @@ verReportes.addEventListener("click", () => {
 const resumenDatos = calcularReportes(localStorage.getItem("operaciones"));
 const tablaResumen = document.getElementById("tabla-resumen");
 tablaResumen.innerHTML = "";
-/*const resumenDatos = [
-    { descripcion: 'Categoría con mayor ganancia', nombre: reportes.categoriaMayorGanancia.nombre, valor: `+$${reportes.categoriaMayorGanancia.monto.toFixed(2)}` },
-    { descripcion: 'Categoría con mayor gasto', nombre: reportes.categoriaMayorGasto.nombre, valor: `-$${reportes.categoriaMayorGasto.monto.toFixed(2)}` },
-    { descripcion: 'Categoría con mayor balance', nombre: reportes.categoriaMayorBalance.nombre, valor: `+$${reportes.categoriaMayorBalance.monto.toFixed(2)}` },
-    { descripcion: 'Mes con mayor ganancia', nombre: reportes.mesMayorGanancia.nombre, valor: `+$${reportes.mesMayorGanancia.monto.toFixed(2)}` },
-    { descripcion: 'Mes con mayor gasto', nombre: reportes.mesMayorGasto.nombre, valor: `-$${reportes.mesMayorGasto.monto.toFixed(2)}` },
-];*/
+
 resumenDatos.forEach((item) => {
   let fila = document.createElement("tr");
   fila.innerHTML = `
@@ -619,7 +613,7 @@ for (let [mes, { ganancia, gasto }] of Object.entries(reportes.meses)) {
     `;
   tablaMeses.appendChild(fila);
 }
-javascript(auto);
+//javascript(auto);
 
 function calcularReportes(operaciones) {
   let categorias = {};
@@ -693,12 +687,13 @@ function calcularReportes(operaciones) {
 
   if (operaciones.length > 1) {
     let operacionesDiv = document.getElementById("sin-reportes");
-    operacionesDiv.replaceChildren();
+    //operacionesDiv.replaceChildren();
 
     let sectionResumen = document.createElement("section");
-    let resumenHeading = document.createElement("h2");
-    resumenHeading.innerHTML = "Resumen";
-    sectionResumen.appendChild(resumenHeading);
+    let resumenH2 = document.createElement("h2");
+    resumenH2.innerHTML = "Resumen";
+    sectionResumen.appendChild(resumenH2);
+    resumenH2.classList = "mb-6 pb-4 text-2xl	font-semibold text-[#363636]"
 
     let categoriaConMayorGanancia = document.createElement("p");
     categoriaConMayorGanancia.textContent = `Categoria con Mayor Ganancia: ${categoriaMayorGanancia.nombre} Monto: ${categoriaMayorGanancia.monto}`;
