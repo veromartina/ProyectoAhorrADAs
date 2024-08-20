@@ -52,13 +52,13 @@ const verCategorias = document.getElementById("ver-categorias");
 const verReportes = document.getElementById("ver-reportes");
 
 //Aca inicializo todo OK
-sectionBalance.style.display = "block";
+sectionBalance.style.display = "flex";
 seccionCategorias.style.display = "none";
 seccionReportes.style.display = "none";
 
 //abrir y cerrar secciones
 verBalance.addEventListener("click", () => {
-  sectionBalance.style.display = "block";
+  sectionBalance.style.display = "flex";
   seccionCategorias.style.display = "none";
   seccionReportes.style.display = "none";
 });
@@ -471,7 +471,7 @@ formNuevaOperacion.addEventListener("submit", (event) => {
 
     mostrarOperaciones();
     ventanaNuevaOperacion.style.display = "none";
-    sectionBalance.style.display = "block";
+    sectionBalance.style.display = "flex";
   }
 });
 
