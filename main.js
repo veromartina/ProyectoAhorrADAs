@@ -729,11 +729,11 @@ function calcularReportes(operaciones) {
 
     
     let totalesPorCategoriaSection = document.createElement("section");
-    totalesPorCategoriaSection.classList = "seccReportes"
+    totalesPorCategoriaSection.classList = "seccReportes";
     let totalXCategH4 = document.createElement("h4");
     totalXCategH4.innerHTML = "Totales por Categoría";
     totalesPorCategoriaSection.appendChild(totalXCategH4);
-    totalXCategH4.classList = "titulosH4"      
+    totalXCategH4.classList = "titulosH4";   
     /*let totalesPorCategoriaSection = document.createElement("section");
     totalesPorCategoriaSection.innerHTML = "<h4>Totales por Categoría</h4>";*/
     for (let [nombre, { ganancia, gasto }] of Object.entries(
@@ -750,7 +750,7 @@ function calcularReportes(operaciones) {
     let totalesPorMesSectionH4 = document.createElement("h4");
     totalesPorMesSectionH4.innerHTML = "Totales por Mes";
     totalesPorMesSection.appendChild(totalesPorMesSectionH4);
-    totalesPorMesSectionH4.classList  = "titulosH4" 
+    totalesPorMesSectionH4.classList  = "titulosH4" ;
     /*
     let totalesPorMesSection = document.createElement("section");
     totalesPorMesSection.innerHTML = "<h2>Totales por Mes</h2>";*/
