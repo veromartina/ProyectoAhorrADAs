@@ -1,29 +1,29 @@
-/* Estilos generales */
+/* Estilos generales 
 .box {
-  overflow-x: auto; /* Permite el desplazamiento horizontal si el contenido es más ancho */
+  overflow-x: auto; /* Permite el desplazamiento horizontal si el contenido es más ancho 
 }
 
-/* Para que la tabla no exceda el ancho del contenedor */
+/* Para que la tabla no exceda el ancho del contenedor 
 table {
-  width: 100%; /* La tabla ocupa el 100% del contenedor */
-  table-layout: fixed; /* Controla la distribución del ancho de las columnas */
+  width: 100%; /* La tabla ocupa el 100% del contenedor 
+  table-layout: fixed; /* Controla la distribución del ancho de las columnas 
 }
 
 th, td {
-  word-wrap: break-word; /* Permite el ajuste de palabras largas */
+  word-wrap: break-word; /* Permite el ajuste de palabras largas 
 }
 
-/* Media query para pantallas de tablet */
+/* Media query para pantallas de tablet 
 @media (min-width: 768px) and (max-width: 1024px) {
   .box {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     margin-bottom: 20px;
-    max-width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible */
+    max-width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible 
   }
 
   .box_operaciones {
     width: 100%;
-    max-width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible */
+    max-width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible 
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     overflow: hidden;
     margin: 0 auto;
@@ -45,7 +45,7 @@ th, td {
     display: none;
   }
 
-  /* estilos a los campos */
+  /* estilos a los campos 
   .label {
     font-weight: bold;
     margin-bottom: 5px;

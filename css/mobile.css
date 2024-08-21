@@ -1,7 +1,7 @@
 
 /* FIN HEADER*/
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 	.column.col-6 {
 	  width: 100%; 
 	}
@@ -32,13 +32,13 @@
 		background-color: #7fff00;
 	  }
 	.hidden {
-        display: none; /* Oculta el contenido de la tarjeta de operaciones en dispositivos móviles */
+        display: none; /* Oculta el contenido de la tarjeta de operaciones en dispositivos móviles 
     }
 	.text-md-end {
         text-align: end !important;
     }
 	
-/* estilos a los campos */
+/* estilos a los campos 
 .label {
 	font-weight: bold;
 	margin-bottom: 5px;
@@ -76,16 +76,16 @@
 	text-decoration: underline;
   }
 
-    /* Para que la tabla no exceda el ancho del contenedor */
+    /* Para que la tabla no exceda el ancho del contenedor 
 table {
-	width: 100%; /* la tabla ocupa el 100% del contenedor */
-	table-layout: fixed; /* Controlo la distribución del ancho de las columnas */
+	width: 100%; /* la tabla ocupa el 100% del contenedor 
+	table-layout: fixed; /* Controlo la distribución del ancho de las columnas 
   }
   
   th, td {
-	word-wrap: break-word; /* Permite el ajuste de palabras largas */
+	word-wrap: break-word; /* Permite el ajuste de palabras largas 
   }
   }
 
-
+ */
 
