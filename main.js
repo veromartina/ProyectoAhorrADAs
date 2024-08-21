@@ -703,9 +703,10 @@ function calcularReportes(operaciones) {
     let sectionResumen = document.createElement("section");
     sectionResumen.classList = "seccReportes"
     let resumenH4 = document.createElement("h4");
+    resumenH4.classList = "titulosH4";
     resumenH4.innerHTML = "Resumen";
     sectionResumen.appendChild(resumenH4);
-    resumenH4.classList = "titulosH4"
+    
 
     let categoriaConMayorGanancia = document.createElement("p");
     categoriaConMayorGanancia.textContent = `Categoria con Mayor Ganancia: ${categoriaMayorGanancia.nombre} Monto: ${categoriaMayorGanancia.monto}`;
