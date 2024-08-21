@@ -687,13 +687,14 @@ function calcularReportes(operaciones) {
 
   if (operaciones.length > 1) {
     let operacionesDiv = document.getElementById("sin-reportes");
-    //operacionesDiv.replaceChildren();
+   
 
     let sectionResumen = document.createElement("section");
-    let resumenH2 = document.createElement("h2");
-    resumenH2.innerHTML = "Resumen";
-    sectionResumen.appendChild(resumenH2);
-    resumenH2.classList = "mb-6 pb-4 text-2xl	font-semibold text-MineShaftTextos"
+    sectionResumen.classList = "seccReportes"
+    let resumenH4 = document.createElement("h4");
+    resumenH4.innerHTML = "Resumen";
+    sectionResumen.appendChild(resumenH4);
+    resumenH4.classList = "titulosH4"
 
     let categoriaConMayorGanancia = document.createElement("p");
     categoriaConMayorGanancia.textContent = `Categoria con Mayor Ganancia: ${categoriaMayorGanancia.nombre} Monto: ${categoriaMayorGanancia.monto}`;
@@ -715,8 +716,15 @@ function calcularReportes(operaciones) {
     mesConMayorGasto.textContent = `Mes con Mayor Gasto: ${mesMayorGasto.nombre} Monto: ${mesMayorGasto.monto}`;
     sectionResumen.appendChild(mesConMayorGasto);
 
+    
     let totalesPorCategoriaSection = document.createElement("section");
-    totalesPorCategoriaSection.innerHTML = "<h2>Totales por Categoría</h2>";
+    totalesPorCategoriaSection.classList = "seccReportes"
+    let totalXCategH4 = document.createElement("h4");
+    totalXCategH4.innerHTML = "Totales por Categoría";
+    totalesPorCategoriaSection.appendChild(totalXCategH4);
+    totalXCategH4.classList = "titulosH4"      
+    /*let totalesPorCategoriaSection = document.createElement("section");
+    totalesPorCategoriaSection.innerHTML = "<h4>Totales por Categoría</h4>";*/
     for (let [nombre, { ganancia, gasto }] of Object.entries(
       totalesPorCategoria
     )) {
@@ -727,7 +735,14 @@ function calcularReportes(operaciones) {
     sectionResumen.appendChild(totalesPorCategoriaSection);
 
     let totalesPorMesSection = document.createElement("section");
-    totalesPorMesSection.innerHTML = "<h2>Totales por Mes</h2>";
+    totalesPorMesSection.classList = "seccReportes"
+    let totalesPorMesSectionH4 = document.createElement("h4");
+    totalesPorMesSectionH4.innerHTML = "Totales por Mes";
+    totalesPorMesSection.appendChild(totalesPorMesSectionH4);
+    totalesPorMesSectionH4.classList  = "titulosH4" 
+    /*
+    let totalesPorMesSection = document.createElement("section");
+    totalesPorMesSection.innerHTML = "<h2>Totales por Mes</h2>";*/
     for (let [nombre, { ganancia, gasto }] of Object.entries(totalesPorMes)) {
       let p = document.createElement("p");
       p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
@@ -738,7 +753,7 @@ function calcularReportes(operaciones) {
     operacionesDiv.appendChild(sectionResumen);
   } else {
     let operacionesDiv = document.getElementById("sin-reportes");
-    operacionesDiv.replaceChildren();
+    //operacionesDiv.replaceChildren();
     operacionesDiv.innerHTML = `<div class="cont-fig-texto pb-12 pt-10 mt-9 mb-12">
                   <figure class="imagen-reporte max-w-xs m-0 m-auto p-0 block relative">
                     <img src="./img/reporteIMG.png" class="img-rep block h-auto max-w-full" alt="imagen">
@@ -782,4 +797,4 @@ function cargarOperacionesYMostrarReportes() {
     totalesMes.classList.add("hidden");
   }
 }
-document.addEventListener("DOMContentLoaded", myFunction);
+//document.addEventListener("DOMContentLoaded", myFunction);
