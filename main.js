@@ -51,7 +51,7 @@ const verBalance = document.getElementById("ver-balance");
 const verCategorias = document.getElementById("ver-categorias");
 const verReportes = document.getElementById("ver-reportes");
 
-//Aca inicializo todo OK
+//Aca inicializo todo
 sectionBalance.style.display = "flex";
 seccionCategorias.style.display = "none";
 seccionReportes.style.display = "none";
@@ -372,9 +372,10 @@ function mostrarOperaciones() {
   }
   operaciones.innerHTML = "";
   operacionesGuardadas.forEach((operacion, index) => {
-    const div = document.createElement('div');
-    div.classList = "sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around "
-    
+    const div = document.createElement("div");
+    div.classList =
+      "sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around ";
+
     const tr = document.createElement("tr");
     tr.classList = "bg-white";
 
@@ -391,7 +392,7 @@ function mostrarOperaciones() {
        </div>
      </td>
    `;
-   div.append(tr)
+    div.append(tr);
     operaciones.appendChild(div);
   });
 
@@ -513,7 +514,6 @@ function editarOperacion(index) {
   // Cambiar el comportamiento del botón de agregar para que actualice la operación
   botonAgregarOperacion.textContent = "Actualizar";
   botonAgregarOperacion.onclick = function (event) {
-    
     event.preventDefault();
     actualizarOperacion(index);
   };
@@ -537,9 +537,9 @@ function actualizarOperacion(index) {
 
   // Restaurar el formulario y la interfaz
   botonAgregarOperacion.textContent = "Agregar";
-  
+
   botonAgregarOperacion.onclick = agregarOperacion;
-  
+
   ventanaNuevaOperacion.style.display = "none";
   sectionBalance.style.display = "block";
 
@@ -551,11 +551,10 @@ function actualizarOperacion(index) {
 
 function ocultarElementos() {
   const operaciones = localStorage.getItem("operaciones");
-
   document.getElementById("ocultar-img-texto").classList.add("hidden");
 }
-
 const reportes = calcularReportes(localStorage.getItem("operaciones"));
+
 // Mostrar la sección de resumen
 
 verReportes.addEventListener("click", () => {
@@ -578,6 +577,7 @@ resumenDatos.forEach((item) => {
     `;
   tablaResumen.appendChild(fila);
 });
+
 // Mostrar las secciones de totales
 totalesCategoria.classList.remove("hidden");
 totalesMes.classList.remove("hidden");
@@ -586,7 +586,7 @@ totalesMes.classList.remove("hidden");
 const tablaCategorias = document.getElementById("tabla-categorias");
 tablaCategorias.innerHTML = "";
 for (let [categoria, { ganancia, gasto }] of Object.entries(
-  reportes.categorias
+  reportes.categorias //El método Object.entries convierte un objeto en una matriz de arreglos
 )) {
   let balance = ganancia - gasto;
   let fila = document.createElement("tr");
@@ -594,16 +594,17 @@ for (let [categoria, { ganancia, gasto }] of Object.entries(
         <td class="border px-4 py-2 border-none text-center">${categoria}</td>
         <td class="border px-4 py-2 border-none text-center">+$${ganancia.toFixed(
           2
-        )}</td>
+        )}</td>  
         <td class="border px-4 py-2 border-none text-center">-$${gasto.toFixed(
           2
         )}</td>
         <td class="border px-4 py-2 border-none text-center">${
           balance >= 0 ? "+" : ""
-        }$${balance.toFixed(2)}</td>
-    `;
+        }$${balance.toFixed(2)}</td> `;  //.toFixed(2) convierte el número en una cadena con exactamente 2 decimales
+
   tablaCategorias.appendChild(fila);
 }
+
 // Actualizar tabla de meses
 const tablaMeses = document.getElementById("tabla-meses");
 tablaMeses.innerHTML = "";
@@ -624,7 +625,9 @@ for (let [mes, { ganancia, gasto }] of Object.entries(reportes.meses)) {
     `;
   tablaMeses.appendChild(fila);
 }
-//javascript(auto);
+
+
+// Calcular reportes finales
 
 function calcularReportes(operaciones) {
   let categorias = {};
@@ -632,6 +635,7 @@ function calcularReportes(operaciones) {
   let totalesPorCategoria = {};
   let totalesPorMes = {};
   console.log(operaciones);
+
   if (operaciones.length > 0) {
     operaciones.forEach((op) => {
       let { categoria, monto, tipo, fecha } = op;
@@ -673,6 +677,7 @@ function calcularReportes(operaciones) {
 
   for (let [nombre, { ganancia, gasto }] of Object.entries(categorias)) {
     let balance = ganancia - gasto;
+
     if (ganancia > categoriaMayorGanancia.monto) {
       categoriaMayorGanancia = { nombre, monto: ganancia };
     }
@@ -680,8 +685,10 @@ function calcularReportes(operaciones) {
       categoriaMayorGasto = { nombre, monto: gasto };
     }
     if (Object.keys(categorias).length === 1) {
-      categoriaMayorBalance = { nombre, monto: balance };
+      categoriaMayorBalance = { nombre, monto: balance };  //este método devuelve un arreglo que contiene todas las claves (propiedades) propias del objeto 
+
       /* REFORMAR ACA */
+
     } else if (balance > categoriaMayorBalance.monto) {
       categoriaMayorBalance = { nombre, monto: balance };
     }
@@ -697,45 +704,60 @@ function calcularReportes(operaciones) {
   }
 
   if (operaciones.length > 1) {
-    let operacionesDiv = document.getElementById("sin-reportes");
-   
+    
+    let divSinReportes = document.getElementById("sin-reportes");
+    divSinReportes.classList = "hidden";
+
+    let divConReportes = document.getElementById("con-reportes");
+
+    //seccionReportes.appendChild("reportesFinales");
 
     let sectionResumen = document.createElement("section");
-    sectionResumen.classList = "seccReportes"
+    sectionResumen.classList = "seccReportes";
+
     let resumenH4 = document.createElement("h4");
+    resumenH4.classList = "titulosH4"; //classList.add("titulosH4", "seccReportes");
     resumenH4.innerHTML = "Resumen";
+
     sectionResumen.appendChild(resumenH4);
-    resumenH4.classList = "titulosH4"
+    divConReportes.appendChild(sectionResumen)
+    
 
     let categoriaConMayorGanancia = document.createElement("p");
     categoriaConMayorGanancia.textContent = `Categoria con Mayor Ganancia: ${categoriaMayorGanancia.nombre} Monto: ${categoriaMayorGanancia.monto}`;
+
     sectionResumen.appendChild(categoriaConMayorGanancia);
 
     let categoriaConMayorGasto = document.createElement("p");
     categoriaConMayorGasto.textContent = `Categoria con Mayor Gasto: ${categoriaMayorGasto.nombre} Monto: ${categoriaMayorGasto.monto}`;
+
     sectionResumen.appendChild(categoriaConMayorGasto);
 
     let categoriaConMayorBalance = document.createElement("p");
     categoriaConMayorBalance.textContent = `Categoria con Mayor Balance: ${categoriaMayorBalance.nombre} Monto: ${categoriaMayorBalance.monto}`;
+
     sectionResumen.appendChild(categoriaConMayorBalance);
 
     let mesConMayorGanancia = document.createElement("p");
     mesConMayorGanancia.textContent = `Mes con Mayor Ganancia: ${mesMayorGanancia.nombre} Monto: ${mesMayorGanancia.monto}`;
+
     sectionResumen.appendChild(mesConMayorGanancia);
 
     let mesConMayorGasto = document.createElement("p");
     mesConMayorGasto.textContent = `Mes con Mayor Gasto: ${mesMayorGasto.nombre} Monto: ${mesMayorGasto.monto}`;
+
     sectionResumen.appendChild(mesConMayorGasto);
 
-    
     let totalesPorCategoriaSection = document.createElement("section");
     totalesPorCategoriaSection.classList = "seccReportes";
+
     let totalXCategH4 = document.createElement("h4");
+    totalXCategH4.classList = "titulosH4";
     totalXCategH4.innerHTML = "Totales por Categoría";
+
     totalesPorCategoriaSection.appendChild(totalXCategH4);
-    totalXCategH4.classList = "titulosH4";   
-    /*let totalesPorCategoriaSection = document.createElement("section");
-    totalesPorCategoriaSection.innerHTML = "<h4>Totales por Categoría</h4>";*/
+    divConReportes.appendChild(totalesPorCategoriaSection)
+  
     for (let [nombre, { ganancia, gasto }] of Object.entries(
       totalesPorCategoria
     )) {
@@ -743,29 +765,33 @@ function calcularReportes(operaciones) {
       p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
       totalesPorCategoriaSection.appendChild(p);
     }
-    sectionResumen.appendChild(totalesPorCategoriaSection);
+   // sectionResumen.appendChild(totalesPorCategoriaSection);
 
     let totalesPorMesSection = document.createElement("section");
-    totalesPorMesSection.classList = "seccReportes"
+    totalesPorMesSection.classList = "seccReportes";
+
     let totalesPorMesSectionH4 = document.createElement("h4");
+    totalesPorMesSectionH4.classList = "titulosH4";
     totalesPorMesSectionH4.innerHTML = "Totales por Mes";
+
     totalesPorMesSection.appendChild(totalesPorMesSectionH4);
-    totalesPorMesSectionH4.classList  = "titulosH4" ;
-    /*
-    let totalesPorMesSection = document.createElement("section");
-    totalesPorMesSection.innerHTML = "<h2>Totales por Mes</h2>";*/
+    divConReportes.appendChild(totalesPorMesSection);
+
+
     for (let [nombre, { ganancia, gasto }] of Object.entries(totalesPorMes)) {
       let p = document.createElement("p");
       p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
       totalesPorMesSection.appendChild(p);
     }
-    sectionResumen.appendChild(totalesPorMesSection);
+    //sectionResumen.appendChild(totalesPorMesSection);
+    //operacionesDiv.appendChild(sectionResumen);
 
-    operacionesDiv.appendChild(sectionResumen);
   } else {
-    let operacionesDiv = document.getElementById("sin-reportes");
-    //operacionesDiv.replaceChildren();
-    operacionesDiv.innerHTML = `<div class="cont-fig-texto pb-12 pt-10 mt-9 mb-12">
+    let divSinReportes = document.getElementById("sin-reportes");
+  
+    divSinReportes.replaceChildren(); // método del DOM que elimina todos los nodos hijos actuales del elemento y opcionalmente los reemplaza con nuevos nodos.
+    
+    divSinReportes.innerHTML = `<div class="cont-fig-texto pb-12 pt-10 mt-9 mb-12">
                   <figure class="imagen-reporte max-w-xs m-0 m-auto p-0 block relative">
                     <img src="./img/reporteIMG.png" class="img-rep block h-auto max-w-full" alt="imagen">
                   </figure>
@@ -790,7 +816,9 @@ function calcularReportes(operaciones) {
     mesMayorGasto,
   };
 }
+
 // Obtener las operaciones del localStorage y mostrar los reportes
+
 function cargarOperacionesYMostrarReportes() {
   if (!localStorage.getItem("operaciones")) {
     const reportsSection = document.getElementById("reports-section");
@@ -808,4 +836,3 @@ function cargarOperacionesYMostrarReportes() {
     totalesMes.classList.add("hidden");
   }
 }
-
