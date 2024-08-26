@@ -737,18 +737,24 @@ function calcularReportes(operaciones) {
     sectionResumen.appendChild(categoriaConMayorGasto);
 
     let categoriaConMayorBalance = document.createElement("div");
-    categoriaConMayorBalance.textContent = `Categoria con Mayor Balance: ${categoriaMayorBalance.nombre} Monto: ${categoriaMayorBalance.monto}`;
-
+    categoriaConMayorBalance.classList = "w-full flex";
+    categoriaConMayorBalance.innerHTML = `<div class = "w-6/12">Categoria con Mayor Balance</div>
+                                        <div class= "w-3/12"><p> ${categoriaMayorBalance.nombre}</p></div>
+                                        <div class="w-3/12"><p>${categoriaMayorBalance.monto}</p></div>`;
     sectionResumen.appendChild(categoriaConMayorBalance);
 
     let mesConMayorGanancia = document.createElement("div");
-    mesConMayorGanancia.textContent = `Mes con Mayor Ganancia: ${mesMayorGanancia.nombre} Monto: ${mesMayorGanancia.monto}`;
-
+    mesConMayorGanancia.classList = "w-full flex";
+    mesConMayorGanancia.innerHTML = `<div class = "w-6/12">Categoria con Mayor Balance</div>
+                                        <div class= "w-3/12"><p>  ${mesMayorGanancia.nombre}</p></div>
+                                        <div class="w-3/12"><p>${mesMayorGanancia.monto}</p></div>`;
     sectionResumen.appendChild(mesConMayorGanancia);
 
     let mesConMayorGasto = document.createElement("div");
-    mesConMayorGasto.textContent = `Mes con Mayor Gasto: ${mesMayorGasto.nombre} Monto: ${mesMayorGasto.monto}`;
-
+    mesConMayorGasto.classList = "w-full flex";
+    mesConMayorGasto.innerHTML = `<div class = "w-6/12">Categoria con Mayor Balance</div>
+                                        <div class= "w-3/12"><p>${mesMayorGasto.nombre} </p></div>
+                                        <div class="w-3/12"><p>${mesMayorGasto.monto}</p></div>`;
     sectionResumen.appendChild(mesConMayorGasto);
 
 //totales por categorias
@@ -766,9 +772,17 @@ function calcularReportes(operaciones) {
     for (let [nombre, { ganancia, gasto }] of Object.entries(
       totalesPorCategoria
     )) {
-      let p = document.createElement("p");
-      p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
-      totalesPorCategoriaSection.appendChild(p);
+      //let totalesXcategorias = document.createElement("div");
+      //totalesXcategorias .textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
+
+      //  FALTA RESOLVERLO
+
+      let totalesXcategorias = document.createElement("div");
+      totalesXcategorias.classList = "w-full flex";
+      totalesXcategorias.innerHTML = `<div class = "w-6/12">Categoria con Mayor Balance</div>
+                                        <div class= "w-3/12"><p>Ganancia ${ganancia} </p></div>
+                                        <div class="w-3/12"><p>Gasto ${gasto}</p></div>`;
+      totalesPorCategoriaSection.appendChild(totalesXcategorias);
     }
   
 //totales por mes
@@ -789,8 +803,6 @@ function calcularReportes(operaciones) {
       p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
       totalesPorMesSection.appendChild(p);
     }
-    //sectionResumen.appendChild(totalesPorMesSection);
-    //operacionesDiv.appendChild(sectionResumen);
 
   } else {
     let divSinReportes = document.getElementById("sin-reportes");
