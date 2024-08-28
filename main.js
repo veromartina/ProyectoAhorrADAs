@@ -5,7 +5,7 @@ const iconoCerrar = document.getElementById("cerrar");
 const navItems = document.getElementById("nav-items");
 
 const ocultarOperaciones = document.getElementById("ocultarOperaciones");
-const nuevaOperacion = document.getElementById("nueva_operacion");
+// const nuevaOperacion = document.getElementById("nueva_operacion");
 const sectionBalance = document.getElementById("section-balance");
 const seccionCategorias = document.getElementById("categoria");
 const edicionCateg = document.getElementById("editar-categorias");
@@ -320,6 +320,34 @@ categoria_filtro.addEventListener("change", mostrarOperaciones);
 fecha_filtro.addEventListener("change", mostrarOperaciones);
 orden_filtro.addEventListener("change", mostrarOperaciones);
 
+// OCULTAR FILTROS
+const ocultarFiltro = document.getElementById("ocultarFiltro");
+
+function ocultar_y_mostrar_Filtros() {
+  
+
+  // Verifico el estado actual del display de uno de los filtros
+  if (tipo_filtro.style.display === "none" || tipo_filtro.style.display === "") {
+    // Muestro los filtros
+    tipo_filtro.style.display = "block";
+    categoria_filtro.style.display = "block";
+    fecha_filtro.style.display = "block";
+    orden_filtro.style.display = "block";
+    ocultarFiltro.textContent = "Ocultar Filtros";
+  } else {
+    // Oculto los filtros
+    tipo_filtro.style.display = "none";
+    categoria_filtro.style.display = "none";
+    fecha_filtro.style.display = "none";
+    orden_filtro.style.display = "none";
+    ocultarFiltro.textContent = "Mostrar Filtros";
+  }
+}
+
+// Agrego el evento click al botón ocultar filtro
+ocultarFiltro.addEventListener("click", ocultar_y_mostrar_Filtros);
+
+
 // Mostrar operaciones guardadas
 function mostrarOperaciones() {
   const operacionesGuardadas =
@@ -372,28 +400,58 @@ function mostrarOperaciones() {
   }
   operaciones.innerHTML = "";
   operacionesGuardadas.forEach((operacion, index) => {
-    const div = document.createElement("div");
-    div.classList =
-      "sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around ";
+   
+    const th = document.createElement("th");
+    th.classList = "flex flex-wrap  justify-around  my-1.5 text-gray-500 toLowerCase tracking-wider";
 
+    th.innerHTML = `
+    <th
+                        
+                      >
+                        Descripción
+                      </th>
+                      <th
+                        
+                      >
+                        Categoría
+                      </th>
+                      <th
+                        
+                      >
+                        Fecha
+                      </th>
+                      <th
+                        
+                      >
+                        Monto
+                      </th>
+                      <th
+                        
+                      >
+                        Acciones
+                      </th>
+    `
+    
     const tr = document.createElement("tr");
-    tr.classList = "bg-white";
+    tr.classList = "bg-white flex flex-wrap justify-center  border-double border-4 ";
 
     tr.innerHTML = `
-     <td class="px-3 py-3 whitespace-nowrap">${operacion.descripcion}</td>
-     <td class="px-3 py-3 whitespace-nowrap">${operacion.tipo}</td>
-     <td class="px-3 py-3 whitespace-nowrap">${operacion.categoria}</td>
-     <td class="px-3 py-3 whitespace-nowrap">${operacion.fecha}</td>
-     <td class="px-3 py-3 whitespace-nowrap">${operacion.monto}</td>
-     <td class="px-3 py-3 whitespace-nowrap">
-       <div class="flex justify-end gap-4">
+   
+     <td class="px-3 py-3 ">${operacion.descripcion}</td>
+     <td class="px-3 py-3 ">${operacion.tipo}</td>
+     <td class="px-3 py-3 ">${operacion.categoria}</td>
+     <td class="px-3 py-3 ">${operacion.fecha}</td>
+     <td class="px-3 py-3 ">${operacion.monto}</td>
+     <td class="px-3 py-3 ">
+       
          <button class="bg-blue-500 text-white p-1 rounded" onclick="editarOperacion(${index})">Editar</button>
          <button class="bg-red-500 text-white p-1 rounded" onclick="eliminarOperacion(${index})">Eliminar</button>
-       </div>
+       
      </td>
    `;
-    div.append(tr);
-    operaciones.appendChild(div);
+   
+    operaciones.append(th)
+   operaciones.appendChild(tr);
   });
 
   if (operacionesGuardadas.length > 0) {
@@ -434,7 +492,7 @@ function agregarOperacion(event) {
 
     mostrarOperaciones();
     ventanaNuevaOperacion.style.display = "none";
-    sectionBalance.style.display = "block";
+    sectionBalance.style.display = "flex";
   }
 }
 
@@ -442,6 +500,7 @@ function agregarOperacion(event) {
 btnNuevaOperacion.addEventListener("click", () => {
   sectionBalance.style.display = "none";
   ventanaNuevaOperacion.style.display = "block";
+  formNuevaOperacion.reset();
 });
 
 // Capturar los datos del formulario y añadir operación
@@ -490,7 +549,7 @@ function eliminarOperacion(index) {
 botonCancelarOperacion.addEventListener("click", (event) => {
   event.preventDefault();
   ventanaNuevaOperacion.style.display = "none";
-  sectionBalance.style.display = "block";
+  sectionBalance.style.display = "flex";
 });
 
 // Al hacer click en el boton editar
@@ -542,7 +601,7 @@ function actualizarOperacion(index) {
   botonAgregarOperacion.onclick = agregarOperacion;
 
   ventanaNuevaOperacion.style.display = "none";
-  sectionBalance.style.display = "block";
+  sectionBalance.style.display = "flex";
 
   // Mostrar las operaciones actualizadas
   mostrarOperaciones();

@@ -237,7 +237,7 @@
             <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
                 <div class="flex justify-between m-3">
                     <h2 class="text-lg font-bold">Filtros</h2>
-                    <p class="text-cyan-700">Ocultar Filtros</p>
+                    <p class="text-cyan-700" id="ocultarFiltro">Ocultar Filtros</p>
                 </div>
     
                 <div class="flex flex-col gap-2 m-3">
@@ -272,8 +272,9 @@
         </div>
     
         <!-- SECCION OPERACIONES -->
+         
             <section class="md:w-3/5 shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
-              <div class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around ">
+              <div class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around " id="contenedor_form_operaciones">
                 <h2 class="text-lg font-bold m-3">Operaciones</h2>
                     <button id="nueva_operacion" class="bg-teal-300 rounded-md p-1 m-2 md:dark:md:hover:bg-teal-400" type="submit">
                         + Nueva operación
@@ -283,10 +284,10 @@
                 <div class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around" id="ocultarOperaciones">
                   <table
                     id="operaciones"
-                    class="min-w-full divide-y divide-gray-200"
+                    
                   >
                   
-                    <tr>
+                    <tr >
                       <th
                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                       >
@@ -333,83 +334,84 @@
       </div>
     
       <!-- NUEVA OPERACION -->
-      <section
-        id="ventanaNuevaOperacion"
-        class="flex flex-col bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 lg:my-40 hidden"
-      >
-        <h2 class="text-3xl font-bold text-gray-800">Nueva operación</h2>
-        <form class="" id="formNuevaOperacion">
-          <ul class="flex flex-col gap-6">
-            <li class="flex flex-col gap-2">
-              <label class="font-bold text-gray-800">Descripción</label>
-              <input
-                id="nuevaOperacion-descripcion"
-                type="text"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-              />
-            </li>
-            <li class="flex flex-col gap-2">
-              <label class="font-bold text-gray-800">Monto</label>
-              <input
-                id="nuevaOperacion-monto"
-                type="number"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-              />
-            </li>
-            <li class="flex flex-col gap-2">
-              <label class="font-bold text-gray-800">Tipo</label>
-              <select
-                id="nuevaOperacion-tipo"
-                name="select"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-              >
-                <option selected disabled>Seleccione una opcion</option>
-                <option value="gasto">Gasto</option>
-                <option value="ganancia">Ganancia</option>
-              </select>
-            </li>
-            <li class="flex flex-col gap-2">
-              <label class="font-bold text-gray-800">Categoría</label>
-              <select
-                id="nuevaOperacion-categoria"
-                name="select"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-              >
-                <option selected disabled>Seleccione una opcion</option>
-                <option value="comida">Comida</option>
-                <option value="servicio">Servicios</option>
-                <option value="salida">Salidas</option>
-                <option value="educacion">Educación</option>
-                <option value="transporte">Transporte</option>
-                <option value="trabajo">Trabajo</option>
-              </select>
-            </li>
-            <li class="flex flex-col gap-2">
-              <label class="font-bold text-gray-800">Fecha</label>
-              <input
-                id="nuevaOperacion-fecha"
-                type="date"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-              />
-            </li>
-            <li class="flex justify-end gap-3">
-              <button
-                id="botonCancelarOperacion"
-                class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white"
-              >
-                Cancelar
-              </button>
-              <button
-                id="botonAgregarOperacion"
-                class="bg-green-500 p-2 rounded hover:bg-sky-700 hover:text-white"
-              >
-                Agregar
-              </button>
-            </li>
-          </ul>
-        </form>
-      </section>
-
+       <div class="flex justify-center items-center ">
+        <section
+          id="ventanaNuevaOperacion"
+          class="flex flex-col  bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 lg:my-40 hidden"
+        >
+          <h2 class="text-3xl font-bold text-gray-800">Nueva operación</h2>
+          <form class="" id="formNuevaOperacion">
+            <ul class="flex flex-col gap-6">
+              <li class="flex flex-col gap-2">
+                <label class="font-bold text-gray-800">Descripción</label>
+                <input
+                  id="nuevaOperacion-descripcion"
+                  type="text"
+                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
+                />
+              </li>
+              <li class="flex flex-col gap-2">
+                <label class="font-bold text-gray-800">Monto</label>
+                <input
+                  id="nuevaOperacion-monto"
+                  type="number"
+                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
+                />
+              </li>
+              <li class="flex flex-col gap-2">
+                <label class="font-bold text-gray-800">Tipo</label>
+                <select
+                  id="nuevaOperacion-tipo"
+                  name="select"
+                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
+                >
+                  <option selected disabled>Seleccione una opcion</option>
+                  <option value="gasto">Gasto</option>
+                  <option value="ganancia">Ganancia</option>
+                </select>
+              </li>
+              <li class="flex flex-col gap-2">
+                <label class="font-bold text-gray-800">Categoría</label>
+                <select
+                  id="nuevaOperacion-categoria"
+                  name="select"
+                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
+                >
+                  <option selected disabled>Seleccione una opcion</option>
+                  <option value="comida">Comida</option>
+                  <option value="servicio">Servicios</option>
+                  <option value="salida">Salidas</option>
+                  <option value="educacion">Educación</option>
+                  <option value="transporte">Transporte</option>
+                  <option value="trabajo">Trabajo</option>
+                </select>
+              </li>
+              <li class="flex flex-col gap-2">
+                <label class="font-bold text-gray-800">Fecha</label>
+                <input
+                  id="nuevaOperacion-fecha"
+                  type="date"
+                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
+                />
+              </li>
+              <li class="flex justify-end gap-3">
+                <button
+                  id="botonCancelarOperacion"
+                  class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white"
+                >
+                  Cancelar
+                </button>
+                <button
+                  id="botonAgregarOperacion"
+                  class="bg-green-500 p-2 rounded hover:bg-sky-700 hover:text-white"
+                >
+                  Agregar
+                </button>
+              </li>
+            </ul>
+          </form>
+        </section>
+      </div>
       <!-- EDITAR OPERACION -->
       <section
         id="ventanaEditarOperacion"
