@@ -31,3 +31,12 @@
  .hidden{
    display: none;
  }
+
+ #ocultarFiltro{
+
+  cursor: pointer;
+ }
+
+ #ocultarFiltro:hover{
+  color: rgb(40, 41, 41);
+ }
