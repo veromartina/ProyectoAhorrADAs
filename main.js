@@ -766,6 +766,8 @@ function calcularReportes(operaciones) {
 
     let divConReportes = document.getElementById("con-reportes");
 
+    divConReportes.innerHTML = '';
+
 //resumen:
 
     let sectionResumen = document.createElement("section");
