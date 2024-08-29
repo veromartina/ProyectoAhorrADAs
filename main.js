@@ -299,14 +299,10 @@ function calcularBalance() {
     }
   });
 
-  document.getElementById(
-    "ganancias"
-  ).textContent = `+$${totalGanancias.toFixed(2)}`;
-
+  document.getElementById("ganancias").textContent = `+$${totalGanancias.toFixed(2)}`;
   document.getElementById("gastos").textContent = `-$${totalGastos.toFixed(2)}`;
-  document.getElementById("total").textContent = `$${(
-    totalGanancias - totalGastos
-  ).toFixed(2)}`;
+  const balance = document.getElementById("total").textContent = `$${(totalGanancias - totalGastos
+).toFixed(2)}`;
 }
 
 // Filtros
@@ -770,6 +766,8 @@ function calcularReportes(operaciones) {
 
     let divConReportes = document.getElementById("con-reportes");
 
+    divConReportes.innerHTML = '';
+
 //resumen:
 
     let sectionResumen = document.createElement("section");
@@ -838,17 +836,17 @@ function calcularReportes(operaciones) {
     totalesPorCategoriaSection.appendChild(titulosXcategorias)
 
   
-    for (let [nombre, { ganancia, gasto }] of Object.entries(
-      totalesPorCategoria
-    )) {
+    for (let [nombre, { ganancia, gasto, balance }] of Object.entries(
+      totalesPorCategoria)) {
       
       let totalesXcategorias = document.createElement("tr");
+      let balance = ganancia - gasto;
       totalesXcategorias.classList = "w-full flex";
       totalesXcategorias.innerHTML = `
                                       <td class = "w-6/12"><p>${nombre}</p></td>
                                       <td class = "w-3/12"><p> ${ganancia}</p></td>
                                       <td class = "w-6/12"><p>${gasto}</p></td>
-                                      <td class = "w-6/12"><p>${ganancia}-${gasto}</p></td>
+                                      <td class = "w-6/12"><p>${balance}</p></td>
                                       </td>`;
                                        
       totalesPorCategoriaSection.appendChild(totalesXcategorias)
