@@ -24,12 +24,9 @@
     margin-bottom: 1.5rem;
  }
  .seccReportes{
-   padding: 3rem 1.5rem;
+   padding: 3rem 1rem;
    margin-bottom: 1.5rem;
- }
-
- .hidden{
-   display: none;
+   object-fit: cover;
  }
 
  .filaXdiv{
@@ -38,13 +35,33 @@
   margin-left: -.75rem;
   margin-right: -.75rem;
   margin-top: -.75rem;
-
  }
+
 .TitulosColCateg{
   width: 50%;
   padding: .75rem;
   font-weight: 600;
 }
+
+.catMayores{
+  align-items: center;
+  border-radius: 4px;
+  font-size: .75rem;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: .75em;
+  padding-right: .75em;
+  background-color: #ebfffc;
+  color: #00947e;
+
+}
+
+ .hidden{
+   display: none;
+ }
+
+
 
 /*        */
 
