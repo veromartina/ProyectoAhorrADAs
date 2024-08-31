@@ -32,6 +32,22 @@
    display: none;
  }
 
+ .filaXdiv{
+  display: flex;
+  margin-bottom: calc(1.5rem - .75rem);
+  margin-left: -.75rem;
+  margin-right: -.75rem;
+  margin-top: -.75rem;
+
+ }
+.TitulosColCateg{
+  width: 50%;
+  padding: .75rem;
+  font-weight: 600;
+}
+
+/*        */
+
  #ocultarFiltro{
 
   cursor: pointer;
