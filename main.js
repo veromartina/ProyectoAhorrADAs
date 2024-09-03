@@ -318,12 +318,18 @@ orden_filtro.addEventListener("change", mostrarOperaciones);
 
 // OCULTAR FILTROS
 const ocultarFiltro = document.getElementById("ocultarFiltro");
-
+const contenedor_filtros = document.getElementById("contenedor_filtros")
 function ocultar_y_mostrar_Filtros() {
 
 
+  
+  if (contenedor_filtros.classList.toggle('hidden')) {
+    ocultarFiltro.innerText = 'Mostrar Filtros'
+  } else {
+    ocultarFiltro.innerText = 'Ocultar Filtros'
+  }
   // Verifico el estado actual del display de uno de los filtros
-  if (tipo_filtro.style.display === "none" || tipo_filtro.style.display === "") {
+  /* if (tipo_filtro.style.display === "none" || tipo_filtro.style.display === "") {
     // Muestro los filtros
     tipo_filtro.style.display = "block";
     categoria_filtro.style.display = "block";
@@ -337,7 +343,7 @@ function ocultar_y_mostrar_Filtros() {
     fecha_filtro.style.display = "none";
     orden_filtro.style.display = "none";
     ocultarFiltro.textContent = "Mostrar Filtros";
-  }
+  } */
 }
 
 // Agrego el evento click al botón ocultar filtro
@@ -355,6 +361,7 @@ function mostrarOperaciones() {
   const filtroOrden = orden_filtro.value;
 
   let operacionesFiltradas = operacionesGuardadas.filter((operacion) => {
+    console.log(`Filtrando: Tipo de filtro = ${filtroTipo}, Tipo de operación = ${operacion.tipo}`);
     return (
       (filtroCategoria === "todas" ||
         operacion.categoria.toLowerCase() === filtroCategoria.toLowerCase()) &&
@@ -395,43 +402,35 @@ function mostrarOperaciones() {
     }
   }
   operaciones.innerHTML = "";
-  operacionesGuardadas.forEach((operacion, index) => {
+ 
 
-    const th = document.createElement("th");
-    th.classList = "flex flex-wrap  justify-around  my-1.5 text-gray-500 toLowerCase tracking-wider";
+  operacionesFiltradas.forEach((operacion, index) => {
+   
+      const th = document.createElement("th");
+      th.classList = "flex flex-wrap  justify-around  my-1.5 text-gray-500 toLowerCase tracking-wider";
 
-    th.innerHTML = `
-    <th
-                        
-                      >
-                        Descripción
-                      </th>
-                      <th
-                        
-                      >
-                        Categoría
-                      </th>
-                      <th
-                        
-                      >
-                        Fecha
-                      </th>
-                      <th
-                        
-                      >
-                        Monto
-                      </th>
-                      <th
-                        
-                      >
-                        Acciones
-                      </th>
+      th.innerHTML = `
+    <th>
+    Descripción
+    </th>
+    <th>
+    Categoría
+    </th>
+    <th>
+    Fecha
+    </th>
+     <th>
+    Monto
+    </th>
+    <th>
+    Acciones
+    </th>
     `
 
-    const tr = document.createElement("tr");
-    tr.classList = "bg-white flex flex-wrap justify-center  border-double border-4 ";
+      const tr = document.createElement("tr");
+      tr.classList = "bg-white flex flex-wrap justify-center  border-double border-4 ";
 
-    tr.innerHTML = `
+      tr.innerHTML = `
    
      <td class="px-3 py-3 ">${operacion.descripcion}</td>
      <td class="px-3 py-3 ">${operacion.tipo}</td>
@@ -446,169 +445,170 @@ function mostrarOperaciones() {
      </td>
    `;
 
-    operaciones.append(th)
-    operaciones.appendChild(tr);
-  });
+      operaciones.append(th)
+      operaciones.appendChild(tr);
+    });
 
-  if (operacionesGuardadas.length > 0) {
-    ocultarOperaciones.classList.remove("hidden");
-    noResultados.style.display = "none";
-  } else {
-    ocultarOperaciones.classList.add("hidden");
-    noResultados.style.display = "block";
+    if (operacionesGuardadas.length > 0) {
+      ocultarOperaciones.classList.remove("hidden");
+      noResultados.style.display = "none";
+    } else {
+      ocultarOperaciones.classList.add("hidden");
+      noResultados.style.display = "block";
+    }
+
+    calcularBalance();
   }
 
-  calcularBalance();
-}
+    // Añadir operación (restablecer el comportamiento del botón de agregar)
+    function agregarOperacion(event) {
+      event.preventDefault();
+      const descripcion = document.getElementById(
+        "nuevaOperacion-descripcion"
+      ).value;
+      const monto = document.getElementById("nuevaOperacion-monto").value;
+      const tipo = document.getElementById("nuevaOperacion-tipo").value;
+      const categoria = document.getElementById("nuevaOperacion-categoria").value;
+      const fecha = document.getElementById("nuevaOperacion-fecha").value;
 
-// Añadir operación (restablecer el comportamiento del botón de agregar)
-function agregarOperacion(event) {
-  event.preventDefault();
-  const descripcion = document.getElementById(
-    "nuevaOperacion-descripcion"
-  ).value;
-  const monto = document.getElementById("nuevaOperacion-monto").value;
-  const tipo = document.getElementById("nuevaOperacion-tipo").value;
-  const categoria = document.getElementById("nuevaOperacion-categoria").value;
-  const fecha = document.getElementById("nuevaOperacion-fecha").value;
+      if (descripcion && monto && tipo && categoria && fecha) {
+        let nuevaOperacion = {
+          descripcion,
+          monto,
+          tipo,
+          categoria,
+          fecha,
+        };
 
-  if (descripcion && monto && tipo && categoria && fecha) {
-    let nuevaOperacion = {
-      descripcion,
-      monto,
-      tipo,
-      categoria,
-      fecha,
-    };
+        let operacionesGuardadas =
+          console.log(JSON.parse(localStorage.getItem("operaciones")) || []);
+        operacionesGuardadas.push(nuevaOperacion);
+        localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
 
-    let operacionesGuardadas =
-      JSON.parse(localStorage.getItem("operaciones")) || [];
-    operacionesGuardadas.push(nuevaOperacion);
-    localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
+        mostrarOperaciones();
+        ventanaNuevaOperacion.style.display = "none";
+        sectionBalance.style.display = "flex";
+      }
+    }
 
-    mostrarOperaciones();
-    ventanaNuevaOperacion.style.display = "none";
-    sectionBalance.style.display = "flex";
+    // Mostrar el formulario de nueva operación
+    btnNuevaOperacion.addEventListener("click", () => {
+      sectionBalance.style.display = "none";
+      ventanaNuevaOperacion.style.display = "block";
+      formNuevaOperacion.reset();
+    }),
+
+    // Capturar los datos del formulario y añadir operación
+    formNuevaOperacion.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const descripcion = document.getElementById(
+        "nuevaOperacion-descripcion"
+      ).value;
+      const monto = document.getElementById("nuevaOperacion-monto").value;
+      const tipo = document.getElementById("nuevaOperacion-tipo").value;
+      const categoria = document.getElementById("nuevaOperacion-categoria").value;
+      const fecha = document.getElementById("nuevaOperacion-fecha").value;
+
+      if (descripcion && monto && tipo && categoria && fecha) {
+        let nuevaOperacion = {
+          descripcion,
+          monto,
+          tipo,
+          categoria,
+          fecha,
+        };
+
+        let operacionesGuardadas =
+          JSON.parse(localStorage.getItem("operaciones")) || [];
+        operacionesGuardadas.push(nuevaOperacion);
+        localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
+
+        mostrarOperaciones();
+        ventanaNuevaOperacion.style.display = "none";
+        sectionBalance.style.display = "flex";
+      }
+    }),
+
+    // Eliminar operación
+    function eliminarOperacion(index) {
+      let operacionesGuardadas =
+        JSON.parse(localStorage.getItem("operaciones")) || [];
+      operacionesGuardadas.splice(index, 1);
+      localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
+      mostrarOperaciones();
+
+    },
+
+    // Al hacer click en Cancelar formulario
+    botonCancelarOperacion.addEventListener("click", (event) => {
+      event.preventDefault();
+      ventanaNuevaOperacion.style.display = "none";
+      sectionBalance.style.display = "flex";
+    }),
+
+    // Al hacer click en el boton editar
+    function editarOperacion(index) {
+      const operacionesGuardadas =
+        JSON.parse(localStorage.getItem("operaciones")) || [];
+      const operacion = operacionesGuardadas[index];
+
+      // Llenar el formulario con los datos de la operación
+      document.getElementById("nuevaOperacion-descripcion").value =
+        operacion.descripcion;
+      document.getElementById("nuevaOperacion-monto").value = operacion.monto;
+      document.getElementById("nuevaOperacion-tipo").value = operacion.tipo;
+      document.getElementById("nuevaOperacion-categoria").value =
+        operacion.categoria;
+      document.getElementById("nuevaOperacion-fecha").value = operacion.fecha;
+
+      // Mostrar el formulario de edición
+      ventanaNuevaOperacion.style.display = "block";
+      sectionBalance.style.display = "none";
+
+      // Cambiar el comportamiento del botón de agregar para que actualice la operación
+      botonAgregarOperacion.textContent = "Actualizar";
+      botonAgregarOperacion.onclick = function (event) {
+        event.preventDefault();
+        actualizarOperacion(index);
+      };
+    },
+
+    function actualizarOperacion(index) {
+      const operacionesGuardadas =
+        JSON.parse(localStorage.getItem("operaciones")) || [];
+
+      // Actualizar la operación con los nuevos datos del formulario
+      operacionesGuardadas[index] = {
+        descripcion: document.getElementById("nuevaOperacion-descripcion").value,
+        monto: document.getElementById("nuevaOperacion-monto").value,
+        tipo: document.getElementById("nuevaOperacion-tipo").value,
+        categoria: document.getElementById("nuevaOperacion-categoria").value,
+        fecha: document.getElementById("nuevaOperacion-fecha").value,
+      };
+
+      // Guardar los cambios en localStorage
+      localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
+
+      // Restaurar el formulario y la interfaz
+      botonAgregarOperacion.textContent = "Agregar";
+
+      botonAgregarOperacion.onclick = agregarOperacion;
+
+      ventanaNuevaOperacion.style.display = "none";
+      sectionBalance.style.display = "flex";
+
+      // Mostrar las operaciones actualizadas
+      mostrarOperaciones();
+    },
+
+    //REPORTES -RESUMEN
+
+    function ocultarElementos() {
+      const operaciones = localStorage.getItem("operaciones")
+      document.getElementById("ocultar-img-texto").classList.add("hidden")
   }
-}
 
-// Mostrar el formulario de nueva operación
-btnNuevaOperacion.addEventListener("click", () => {
-  sectionBalance.style.display = "none";
-  ventanaNuevaOperacion.style.display = "block";
-  formNuevaOperacion.reset();
-});
-
-// Capturar los datos del formulario y añadir operación
-formNuevaOperacion.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const descripcion = document.getElementById(
-    "nuevaOperacion-descripcion"
-  ).value;
-  const monto = document.getElementById("nuevaOperacion-monto").value;
-  const tipo = document.getElementById("nuevaOperacion-tipo").value;
-  const categoria = document.getElementById("nuevaOperacion-categoria").value;
-  const fecha = document.getElementById("nuevaOperacion-fecha").value;
-
-  if (descripcion && monto && tipo && categoria && fecha) {
-    let nuevaOperacion = {
-      descripcion,
-      monto,
-      tipo,
-      categoria,
-      fecha,
-    };
-
-    let operacionesGuardadas =
-      JSON.parse(localStorage.getItem("operaciones")) || [];
-    operacionesGuardadas.push(nuevaOperacion);
-    localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
-
-    mostrarOperaciones();
-    ventanaNuevaOperacion.style.display = "none";
-    sectionBalance.style.display = "flex";
-  }
-});
-
-// Eliminar operación
-function eliminarOperacion(index) {
-  let operacionesGuardadas =
-    JSON.parse(localStorage.getItem("operaciones")) || [];
-  operacionesGuardadas.splice(index, 1);
-  localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
-  mostrarOperaciones();
-
-}
-
-// Al hacer click en Cancelar formulario
-botonCancelarOperacion.addEventListener("click", (event) => {
-  event.preventDefault();
-  ventanaNuevaOperacion.style.display = "none";
-  sectionBalance.style.display = "flex";
-});
-
-// Al hacer click en el boton editar
-function editarOperacion(index) {
-  const operacionesGuardadas =
-    JSON.parse(localStorage.getItem("operaciones")) || [];
-  const operacion = operacionesGuardadas[index];
-
-  // Llenar el formulario con los datos de la operación
-  document.getElementById("nuevaOperacion-descripcion").value =
-    operacion.descripcion;
-  document.getElementById("nuevaOperacion-monto").value = operacion.monto;
-  document.getElementById("nuevaOperacion-tipo").value = operacion.tipo;
-  document.getElementById("nuevaOperacion-categoria").value =
-    operacion.categoria;
-  document.getElementById("nuevaOperacion-fecha").value = operacion.fecha;
-
-  // Mostrar el formulario de edición
-  ventanaNuevaOperacion.style.display = "block";
-  sectionBalance.style.display = "none";
-
-  // Cambiar el comportamiento del botón de agregar para que actualice la operación
-  botonAgregarOperacion.textContent = "Actualizar";
-  botonAgregarOperacion.onclick = function (event) {
-    event.preventDefault();
-    actualizarOperacion(index);
-  };
-}
-
-function actualizarOperacion(index) {
-  const operacionesGuardadas =
-    JSON.parse(localStorage.getItem("operaciones")) || [];
-
-  // Actualizar la operación con los nuevos datos del formulario
-  operacionesGuardadas[index] = {
-    descripcion: document.getElementById("nuevaOperacion-descripcion").value,
-    monto: document.getElementById("nuevaOperacion-monto").value,
-    tipo: document.getElementById("nuevaOperacion-tipo").value,
-    categoria: document.getElementById("nuevaOperacion-categoria").value,
-    fecha: document.getElementById("nuevaOperacion-fecha").value,
-  };
-
-  // Guardar los cambios en localStorage
-  localStorage.setItem("operaciones", JSON.stringify(operacionesGuardadas));
-
-  // Restaurar el formulario y la interfaz
-  botonAgregarOperacion.textContent = "Agregar";
-
-  botonAgregarOperacion.onclick = agregarOperacion;
-
-  ventanaNuevaOperacion.style.display = "none";
-  sectionBalance.style.display = "flex";
-
-  // Mostrar las operaciones actualizadas
-  mostrarOperaciones();
-}
-
-//REPORTES -RESUMEN
-
-function ocultarElementos() {
-  const operaciones = localStorage.getItem("operaciones");
-  document.getElementById("ocultar-img-texto").classList.add("hidden");
-}
 const reportes = calcularReportes(localStorage.getItem("operaciones"));
 
 // Mostrar la sección de resumen
