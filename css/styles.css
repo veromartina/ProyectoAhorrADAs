@@ -31,6 +31,7 @@
 
  .filaXdiv{
   display: flex;
+  align-items: center;
   margin-bottom: calc(1.5rem - .75rem);
   margin-left: -.75rem;
   margin-right: -.75rem;
@@ -44,16 +45,27 @@
 }
 
 .catMayores{
+  display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 4px;
   font-size: .75rem;
   height: 2em;
-  justify-content: center;
   line-height: 1.5;
-  padding-left: .75em;
-  padding-right: .75em;
+  padding: .75em;
   background-color: #ebfffc;
-  color: #00947e;
+}
+
+.ColumTotaCat{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  font-weight: 600;
+  font-size: .75rem;
+  height: 2em;
+  line-height: 1.5;
+  padding: .75em;
 
 }
 
