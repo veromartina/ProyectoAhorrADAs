@@ -402,9 +402,9 @@ function mostrarOperaciones() {
     }
   }
   operaciones.innerHTML = "";
-  operacionesGuardadas.forEach((operacion, index) => {
+ 
 
-    operacionesFiltradas.forEach((operacion, index) => {
+  operacionesFiltradas.forEach((operacion, index) => {
    
       const th = document.createElement("th");
       th.classList = "flex flex-wrap  justify-around  my-1.5 text-gray-500 toLowerCase tracking-wider";
@@ -458,7 +458,7 @@ function mostrarOperaciones() {
     }
 
     calcularBalance();
-  },
+  }
 
     // Añadir operación (restablecer el comportamiento del botón de agregar)
     function agregarOperacion(event) {
@@ -489,7 +489,7 @@ function mostrarOperaciones() {
         ventanaNuevaOperacion.style.display = "none";
         sectionBalance.style.display = "flex";
       }
-    },
+    }
 
     // Mostrar el formulario de nueva operación
     btnNuevaOperacion.addEventListener("click", () => {
@@ -605,10 +605,11 @@ function mostrarOperaciones() {
     //REPORTES -RESUMEN
 
     function ocultarElementos() {
-      const operaciones = localStorage.getItem("operaciones");
-      document.getElementById("ocultar-img-texto").classList.add("hidden");
-    }
-const reportes = calcularReportes(localStorage.getItem("operaciones"))
+      const operaciones = localStorage.getItem("operaciones")
+      document.getElementById("ocultar-img-texto").classList.add("hidden")
+  }
+
+const reportes = calcularReportes(localStorage.getItem("operaciones"));
 
 // Mostrar la sección de resumen
 
@@ -943,4 +944,4 @@ function cargarOperacionesYMostrarReportes() {
     totalesCategoria.classList.add("hidden");
     totalesMes.classList.add("hidden");
   }
-}}
+}
