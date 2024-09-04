@@ -14,10 +14,10 @@
 @import url("./desktop.css") screen and (min-width:1024px);
  */
 
-/* Utilizamos clases en comun para dar estilos a los titulos de la seccion reportes */
+/* Utilizamos clases en comun para dar estilos en comun ala seccion reportes */
 
  .titulosH4{
-    font-size: 1.5rem;
+  font-size: calc(1rem + 2vw); /*ajustar el tamaño del texto basado en el tamaño de la ventana del navegador o del contenedor*/
     font-weight: 600;
     line-height: 1.125; 
     padding-bottom: 1rem;
@@ -36,6 +36,7 @@
   margin-left: -.75rem;
   margin-right: -.75rem;
   margin-top: -.75rem;
+  font-size: calc(.4rem + 2vw);
  }
 
 .TitulosColCateg{
@@ -49,7 +50,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  font-size: .75rem;
+  font-size: calc(.2rem + 2vw);
   height: 2em;
   line-height: 1.5;
   padding: .75em;
@@ -62,7 +63,7 @@
   justify-content: center;
   text-align: right;
   font-weight: 600;
-  font-size: .75rem;
+  font-size: calc(.2rem + 2vw);
   height: 2em;
   line-height: 1.5;
   padding: .75em;
