@@ -302,10 +302,11 @@ function calcularBalance() {
   document.getElementById(
     "ganancias"
   ).textContent = `+$${totalGanancias.toFixed(2)}`;
+
   document.getElementById("gastos").textContent = `-$${totalGastos.toFixed(2)}`;
-  const balance = (document.getElementById("total").textContent = `$${(
+  document.getElementById("total").textContent = `$${(
     totalGanancias - totalGastos
-  ).toFixed(2)}`);
+  ).toFixed(2)}`;
 }
 
 // Filtros
@@ -321,15 +322,19 @@ orden_filtro.addEventListener("change", mostrarOperaciones);
 
 // OCULTAR FILTROS
 const ocultarFiltro = document.getElementById("ocultarFiltro");
-const contenedor_filtros = document.getElementById("contenedor_filtros");
+
 function ocultar_y_mostrar_Filtros() {
+  // Verifico el estado actual del display de uno de los filtros
   if (contenedor_filtros.classList.toggle("hidden")) {
     ocultarFiltro.innerText = "Mostrar Filtros";
   } else {
     ocultarFiltro.innerText = "Ocultar Filtros";
   }
-  // Verifico el estado actual del display de uno de los filtros
-  /* if (tipo_filtro.style.display === "none" || tipo_filtro.style.display === "") {
+  
+  /* if (
+    tipo_filtro.style.display === "none" ||
+    tipo_filtro.style.display === ""
+  ) {
     // Muestro los filtros
     tipo_filtro.style.display = "block";
     categoria_filtro.style.display = "block";
@@ -399,62 +404,53 @@ function mostrarOperaciones() {
         break;
     }
   }
-
   operaciones.innerHTML = "";
-
-  operacionesFiltradas.forEach((operacionFiltrada) => {
-    // Encuentro el índice real en el array de operacionesGuardadas
-    const indiceReal = operacionesGuardadas.findIndex(
-      (operacion) =>
-        operacion.descripcion === operacionFiltrada.descripcion &&
-        operacion.fecha === operacionFiltrada.fecha &&
-        operacion.monto === operacionFiltrada.monto &&
-        operacion.tipo === operacionFiltrada.tipo &&
-        operacion.categoria === operacionFiltrada.categoria
-    );
-
+  operacionesFiltradas.forEach((operacion, index) => {
     const th = document.createElement("th");
     th.classList =
-      "flex flex-wrap justify-around my-1.5 text-gray-500 toLowerCase tracking-wider";
+      "flex flex-wrap  justify-around  my-1.5 text-gray-500 toLowerCase tracking-wider";
 
     th.innerHTML = `
     <th>
-      Descripción
+    Descripción
     </th>
     <th>
-      Categoría
+    Categoría
     </th>
     <th>
-      Fecha
+    Fecha
+    </th>
+     <th>
+    Monto
     </th>
     <th>
-      Monto
-    </th>
-    <th>
-      Acciones
+    Acciones
     </th>
     `;
 
     const tr = document.createElement("tr");
     tr.classList =
-      "bg-white flex flex-wrap justify-center border-double border-4";
+      "bg-white flex flex-wrap justify-center  border-double border-4 ";
 
     tr.innerHTML = `
-      <td class="px-3 py-3 ">${operacionFiltrada.descripcion}</td>
-      <td class="px-3 py-3 ">${operacionFiltrada.tipo}</td>
-      <td class="px-3 py-3 ">${operacionFiltrada.categoria}</td>
-      <td class="px-3 py-3 ">${operacionFiltrada.fecha}</td>
-      <td class="px-3 py-3 ">${operacionFiltrada.monto}</td>
-      <td class="px-3 py-3 ">
-        <button class="bg-blue-500 text-white p-1 rounded" onclick="editarOperacion(${indiceReal})">Editar</button>
-        <button class="bg-red-500 text-white p-1 rounded" onclick="eliminarOperacion(${indiceReal})">Eliminar</button>
-      </td>
-    `;
+   
+     <td class="px-3 py-3 ">${operacion.descripcion}</td>
+     <td class="px-3 py-3 ">${operacion.tipo}</td>
+     <td class="px-3 py-3 ">${operacion.categoria}</td>
+     <td class="px-3 py-3 ">${operacion.fecha}</td>
+     <td class="px-3 py-3 ">${operacion.monto}</td>
+     <td class="px-3 py-3 ">
+       
+         <button class="bg-blue-500 text-white p-1 rounded" onclick="editarOperacion(${index})">Editar</button>
+         <button class="bg-red-500 text-white p-1 rounded" onclick="eliminarOperacion(${index})">Eliminar</button>
+       
+     </td>
+   `;
 
     operaciones.append(th);
     operaciones.appendChild(tr);
   });
-
+ 
   if (operacionesFiltradas.length > 0) {
     ocultarOperaciones.classList.remove("hidden");
     noResultados.style.display = "none";
@@ -466,11 +462,9 @@ function mostrarOperaciones() {
   calcularBalance();
 }
 
-
 // Añadir operación (restablecer el comportamiento del botón de agregar)
 function agregarOperacion(event) {
   event.preventDefault();
-
   const descripcion = document.getElementById(
     "nuevaOperacion-descripcion"
   ).value;
@@ -481,7 +475,6 @@ function agregarOperacion(event) {
 
   if (descripcion && monto && tipo && categoria && fecha) {
     let nuevaOperacion = {
-      id: Date.now(), // Asignar un identificador único
       descripcion,
       monto,
       tipo,
@@ -612,13 +605,13 @@ function actualizarOperacion(index) {
   // Mostrar las operaciones actualizadas
   mostrarOperaciones();
 }
-  //REPORTES -RESUMEN
 
-  function ocultarElementos() {
-    const operaciones = localStorage.getItem("operaciones");
-    document.getElementById("ocultar-img-texto").classList.add("hidden");
-  };
+//REPORTES -RESUMEN
 
+function ocultarElementos() {
+  const operaciones = localStorage.getItem("operaciones");
+  document.getElementById("ocultar-img-texto").classList.add("hidden");
+}
 const reportes = calcularReportes(localStorage.getItem("operaciones"));
 
 // Mostrar la sección de resumen
@@ -751,6 +744,8 @@ function calcularReportes(operaciones) {
     }
     if (Object.keys(categorias).length === 1) {
       categoriaMayorBalance = { nombre, monto: balance }; //este método devuelve un arreglo que contiene todas las claves (propiedades) propias del objeto
+
+      /* REFORMAR ACA */
     } else if (balance > categoriaMayorBalance.monto) {
       categoriaMayorBalance = { nombre, monto: balance };
     }
@@ -771,8 +766,6 @@ function calcularReportes(operaciones) {
 
     let divConReportes = document.getElementById("con-reportes");
 
-    divConReportes.innerHTML = "";
-
     //resumen:
 
     let sectionResumen = document.createElement("section");
@@ -785,38 +778,38 @@ function calcularReportes(operaciones) {
     sectionResumen.appendChild(resumenH4);
 
     let categoriaConMayorGanancia = document.createElement("div");
-    categoriaConMayorGanancia.classList = "filaXdiv";
-    categoriaConMayorGanancia.innerHTML = `<div class = "TitulosColCateg"> Categoria con mayor ganancia </div>
-                                           <div class = "w-3/12 catMayores text-[CaribbeanGreen]"> ${categoriaMayorGanancia.nombre} </div>
-                                           <div class ="w-3/12 ColumTotaCat text-green-600"> +${categoriaMayorGanancia.monto} </div>`;
+    categoriaConMayorGanancia.classList = "w-full flex";
+    categoriaConMayorGanancia.innerHTML = `<div class = "w-6/12">Categoria con mayor ganancia</div>
+                                           <div class = "w-3/12"><p> ${categoriaMayorGanancia.nombre}</p></div>
+                                           <div class ="w-3/12"><p> ${categoriaMayorGanancia.monto}</p></div>`;
     sectionResumen.appendChild(categoriaConMayorGanancia);
 
     let categoriaConMayorGasto = document.createElement("div");
-    categoriaConMayorGasto.classList = "filaXdiv";
-    categoriaConMayorGasto.innerHTML = `<div class = "TitulosColCateg">Categoria con mayor gasto</div>
-                                        <div class = "w-3/12 catMayores">${categoriaMayorGasto.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat text-red-600">-${categoriaMayorGasto.monto}</div>`;
+    categoriaConMayorGasto.classList = "w-full flex";
+    categoriaConMayorGasto.innerHTML = `<div class = "w-6/12">Categoria con mayor gasto</div>
+                                        <div class = "w-3/12"><p>${categoriaMayorGasto.nombre}</p></div>
+                                        <div class ="w-3/12"><p>${categoriaMayorGasto.monto}</p></div>`;
     sectionResumen.appendChild(categoriaConMayorGasto);
 
     let categoriaConMayorBalance = document.createElement("div");
-    categoriaConMayorBalance.classList = "filaXdiv";
-    categoriaConMayorBalance.innerHTML = `<div class = "TitulosColCateg">Categoria con Mayor balance</div>
-                                        <div class = "w-3/12 catMayores">${categoriaMayorBalance.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat">${categoriaMayorBalance.monto}</div>`;
+    categoriaConMayorBalance.classList = "w-full flex";
+    categoriaConMayorBalance.innerHTML = `<div class = "w-6/12">Categoria con Mayor balance</div>
+                                        <div class = "w-3/12"><p> ${categoriaMayorBalance.nombre}</p></div>
+                                        <div class ="w-3/12"><p>${categoriaMayorBalance.monto}</p></div>`;
     sectionResumen.appendChild(categoriaConMayorBalance);
 
     let mesConMayorGanancia = document.createElement("div");
-    mesConMayorGanancia.classList = "filaXdiv";
-    mesConMayorGanancia.innerHTML = `<div class = "TitulosColCateg">Mes con Mayor ganancia</div>
-                                        <div class = "w-3/12 ColumTotaCat">${mesMayorGanancia.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat text-green-600">+${mesMayorGanancia.monto}</div>`;
+    mesConMayorGanancia.classList = "w-full flex";
+    mesConMayorGanancia.innerHTML = `<div class = "w-6/12">Mes con Mayor ganancia</div>
+                                        <div class = "w-3/12"><p>  ${mesMayorGanancia.nombre}</p></div>
+                                        <div class ="w-3/12"><p>${mesMayorGanancia.monto}</p></div>`;
     sectionResumen.appendChild(mesConMayorGanancia);
 
     let mesConMayorGasto = document.createElement("div");
-    mesConMayorGasto.classList = "filaXdiv";
-    mesConMayorGasto.innerHTML = `<div class = "TitulosColCateg">Mes con Mayor gasto</div>
-                                        <div class = "w-3/12 ColumTotaCat">${mesMayorGasto.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat text-red-600">-${mesMayorGasto.monto}</div>`;
+    mesConMayorGasto.classList = "w-full flex";
+    mesConMayorGasto.innerHTML = `<div class = "w-6/12">Mes con Mayor gasto</div>
+                                        <div class = "w-3/12"><p>${mesMayorGasto.nombre} </p></div>
+                                        <div class ="w-3/12"><p>${mesMayorGasto.monto}</p></div>`;
     sectionResumen.appendChild(mesConMayorGasto);
 
     //totales por categorias
@@ -832,24 +825,24 @@ function calcularReportes(operaciones) {
     divConReportes.appendChild(totalesPorCategoriaSection);
 
     let titulosXcategorias = document.createElement("div");
-    titulosXcategorias.classList = "filaXdiv";
-    titulosXcategorias.innerHTML = `<div class = "TitulosColCateg w-1/4	">Categorias</div>
-                                    <div class = "TitulosColCateg w-1/4	">Ganancias</div> 
-                                    <div class = "TitulosColCateg w-1/4	">Gastos</div>
-                                    <div class = "TitulosColCateg w-1/4	">Balance</div>`;
+    titulosXcategorias.innerHTML = `<div class = "w-full flex">
+                                      <div class = "w-6/12">Categorias</div>
+                                      <div class = "w-6/12">Ganancias</div> 
+                                      <div class = "w-6/12">Gastos</div>
+                                      <div class = "w-6/12">Balance</div>
+                                      </div>`;
     totalesPorCategoriaSection.appendChild(titulosXcategorias);
 
-    for (let [nombre, { ganancia, gasto, balance }] of Object.entries(
+    for (let [nombre, { ganancia, gasto }] of Object.entries(
       totalesPorCategoria
     )) {
       let totalesXcategorias = document.createElement("tr");
-      let balance = ganancia - gasto;
-      totalesXcategorias.classList = "filaXdiv";
+      totalesXcategorias.classList = "w-full flex";
       totalesXcategorias.innerHTML = `
-                                      <td class = "TitulosColCateg w-1/4">${nombre}</td>
-                                      <td class = "TitulosColCateg w-1/4 text-green-600">+${ganancia}</td>
-                                      <td class = "TitulosColCateg w-1/4 text-red-600">-${gasto}</td>
-                                      <td class = "TitulosColCateg w-1/4">${balance}</td>
+                                      <td class = "w-6/12"><p>${nombre}</p></td>
+                                      <td class = "w-3/12"><p> ${ganancia}</p></td>
+                                      <td class = "w-6/12"><p>${gasto}</p></td>
+                                      <td class = "w-6/12"><p>${ganancia}-${gasto}</p></td>
                                       </td>`;
 
       totalesPorCategoriaSection.appendChild(totalesXcategorias);
@@ -866,27 +859,10 @@ function calcularReportes(operaciones) {
     totalesPorMesSection.appendChild(totalesPorMesSectionH4);
     divConReportes.appendChild(totalesPorMesSection);
 
-    let titTotalMes = document.createElement("div");
-    titTotalMes.innerHTML = `<div class = "filaXdiv">
-                                      <div class = "TitulosColCateg w-1/4	">Mes</div>
-                                      <div class = "TitulosColCateg w-1/4	">Ganancias</div> 
-                                      <div class = "TitulosColCateg w-1/4	">Gastos</div>
-                                      <div class = "TitulosColCateg w-1/4	">Balance</div>
-                                      </div>`;
-    totalesPorMesSection.appendChild(titTotalMes);
-
     for (let [nombre, { ganancia, gasto }] of Object.entries(totalesPorMes)) {
-      let totaXmes = document.createElement("tr");
-      let balance = ganancia - gasto;
-      totaXmes.classList = "filaXdiv";
-      totaXmes.innerHTML = `
-                            <td class = "TitulosColCateg">${nombre}</td>
-                            <td class = "TitulosColCateg text-green-600">+${ganancia}</td>
-                            <td class = "TitulosColCateg text-red-600">-${gasto}</td>
-                            <td class = "TitulosColCateg">${balance}</td>
-                            </td>`;
-
-      totalesPorMesSection.appendChild(totaXmes);
+      let p = document.createElement("p");
+      p.textContent = `${nombre}: Ganancia: ${ganancia}, Gasto: ${gasto}`;
+      totalesPorMesSection.appendChild(p);
     }
   } else {
     let divSinReportes = document.getElementById("sin-reportes");
