@@ -14,14 +14,39 @@
 @import url("./desktop.css") screen and (min-width:1024px);
  */
 
-/* Utilizamos clases en comun para dar estilos en comun ala seccion reportes */
+/*Clases seccion CATEGORIAS */
+.ColumCateg{
+ 
+  height: 2em;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  background-color: #ebfffc;
+  color: #00947e;
+  align-items: center;
+  border-radius: 4px;
+  display: inline-flex;
+  font-size: calc(.2rem + 1.5vw); 
+  justify-content: center;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.btnElimEdit{
+  margin-right: 1rem;
+  font-size: calc(.2rem + 1.5vw); 
+  color: #3273dc;
+  cursor: pointer;
+}
+
+
+/* Utilizamos clases en comun para dar estilos en comun a la seccion REPORTES */
 
  .titulosH4{
-  font-size: calc(1rem + 2vw); /*ajustar el tamaño del texto basado en el tamaño de la ventana del navegador o del contenedor*/
-    font-weight: 600;
-    line-height: 1.125; 
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
+  font-size: calc(.5rem + 1.5vw); /*ajustar el tamaño del texto basado en el tamaño de la ventana del navegador o del contenedor*/
+  font-weight: 600;
+  line-height: 1.125; 
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
  }
  .seccReportes{
    padding: 3rem 1rem;
@@ -36,7 +61,7 @@
   margin-left: -.75rem;
   margin-right: -.75rem;
   margin-top: -.75rem;
-  font-size: calc(.4rem + 2vw);
+  font-size: calc(.2rem + 1.5vw);
  }
 
 .TitulosColCateg{
@@ -50,7 +75,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  font-size: calc(.2rem + 2vw);
+  font-size: calc(.2rem + 1.5vw);
   height: 2em;
   line-height: 1.5;
   padding: .75em;
@@ -58,16 +83,18 @@
 }
 
 .ColumTotaCat{
+  height: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
   text-align: right;
   font-weight: 600;
-  font-size: calc(.2rem + 2vw);
-  height: 2em;
+  font-size: calc(.2rem + 1.5vw);
+  padding-left: 1.5rem;
   line-height: 1.5;
-  padding: .75em;
-
+  display: inline-flex;
+  white-space: nowrap;
 }
 
  .hidden{
@@ -76,7 +103,7 @@
 
 
 
-/*        */
+/* Operaciones */
 
  #ocultarFiltro{
 
