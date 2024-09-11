@@ -16,11 +16,10 @@
 
 /*Clases seccion CATEGORIAS */
 .ColumCateg{
- 
+  width: 25%;
   height: 2em;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
-  background-color: #ebfffc;
   color: #00947e;
   align-items: center;
   border-radius: 4px;
@@ -82,19 +81,13 @@
   background-color: #ebfffc;
 }
 
-.ColumTotaCat{
-  height: 2em;
+.columTotaCat{
+  width: 25%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  text-align: right;
-  font-weight: 600;
-  font-size: calc(.2rem + 1.5vw);
-  padding-left: 1.5rem;
   line-height: 1.5;
   display: inline-flex;
-  white-space: nowrap;
+  
 }
 
  .hidden{
