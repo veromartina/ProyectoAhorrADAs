@@ -181,7 +181,7 @@ function mostrarCategorias() {
     divCategory.className = "flex-1";
     
     const pCategory = document.createElement("p");
-    pCategory.className = "ColumCateg"
+    pCategory.className = "ColumCateg bg-ClearDay_listBg"
     pCategory.textContent = categoria;
 
     const divButtons = document.createElement("div");
@@ -329,21 +329,7 @@ function ocultar_y_mostrar_Filtros() {
     ocultarFiltro.innerText = "Ocultar Filtros";
   }
   // Verifico el estado actual del display de uno de los filtros
-  /* if (tipo_filtro.style.display === "none" || tipo_filtro.style.display === "") {
-    // Muestro los filtros
-    tipo_filtro.style.display = "block";
-    categoria_filtro.style.display = "block";
-    fecha_filtro.style.display = "block";
-    orden_filtro.style.display = "block";
-    ocultarFiltro.textContent = "Ocultar Filtros";
-  } else {
-    // Oculto los filtros
-    tipo_filtro.style.display = "none";
-    categoria_filtro.style.display = "none";
-    fecha_filtro.style.display = "none";
-    orden_filtro.style.display = "none";
-    ocultarFiltro.textContent = "Mostrar Filtros";
-  } */
+  
 }
 
 // Agrego el evento click al botón ocultar filtro
@@ -441,8 +427,7 @@ function mostrarOperaciones() {
 
     tr.innerHTML = `
       <td class="px-3 py-3 ">${operacionFiltrada.descripcion}</td>
-      <td class="px-3 py-3 ">${operacionFiltrada.tipo}</td>
-      <td class="px-3 py-3 ">${operacionFiltrada.categoria}</td>
+      <td class="px-3 py-3 "><span class="bg-ClearDay_listBg rounded">${operacionFiltrada.categoria}</span></td>
       <td class="px-3 py-3 ">${operacionFiltrada.fecha}</td>
       <td class="px-3 py-3 ">${operacionFiltrada.monto}</td>
       <td class="px-3 py-3 ">
@@ -787,36 +772,36 @@ function calcularReportes(operaciones) {
     let categoriaConMayorGanancia = document.createElement("div");
     categoriaConMayorGanancia.classList = "filaXdiv";
     categoriaConMayorGanancia.innerHTML = `<div class = "TitulosColCateg"> Categoria con mayor ganancia </div>
-                                           <div class = "ColumCateg"> ${categoriaMayorGanancia.nombre} </div>
-                                           <div class ="w-3/12 ColumTotaCat text-green-600"> +${categoriaMayorGanancia.monto} </div>`;
+                                           <div class = "ColumCateg bg-ClearDay_listBg"> ${categoriaMayorGanancia.nombre} </div>
+                                           <div class ="columTotaCat text-green-600"> +${categoriaMayorGanancia.monto} </div>`;
     sectionResumen.appendChild(categoriaConMayorGanancia);
 
     let categoriaConMayorGasto = document.createElement("div");
     categoriaConMayorGasto.classList = "filaXdiv";
     categoriaConMayorGasto.innerHTML = `<div class = "TitulosColCateg">Categoria con mayor gasto</div>
-                                        <div class = "ColumCateg">${categoriaMayorGasto.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat text-red-600">-${categoriaMayorGasto.monto}</div>`;
+                                        <div class = "ColumCateg bg-ClearDay_listBg">${categoriaMayorGasto.nombre}</div>
+                                        <div class ="columTotaCat text-red-600">-${categoriaMayorGasto.monto}</div>`;
     sectionResumen.appendChild(categoriaConMayorGasto);
 
     let categoriaConMayorBalance = document.createElement("div");
     categoriaConMayorBalance.classList = "filaXdiv";
     categoriaConMayorBalance.innerHTML = `<div class = "TitulosColCateg">Categoria con Mayor balance</div>
-                                        <div class = "ColumCateg">${categoriaMayorBalance.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat text-inherit">${categoriaMayorBalance.monto}</div>`;
+                                        <div class = "ColumCateg bg-ClearDay_listBg">${categoriaMayorBalance.nombre}</div>
+                                        <div class ="columTotaCat text-inherit">${categoriaMayorBalance.monto}</div>`;
     sectionResumen.appendChild(categoriaConMayorBalance);
 
     let mesConMayorGanancia = document.createElement("div");
     mesConMayorGanancia.classList = "filaXdiv";
     mesConMayorGanancia.innerHTML = `<div class = "TitulosColCateg">Mes con Mayor ganancia</div>
-                                        <div class = "w-3/12">${mesMayorGanancia.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat text-green-600">+${mesMayorGanancia.monto}</div>`;
+                                        <div class = "w-3/12 columTotaCat">${mesMayorGanancia.nombre}</div>
+                                        <div class ="columTotaCat text-green-600">+${mesMayorGanancia.monto}</div>`;
     sectionResumen.appendChild(mesConMayorGanancia);
 
     let mesConMayorGasto = document.createElement("div");
     mesConMayorGasto.classList = "filaXdiv";
     mesConMayorGasto.innerHTML = `<div class = "TitulosColCateg">Mes con Mayor gasto</div>
-                                        <div class = "w-3/12">${mesMayorGasto.nombre}</div>
-                                        <div class ="w-3/12 ColumTotaCat text-red-600">-${mesMayorGasto.monto}</div>`;
+                                        <div class = "w-3/12 columTotaCat">${mesMayorGasto.nombre}</div>
+                                        <div class ="w-3/12 columTotaCat text-red-600">-${mesMayorGasto.monto}</div>`;
     sectionResumen.appendChild(mesConMayorGasto);
 
     //totales por categorias
