@@ -389,6 +389,20 @@ function mostrarOperaciones() {
   operaciones.innerHTML = "";
 
   operacionesFiltradas.forEach((operacionFiltrada) => {
+    const montoNumerico = parseFloat(operacionFiltrada.monto);
+
+    // Definir el color y signo según el tipo de operación
+    let colorMonto = "";
+    let simboloMonto = "";
+
+    if (operacionFiltrada.tipo.toLowerCase() === "gasto") {
+      colorMonto = "text-red-600"; // Monto en rojo para gastos
+      simboloMonto = `-$${Math.abs(montoNumerico)}`; // Mostrar monto con $-
+    } else if (operacionFiltrada.tipo.toLowerCase() === "ganancia") {
+      colorMonto = "text-green-600"; // Monto en verde para ingresos
+      simboloMonto = `+$${montoNumerico}`; // Mostrar monto con $+
+    }
+
     // Encuentro el índice real en el array de operacionesGuardadas
     const indiceReal = operacionesGuardadas.findIndex(
       (operacion) =>
@@ -425,11 +439,16 @@ function mostrarOperaciones() {
     tr.classList =
       "bg-white flex flex-wrap justify-center border-double border-4";
 
+   
+
     tr.innerHTML = `
       <td class="px-3 py-3 ">${operacionFiltrada.descripcion}</td>
-      <td class="px-3 py-3 "><span class="bg-ClearDay_listBg rounded">${operacionFiltrada.categoria}</span></td>
+      <td class="px-3 py-3 "><span class="bg-ClearDay_listBg rounded text-green-600">${operacionFiltrada.categoria}</span></td>
       <td class="px-3 py-3 ">${operacionFiltrada.fecha}</td>
-      <td class="px-3 py-3 ">${operacionFiltrada.monto}</td>
+      <td class="px-3 py-3 ${colorMonto}">
+      ${montoNumerico}
+    </td>
+      
       <td class="px-3 py-3 ">
         <button class="bg-blue-500 text-white p-1 rounded" onclick="editarOperacion(${indiceReal})">Editar</button>
         <button class="bg-red-500 text-white p-1 rounded" onclick="eliminarOperacion(${indiceReal})">Eliminar</button>
@@ -448,6 +467,7 @@ function mostrarOperaciones() {
     noResultados.style.display = "block";
   }
 
+  
   calcularBalance();
 }
 
@@ -482,7 +502,11 @@ function agregarOperacion(event) {
     mostrarOperaciones();
     ventanaNuevaOperacion.style.display = "none";
     sectionBalance.style.display = "flex";
+    
+    
   }
+
+  
 }
 
 // Mostrar el formulario de nueva operación
