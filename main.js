@@ -188,12 +188,12 @@ function mostrarCategorias() {
     divButtons.className = "flex space-x-2";
 
     const btnEditar = document.createElement("button");
-    btnEditar.className = "btnElimEdit";
+    btnEditar.className = "btnElimEdit hover:text-Tundora";
     btnEditar.textContent = "Editar";
     btnEditar.addEventListener("click", () => prepararEdicionCategoria(indice));
 
     const btnEliminar = document.createElement("button");
-    btnEliminar.className = "btnElimEdit";
+    btnEliminar.className = "btnElimEdit hover:text-Tundora";
     btnEliminar.textContent = "Eliminar";
     btnEliminar.addEventListener("click", () => eliminarCategoria(indice));
 
