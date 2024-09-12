@@ -36,8 +36,9 @@
   color: #3273dc;
   cursor: pointer;
 }
-
-
+.btnElimEdit:hover {
+  color: --var(Tundora); /* Color del texto cuando el cursor está sobre el botón */
+}
 /* Utilizamos clases en comun para dar estilos en comun a la seccion REPORTES */
 
  .titulosH4{
