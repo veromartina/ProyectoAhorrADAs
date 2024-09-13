@@ -9,6 +9,7 @@ const ocultarOperaciones = document.getElementById("ocultarOperaciones");
 const sectionBalance = document.getElementById("section-balance");
 const seccionCategorias = document.getElementById("categoria");
 const edicionCateg = document.getElementById("editar-categorias");
+
 const seccionReportes = document.getElementById("reportes");
 
 const btnNuevaOperacion = document.getElementById("nueva_operacion");
@@ -20,13 +21,8 @@ const operaciones = document.getElementById("operaciones");
 
 iconoAbrir.addEventListener("click", () => {
   iconoCerrar.style.display = "block";
-  navItems.style.display = "block";
-  navItems.style.backgroundColor = "#fff";
-  navItems.style.color = "#4a4a4a";
-  navItems.style.width = "100%";
-  navItems.style.position = "absolute";
-  navItems.style.top = "52px";
-  navItems.style.height = "130px";
+  navItems.classList = "navItemsClas";
+
   iconoAbrir.style.display = "none";
   sectionBalance.style.transform = "translateY(100px)";
   seccionCategorias.style.transform = "translateY(120px)";
@@ -55,24 +51,28 @@ const verReportes = document.getElementById("ver-reportes");
 sectionBalance.style.display = "flex";
 seccionCategorias.style.display = "none";
 seccionReportes.style.display = "none";
+edicionCateg.style.display = "none";
 
 //abrir y cerrar secciones
 verBalance.addEventListener("click", () => {
   sectionBalance.style.display = "flex";
   seccionCategorias.style.display = "none";
   seccionReportes.style.display = "none";
+  edicionCateg.style.display = "none";
 });
 
 verCategorias.addEventListener("click", () => {
   seccionCategorias.style.display = "block";
   sectionBalance.style.display = "none";
   seccionReportes.style.display = "none";
+  edicionCateg.style.display = "none";
 });
 
 verReportes.addEventListener("click", () => {
   seccionReportes.style.display = "block";
   sectionBalance.style.display = "none";
   seccionCategorias.style.display = "none";
+  edicionCateg.style.display = "none";
   const operacionesGuardadas =
     JSON.parse(localStorage.getItem("operaciones")) || [];
   calcularReportes(operacionesGuardadas);
@@ -86,7 +86,6 @@ const botonAgregarCategoria = document.getElementById(
 );
 const editarCategoriaInput = document.getElementById("editar-categoria-input");
 const categoriaInput = document.getElementById("categoria-input");
-const seccionEditarCateg = document.getElementById("editar-categorias");
 
 const volverCateg = document.getElementById("volver-categ");
 const listaCategorias = document.getElementById("listaCategorias");
@@ -209,7 +208,7 @@ function mostrarCategorias() {
 
 function prepararEdicionCategoria(indice) {
   seccionCategorias.style.display = "none";
-  seccionEditarCateg.style.display = "block";
+  edicionCateg.style.display = "block";
   editarCategoriaInput.value = categorias[indice];
   const editarBtn = document.getElementById("editar-categ");
 
@@ -239,7 +238,7 @@ function editarCategoria(indice) {
   guardarStorage();
   mostrarCategorias();
   cargarCategorias(categorias);
-  seccionEditarCateg.style.display = "none";
+  edicionCateg.style.display = "none";
   seccionCategorias.style.display = "block";
 }
 
@@ -252,7 +251,7 @@ function eliminarCategoria(indice) {
 
 botonAgregarCategoria.addEventListener("click", () => agregarCategoria);
 volverCateg.addEventListener("click", () => {
-  seccionEditarCateg.style.display = "none";
+  edicionCateg.style.display = "none";
   seccionCategorias.style.display = "block";
 });
 
