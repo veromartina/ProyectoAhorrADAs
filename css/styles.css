@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 .btnElimEdit:hover {
-  color: --var(Tundora); /* Color del texto cuando el cursor está sobre el botón */
+  color: var(--Tundora); /* Color del texto cuando el cursor está sobre el botón */
 }
 /* Utilizamos clases en comun para dar estilos en comun a la seccion REPORTES */
 
