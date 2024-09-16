@@ -1,449 +1,311 @@
 <!DOCTYPE html>
 
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Ahorradas" />
-    <meta
-      name="description"
-      content="Aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos."
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://metatags.io/" />
-    <meta property="og:title" content="Ahorradas" />
-    <meta
-      property="og:description"
-      content="Aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos."
-    />
-    <meta
-      property="og:image"
-      content="https://metatags.io/images/meta-tags.png"
-    />
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Ahorradas">
+  <meta name="description"
+    content="Aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos.">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://metatags.io/" />
-    <meta property="twitter:title" content="Ahorradas" />
-    <meta
-      property="twitter:description"
-      content="Aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos."
-    />
-    <meta
-      property="twitter:image"
-      content="https://metatags.io/images/meta-tags.png"
-    />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://metatags.io/">
+  <meta property="og:title" content="Ahorradas">
+  <meta property="og:description"
+    content="Aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos.">
+  <meta property="og:image" content="https://metatags.io/images/meta-tags.png">
 
-    <!-- Meta Tags Generated with https://metatags.io -->
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://metatags.io/">
+  <meta property="twitter:title" content="Ahorradas">
+  <meta property="twitter:description"
+    content="Aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos.">
+  <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png">
 
-    <title>AhorrADAs</title>
-   
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Meta Tags Generated with https://metatags.io -->
 
-    <script
-      src="https://kit.fontawesome.com/5bbce2ab5d.js"
-      crossorigin="anonymous"
-    ></script>
+  <title>AhorrADAs</title>
 
-    <script
-      src="https://kit.fontawesome.com/cd30d5437a.js"
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!--creacion de nuevas clases tailwindcss -->
+  <script src="https://kit.fontawesome.com/5bbce2ab5d.js" crossorigin="anonymous"></script>
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              CaribbeanGreen: "#00d1b2",
-              MineShaftTextos: "#363636",
-              Emerald_botonCat: "#48C74B",
-              Observatory_textListCat: "#00947e",
-              ClearDay_listBg: "#EBFFFC",
-              Tundora: "#4a4a4a",
-              Emerald_botonAgCat: "#48C774",
-              Wild_sand_body: "#F5F5F5",
-              Preview: "#000000b3",
-            },
-            fontSize: {
-              sizeH2: "2.5rem",
-              sizeHero: "2rem",
-              sizeHero1: "3rem",
-            },
+  <script src="https://kit.fontawesome.com/cd30d5437a.js" crossorigin="anonymous"></script>
 
-            lineHeight: {
-              alturaLinea: "1.125rem",
-            },
+  <!--creacion de nuevas clases tailwindcss -->
 
-            width: {
-              anchoIcono: "3.25rem",
-              contCateg: "232px",
-            },
-
-            height: {
-              alturaHero: "52px",
-              alturaNav: "132px",
-              alturaHambur: "3.25rem",
-              alturaHero1: "93px",
-              alturaNav1: "90px",
-            },
-
-            minHeigth: {
-              mHnav: "3.25rem",
-            },
-
-            marginRight: {
-              mr9px: "9px",
-            },
-
-            marginBottom: {
-              mb12px: "12px",
-            },
-
-            padding: {
-              pSecCateg: "20px",
-              contPrinCateg: "12px",
-              pTopBotBtn: "7px",
-              customPb: "calc(.5em - 1px)",
-              customPt: "calc(.5em - 1px)",
-              pRigLef: "16px",
-            },
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            CaribbeanGreen: "#00d1b2",
+            MineShaftTextos: "#363636",
+            Emerald_botonCat: "#48C74B",
+            Observatory_textListCat: "#00947e",
+            ClearDay_listBg: "#EBFFFC",
+            Tundora: "#4a4a4a",
+            Emerald_botonAgCat: "#48C774",
+            Wild_sand_body: "#F5F5F5",
+            Preview: "#000000b3",
+          },
+          fontSize: {
+            sizeH2: "2.5rem",
+            sizeHero: "2rem",
+            sizeHero1: "3rem",
           },
 
-          fontFamily: {
-            fontFamilyGral:
-              "[BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif]",
+          lineHeight: {
+            alturaLinea: "1.125rem",
           },
-          top: {
-            top52: "52px",
+
+          width: {
+            anchoIcono: "3.25rem",
+            contCateg: "232px",
+          },
+
+          height: {
+            alturaHero: "52px",
+            alturaNav: "132px",
+            alturaHambur: "3.25rem",
+            alturaHero1: "93px",
+            alturaNav1: "90px",
+          },
+
+          minHeigth: {
+            mHnav: "3.25rem",
+          },
+
+          marginRight: {
+            mr9px: "9px",
+          },
+
+          marginBottom: {
+            mb12px: "12px",
+          },
+
+          padding: {
+            pSecCateg: "20px",
+            contPrinCateg: "12px",
+            pTopBotBtn: "7px",
+            customPb: "calc(.5em - 1px)",
+            customPt: "calc(.5em - 1px)",
+            pRigLef: "16px",
           },
         },
-      };
-    </script>
-  </head>
 
-  <body class="font-fontFamilyGral m-0 p-0 bg-Wild_sand_body font-normal">
-    <header
-      class="hero flex justify-around items-center bg-CaribbeanGreen text-white h-alturaHero lg:block lg:h-alturaHero1"
-    >
-      <nav
-        class="overflow-hidden items-center w-full flex justify-between m-0 lg:py-4 lg:px-8 lg:flex lg:items-center :min-h-mHnav lg:h-alturaHero1"
-        id="barra-navegacion"
-      >
-        <div class="logo justify-between">
-          <h1
-            class="titulo-h1 text-sizeHero font-semibold leading-alturaLinea lg:text-sizeHero1"
-          >
-            <i
-              class="fa-solid fa-piggy-bank ml-3 text-white text-sizeHero mr9px lg:text-sizeHero1"
-            ></i>
-            AhorrADAs
-          </h1>
+        fontFamily: {
+          fontFamilyGral:
+            "[BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif]",
+        },
+        top: {
+          top52: "52px",
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-fontFamilyGral m-0 p-0 bg-Wild_sand_body font-normal">
+  <header
+    class="hero flex justify-around items-center bg-CaribbeanGreen text-white h-alturaHero lg:block lg:h-alturaHero1">
+    <nav
+      class="overflow-hidden items-center w-full flex justify-between m-0 lg:py-4 lg:px-8 lg:flex lg:items-center :min-h-mHnav lg:h-alturaHero1"
+      id="barra-navegacion">
+
+      <div class="logo justify-between">
+        <h1 class="titulo-h1 text-sizeHero font-semibold leading-alturaLinea lg:text-sizeHero1">
+          <i class="fa-solid fa-piggy-bank ml-3 text-white text-sizeHero mr9px lg:text-sizeHero1"></i>
+          AhorrADAs
+        </h1>
+      </div>
+
+      <div class="iconos cursor-pointer block relative w-anchoIcono p-2.5 no-underline lg:hidden">
+        <a href="#menu" class="cursor-pointer" id="abrir"><i class="fa-solid fa-bars text-xl"
+            aria-hidden="true"></i></a>
+
+        <a href="#" class="cursor-pointer hidden" id="cerrar"><i class="fa-solid fa-close text-xl"
+            aria-hidden="true"></i></a>
+      </div>
+
+      <div id="nav-items"
+        class="hidden lg:flex lg:justify-end lg:absolute lg:bg-transparent lg:top-0 lg:bottom-5 lg:right-5 lg:h-alturaNav1 lg:items-center">
+
+        <a href="#section-balance"
+          class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer lg:hover:bg-teal-500 lg:hover:rounded-md"
+          id="ver-balance">
+          <i class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+            aria-hidden="true"></i>Balance</a>
+
+        <a href="#categoria"
+          class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer lg:hover:bg-teal-500 lg:hover:rounded-md"
+          id="ver-categorias">
+          <i class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+            aria-hidden="true"></i>Categorías</a>
+
+        <a class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer lg:hover:bg-teal-500 lg:hover:rounded-md"
+          id="ver-reportes"><i
+            class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
+            aria-hidden="true"></i>Reportes</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="flex flex-col md:flex-row" id="section-balance">
+      <div class="md:w-1/3  shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10 ">
+        <!-- SECCION BALANCE -->
+        <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
+          <div class="mx-2">
+            <h2 class="text-zinc-800 text-lg font-bold">Balance</h2>
+          </div>
+          <table class="w-full">
+            <tr>
+              <td class="p-1">Ganancias</td>
+              <td class="text-green-600 text-right p-2" id="ganancias">+$0</td>
+            </tr>
+            <tr>
+              <td class="p-1">Gastos</td>
+              <td class="text-red-600 text-right p-2" id="gastos">-$0</td>
+            </tr>
+            <tr>
+              <td class="p-1 text-xl">Total</td>
+              <td class="text-right p-2" id="total">$0</td>
+            </tr>
+          </table>
+        </section>
+
+        <!-- SECCION FILTROS -->
+        <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
+          <div class="flex justify-between m-3">
+            <h2 class="text-lg font-bold">Filtros</h2>
+            <p class="text-cyan-700" id="ocultarFiltro">Ocultar Filtros</p>
+          </div>
+
+          <div id="contenedor_filtros" class="flex flex-col gap-2 m-3 ">
+            <label for="tipo_filtro">Tipo</label>
+            <select name="tipo_filtro" id="tipo_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
+              <option value="todos">Todos</option>
+              <option value="gasto">Gastos</option>
+              <option value="ganancia">Ganancias</option>
+            </select>
+
+            <label for="categoria_filtro">Categoría</label>
+            <select name="categoria_filtro" id="categoria_filtro"
+              class="rounded-md p-2 cursor-pointer hover:text-gray-600">
+              <option value="todas">Todas</option>
+              <option value="comida">Comida</option>
+              <option value="servicios">Servicios</option>
+            </select>
+
+            <label for="tipo_fecha">Desde</label>
+            <input type="date" name="tipo_fecha" id="tipo_fecha"
+              class="rounded-md p-2 cursor-pointer hover:text-gray-600">
+
+            <label for="orden_filtro">Ordenar</label>
+            <select name="orden_filtro" id="orden_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
+              <option value="mas_recientes">Más reciente</option>
+              <option value="menos_recientes">Menos reciente</option>
+              <option value="mayor_monto">Mayor monto</option>
+              <option value="menor_monto">Menor monto</option>
+              <option value="a/z">A/Z</option>
+              <option value="z/a">Z/A</option>
+            </select>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECCION OPERACIONES -->
+
+      <section class="md:w-3/5 shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
+        <div
+          class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around "
+          id="contenedor_form_operaciones">
+          <h2 class="text-lg font-bold m-3">Operaciones</h2>
+          <button id="nueva_operacion" class="bg-teal-300 rounded-md p-1 m-2 md:dark:md:hover:bg-teal-400"
+            type="submit">
+            + Nueva operación
+          </button>
         </div>
 
         <div
-          class="iconos cursor-pointer block relative w-anchoIcono p-2.5 no-underline lg:hidden"
-        >
-          <a href="#menu" class="cursor-pointer" id="abrir"
-            ><i class="fa-solid fa-bars text-xl" aria-hidden="true"></i
-          ></a>
+          class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around"
+          id="ocultarOperaciones">
+          <table id="operaciones">
 
-          <a href="#" class="cursor-pointer hidden" id="cerrar"
-            ><i class="fa-solid fa-close text-xl" aria-hidden="true"></i
-          ></a>
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Descripción
+              </th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Categoría
+              </th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Fecha
+              </th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Monto
+              </th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Acciones
+              </th>
+            </tr>
+
+            <tbody id="operaciones-body" class="bg-white divide-y divide-gray-200">
+              <!-- Aquí se insertarán las filas -->
+            </tbody>
+          </table>
         </div>
 
-        <di
-          id="nav-items"
-          class="hidden lg:flex lg:justify-end lg:absolute lg:bg-transparent lg:top-0 lg:bottom-5 lg:right-5 lg:h-alturaNav1 lg:items-center"
-        >
-          <a
-            href="#section-balance"
-            class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer lg:hover:bg-teal-500 lg:hover:rounded-md"
-            id="ver-balance"
-          >
-            <i
-              class="fas fa-chart-line mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
-              aria-hidden="true"
-            ></i
-            >Balance</a
-          >
+        <div class="" id="noResultados">
 
-          <a
-            href="#categoria"
-            class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer lg:hover:bg-teal-500 lg:hover:rounded-md"
-            id="ver-categorias"
-          >
-            <i
-              class="fas fa-tag mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
-              aria-hidden="true"
-            ></i
-            >Categorías</a
-          >
-
-          <a
-            class="navbar-item flex items-center justify-start text-Tundora leading-6 py-2 px-3 lg:text-white lg:flex cursor-pointer lg:hover:bg-teal-500 lg:hover:rounded-md"
-            id="ver-reportes"
-            ><i
-              class="fas fa-chart-pie mr-2 cursor-pointer block text-CaribbeanGreen pl-2.5 text-base lg:text-white"
-              aria-hidden="true"
-            ></i
-            >Reportes</a
-          >
+          <img class="p-5 sm:w-1/2 sm:m-auto md:w-1/2 md:m-auto lg:w-1/2 lg:m-auto xl:w-1/2 xl:sm:m-auto"
+            src="./img/billetera.png" alt="imagen principal">
+          <h4 class="text-lg font-bold text-zinc-600 text-center m-10">Sin resultados</h4>
+          <p class="text-center m-8 text-slate-800">Cambia los filtros o agrega operaciones</p>
         </div>
-      </nav>
-    </header>
+      </section>
+    </div>
 
-    <main>
-      <!-- CONTENEDOR PRINCIPAL -->
-      <div class="flex flex-col md:flex-row" id="section-balance">
-        <div class="md:w-1/3  shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10 ">
-            <!-- SECCION BALANCE -->
-            <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
-                <div class="mx-2">
-                    <h2 class="text-zinc-800 text-lg font-bold">Balance</h2>
-                </div>
-                <table class="w-full">
-                    <tr>
-                        <td class="p-1">Ganancias</td>
-                        <td class="text-green-600 text-right p-2" id="ganancias">+$0</td>
-                    </tr>
-                    <tr>
-                        <td class="p-1">Gastos</td>
-                        <td class="text-red-600 text-right p-2" id="gastos">-$0</td>
-                    </tr>
-                    <tr>
-                        <td class="p-1 text-xl">Total</td>
-                        <td class="text-right p-2" id="total">$0</td>
-                    </tr>
-                </table>
-            </section>
-    
-            <!-- SECCION FILTROS -->
-            <section class="shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
-                <div class="flex justify-between m-3">
-                    <h2 class="text-lg font-bold">Filtros</h2>
-                    <p class="text-cyan-700" id="ocultarFiltro">Ocultar Filtros</p>
-                </div>
-    
-                <div id="contenedor_filtros" class="flex flex-col gap-2 m-3 ">
-                    <label for="tipo_filtro">Tipo</label>
-                    <select name="tipo_filtro" id="tipo_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
-                        <option value="todos">Todos</option>
-                        <option value="gasto">Gastos</option>
-                        <option value="ganancia">Ganancias</option>
-                    </select>
-    
-                    <label for="categoria_filtro">Categoría</label>
-                    <select name="categoria_filtro" id="categoria_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
-                        <option value="todas">Todas</option>
-                        <option value="comida">Comida</option>
-                        <option value="servicios">Servicios</option>
-                    </select>
-    
-                    <label for="tipo_fecha">Desde</label>
-                    <input type="date" name="tipo_fecha" id="tipo_fecha" class="rounded-md p-2 cursor-pointer hover:text-gray-600" />
-    
-                    <label for="orden_filtro">Ordenar</label>
-                    <select name="orden_filtro" id="orden_filtro" class="rounded-md p-2 cursor-pointer hover:text-gray-600">
-                        <option value="mas_recientes">Más reciente</option>
-                        <option value="menos_recientes">Menos reciente</option>
-                        <option value="mayor_monto">Mayor monto</option>
-                        <option value="menor_monto">Menor monto</option>
-                        <option value="a/z">A/Z</option>
-                        <option value="z/a">Z/A</option>
-                    </select>
-                </div>
-            </section>
-        </div>
-    
-        <!-- SECCION OPERACIONES -->
-         
-            <section class="md:w-3/5 shadow-lg shadow-gray-500/50 border-gray-500 rounded-md m-10">
-              <div class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around " id="contenedor_form_operaciones">
-                <h2 class="text-lg font-bold m-3">Operaciones</h2>
-                    <button id="nueva_operacion" class="bg-teal-300 rounded-md p-1 m-2 md:dark:md:hover:bg-teal-400" type="submit">
-                        + Nueva operación
-                    </button>
-                </div>
-                
-                <div class="sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:flex xl:justify-around" id="ocultarOperaciones">
-                  <table
-                    id="operaciones"
-                    
-                  >
-                  
-                    <tr >
-                      <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Descripción
-                      </th>
-                      <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Categoría
-                      </th>
-                      <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Fecha
-                      </th>
-                      <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Monto
-                      </th>
-                      <th
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Acciones
-                      </th>
-                    </tr>
-
-                    <tbody
-                      id="operaciones-body"
-                      class="bg-white divide-y divide-gray-200"
-                    >
-                      <!-- Aquí se insertarán las filas -->
-                    </tbody>
-                  </table>
-                </div>
-
-                <div class="" id="noResultados">
-
-                <img class="p-5 sm:w-1/2 sm:m-auto md:w-1/2 md:m-auto lg:w-1/2 lg:m-auto xl:w-1/2 xl:sm:m-auto" src="./img/billetera.png" alt="imagen principal" />
-                <h4 class="text-lg font-bold text-zinc-600 text-center m-10">Sin resultados</h4>
-                <p class="text-center m-8 text-slate-800">Cambia los filtros o agrega operaciones</p>
-              </div>
-              </section>
-      </div>
-    
-      <!-- NUEVA OPERACION -->
-       <div class="flex justify-center items-center ">
-        <section
-          id="ventanaNuevaOperacion"
-          class="flex flex-col  bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 lg:my-40 hidden"
-        >
-          <h2 class="text-3xl font-bold text-gray-800">Nueva operación</h2>
-          <form class="" id="formNuevaOperacion">
-            <ul class="flex flex-col gap-6">
-              <li class="flex flex-col gap-2">
-                <label class="font-bold text-gray-800">Descripción</label>
-                <input
-                  id="nuevaOperacion-descripcion"
-                  type="text"
-                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-                />
-              </li>
-              <li class="flex flex-col gap-2">
-                <label class="font-bold text-gray-800">Monto</label>
-                <input
-                  id="nuevaOperacion-monto"
-                  type="number"
-                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-                />
-              </li>
-              <li class="flex flex-col gap-2">
-                <label class="font-bold text-gray-800">Tipo</label>
-                <select
-                  id="nuevaOperacion-tipo"
-                  name="select"
-                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-                >
-                  <option selected disabled>Seleccione una opcion</option>
-                  <option value="gasto">Gasto</option>
-                  <option value="ganancia">Ganancia</option>
-                </select>
-              </li>
-              <li class="flex flex-col gap-2">
-                <label class="font-bold text-gray-800">Categoría</label>
-                <select
-                  id="nuevaOperacion-categoria"
-                  name="select"
-                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-                >
-                  <option selected disabled>Seleccione una opcion</option>
-                  <option value="comida">Comida</option>
-                  <option value="servicio">Servicios</option>
-                  <option value="salida">Salidas</option>
-                  <option value="educacion">Educación</option>
-                  <option value="transporte">Transporte</option>
-                  <option value="trabajo">Trabajo</option>
-                </select>
-              </li>
-              <li class="flex flex-col gap-2">
-                <label class="font-bold text-gray-800">Fecha</label>
-                <input
-                  id="nuevaOperacion-fecha"
-                  type="date"
-                  class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3"
-                />
-              </li>
-              <li class="flex justify-end gap-3">
-                <button
-                  id="botonCancelarOperacion"
-                  class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white"
-                >
-                  Cancelar
-                </button>
-                <button
-                  id="botonAgregarOperacion"
-                  class="bg-green-500 p-2 rounded hover:bg-sky-700 hover:text-white"
-                >
-                  Agregar
-                </button>
-              </li>
-            </ul>
-          </form>
-        </section>
-      </div>
-      <!-- EDITAR OPERACION -->
-      <section
-        id="ventanaEditarOperacion"
-        class="flex flex-col bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 hidden"
-      >
-        <h2 class="text-3xl font-bold text-gray-800">Editar operación</h2>
-        <form class="">
+    <!-- NUEVA OPERACION -->
+    <div class="flex justify-center items-center ">
+      <section id="ventanaNuevaOperacion"
+        class="flex flex-col  bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 lg:my-40 hidden">
+        <h2 class="text-3xl font-bold text-gray-800">Nueva operación</h2>
+        <form class="" id="formNuevaOperacion">
           <ul class="flex flex-col gap-6">
             <li class="flex flex-col gap-2">
               <label class="font-bold text-gray-800">Descripción</label>
-              <input
-                type="text"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500"
-              />
+              <input id="nuevaOperacion-descripcion" type="text"
+                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
             </li>
             <li class="flex flex-col gap-2">
               <label class="font-bold text-gray-800">Monto</label>
-              <input
-                type="number"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500"
-              />
+              <input id="nuevaOperacion-monto" type="number"
+                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
             </li>
             <li class="flex flex-col gap-2">
               <label class="font-bold text-gray-800">Tipo</label>
-              <select
-                name="select"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500"
-              >
+              <select id="nuevaOperacion-tipo" name="select"
+                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
+                <option selected disabled>Seleccione una opcion</option>
                 <option value="gasto">Gasto</option>
-                <option value="ganancia" selected>Ganancia</option>
+                <option value="ganancia">Ganancia</option>
               </select>
             </li>
             <li class="flex flex-col gap-2">
               <label class="font-bold text-gray-800">Categoría</label>
-              <select
-                name="select"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500"
-              >
+              <select id="nuevaOperacion-categoria" name="select"
+                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
+                <option selected disabled>Seleccione una opcion</option>
                 <option value="comida">Comida</option>
                 <option value="servicio">Servicios</option>
                 <option value="salida">Salidas</option>
@@ -454,166 +316,172 @@
             </li>
             <li class="flex flex-col gap-2">
               <label class="font-bold text-gray-800">Fecha</label>
-              <input
-                type="date"
-                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500"
-              />
+              <input id="nuevaOperacion-fecha" type="date"
+                class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500 px-3">
             </li>
             <li class="flex justify-end gap-3">
-              <button
-                class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white"
-              >
+              <button id="botonCancelarOperacion" class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white">
                 Cancelar
               </button>
-              <button
-                class="bg-green-500 p-2 rounded hover:bg-sky-700 hover:text-white"
-              >
+              <button id="botonAgregarOperacion" class="bg-green-500 p-2 rounded hover:bg-sky-700 hover:text-white">
                 Agregar
               </button>
             </li>
           </ul>
         </form>
       </section>
+    </div>
+    <!-- EDITAR OPERACION -->
+    <section id="ventanaEditarOperacion"
+      class="flex flex-col bg-white shadow-lg rounded-md p-5 gap-6 w-10/12 lg:w-3/4 xl:w-6/12 hidden">
+      <h2 class="text-3xl font-bold text-gray-800">Editar operación</h2>
+      <form class="">
+        <ul class="flex flex-col gap-6">
+          <li class="flex flex-col gap-2">
+            <label class="font-bold text-gray-800">Descripción</label>
+            <input type="text"
+              class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+          </li>
+          <li class="flex flex-col gap-2">
+            <label class="font-bold text-gray-800">Monto</label>
+            <input type="number"
+              class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+          </li>
+          <li class="flex flex-col gap-2">
+            <label class="font-bold text-gray-800">Tipo</label>
+            <select name="select"
+              class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+              <option value="gasto">Gasto</option>
+              <option value="ganancia" selected>Ganancia</option>
+            </select>
+          </li>
+          <li class="flex flex-col gap-2">
+            <label class="font-bold text-gray-800">Categoría</label>
+            <select name="select"
+              class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+              <option value="comida">Comida</option>
+              <option value="servicio">Servicios</option>
+              <option value="salida">Salidas</option>
+              <option value="educacion">Educación</option>
+              <option value="transporte">Transporte</option>
+              <option value="trabajo">Trabajo</option>
+            </select>
+          </li>
+          <li class="flex flex-col gap-2">
+            <label class="font-bold text-gray-800">Fecha</label>
+            <input type="date"
+              class="border border-sky-500 rounded border-slate-300 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500">
+          </li>
+          <li class="flex justify-end gap-3">
+            <button class="bg-slate-300 p-2 rounded hover:bg-sky-700 hover:text-white">
+              Cancelar
+            </button>
+            <button class="bg-green-500 p-2 rounded hover:bg-sky-700 hover:text-white">
+              Agregar
+            </button>
+          </li>
+        </ul>
+      </form>
+    </section>
 
-      <!--seccion categoria-->
+    <!--seccion categoria-->
 
-      <section class="seccion-categorias py-12 px-6 mt-6 hidden" id="categoria">
-        <div
-          class="contenedor-principal-categoria m-0 m-auto relative p-contPrinCateg"
-        >
-          <div
-            class="w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white
-            shadow-[0_0.5em_1em_-0.125px_#e2e8ef,_0_2px_4px_-1px_#343434]"
-          >
+    <section class="seccion-categorias py-12 px-6 mt-6 hidden" id="categoria">
+      <div class="contenedor-principal-categoria m-0 m-auto relative p-contPrinCateg">
+        <div class="w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white
+            shadow-[0_0.5em_1em_-0.125px_#e2e8ef,_0_2px_4px_-1px_#343434]">
+          <h2
+            class="titulo text-left h-11 mb-6 font-bold break-words text-MineShaftTextos text-sizeH2 leading-alturaLinea">
+            Categorías
+          </h2>
+          <label class="label mt-12 mb-2 block text-base font-bold cursor-default" for="categoria-input">Nombre</label>
+
+          <div class="input-agregar flex justify-start mb-mb12px">
+            <div class="input-nueva-categoria grow shrink box-border text-base relative mr-3">
+              <input type="text" name="categoria-input" id="categoria-input" class="pl-2 max-w-full w-full h-10 rounded text-[Tundora] border border-sky-500 border-slate-300 hover:border-slate-400 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500
+                  shadow-[inset_0_0.0625em_0.125em_#91929280]">
+            </div>
+
+            <div class="btn-agregar-cat flex justify-end box-border text-base relative shrink">
+              <button
+                class="bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded hover:bg-green-500"
+                id="boton-agregar-categoria" onclick="agregarCategoria()">
+                Agregar
+              </button>
+            </div>
+          </div>
+
+          <div class="categorias-ingresadas mt-12" id="cat-ingresadas">
+            <div class="cont-cat-ingresadas w-full mb-3">
+              <div class="colum-categorias items-center">
+                <ul id="listaCategorias"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editar Categoría. -->
+
+    <section class="edicionCateg py-12 px-6 mt-6 hidden" id="editar-categorias">
+      <div class="contenedor-principal-editar m-0 m-auto relative size-full">
+        <div class="column">
+          <div class="box-editar w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white
+              shadow-[0_0.5em_1em_-0.125px_#e2e8ef,_0_2px_4px_-1px_#343434]">
+
             <h2
-              class="titulo text-left h-11 mb-6 font-bold break-words text-MineShaftTextos text-sizeH2 leading-alturaLinea"
-            >
-              Categorías
+              class="titulo-editar flex text-left h-20 mb-6 font-bold text-sizeH2 break-words h-alturaNav1 text-MineShaftTextos">
+              Editar categoría
             </h2>
-            <label
-              class="label mt-12 mb-2 block text-base font-bold cursor-default"
-              for="categoria-input"
-              >Nombre</label
-            >
+            <label class="label-editar mt-12 mb-2 block text-base font-bold cursor-default text-MineShaftTextos"
+              for="editar-categoria-input">Nombre</label>
 
-            <div class="input-agregar flex justify-start mb-mb12px">
-              <div
-                class="input-nueva-categoria grow shrink box-border text-base relative mr-3"
-              >
-                <input
-                  type="text"
-                  name="categoria-input"
-                  id="categoria-input"
-                  class="pl-2 max-w-full w-full h-10 rounded text-[Tundora] border border-sky-500 border-slate-300 hover:border-slate-400 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500
-                  shadow-[inset_0_0.0625em_0.125em_#91929280]"
-                />
-              </div>
-
-              <div
-                class="btn-agregar-cat flex justify-end box-border text-base relative shrink"
-              >
-                <button
-                  class="bg-Emerald_botonAgCat border-transparent text-white cursor-pointer justify-center w-24 h-10 border rounded hover:bg-green-500"
-                  id="boton-agregar-categoria"
-                  onclick="agregarCategoria()"
-                >
-                  Agregar
-                </button>
+            <div class="input-edicion flex justify-start mb-mb12px">
+              <div class="input-editar grow shrink box-border text-base relative mr-3">
+                <input id="editar-categoria-input" class="pl-2 max-w-full w-full h-10 rounded text-[Tundora] border border-sky-500 border-slate-300 hover:border-slate-400 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500
+                    shadow-[inset_0_0.0625em_0.125em_#91929280]" type="text" name="editar-categoria-input">
               </div>
             </div>
 
-            <div class="categorias-ingresadas mt-12" id="cat-ingresadas">
-              <div class="cont-cat-ingresadas w-full mb-3">
-                <div class="colum-categorias items-center">
-                  <ul id="listaCategorias"></ul>
-                </div>
-              </div>
+            <div class="botones-volver-editar flex justify-end items-center flex-wrap mt-12 -mb-2">
+              <button
+                class="mb-2 mr-2 bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef hover:bg-slate-200"
+                id="volver-categ">
+                Volver
+              </button>
+
+              <button
+                class="bg-Emerald_botonAgCat mb-2 mr-2 bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef hover:bg-green-500"
+                id="editar-categ">
+                Editar
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Editar Categoría. -->
+    <!-- SECCION REPORTES PANTALLA PRINCIPAL-->
+    <section class="reporte object-cover py-12 px-6 mt-6" id="reportes">
+      <div class="cont-gral-reportes m-0 relative lg:w-5/6 lg:ml-20 xl:w-4/6 xl:ml-56	">
 
-      <section
-        class="edicionCateg py-12 px-6 mt-6 hidden"
-        id="editar-categorias"
-      >
-        <div class="contenedor-principal-editar m-0 m-auto relative size-full">
-          <div class="column">
-            <div
-              class="box-editar w-full block lg:w-5/6 lg:ml-20 xl:w-8/12 xl:ml-56 h-auto p-pSecCateg rounded-md bg-white
-              shadow-[0_0.5em_1em_-0.125px_#e2e8ef,_0_2px_4px_-1px_#343434]"
-            >
-            
-              <h2
-                class="titulo-editar flex text-left h-20 mb-6 font-bold text-sizeH2 break-words h-alturaNav1 text-MineShaftTextos"
-              >
-                Editar categoría
-              </h2>
-              <label
-                class="label-editar mt-12 mb-2 block text-base font-bold cursor-default text-MineShaftTextos"
-                for="editar-categoria-input"
-                >Nombre</label
-              >
-
-              <div class="input-edicion flex justify-start mb-mb12px">
-                <div
-                  class="input-editar grow shrink box-border text-base relative mr-3"
-                >
-                  <input
-                    id="editar-categoria-input"
-                    class="pl-2 max-w-full w-full h-10 rounded text-[Tundora] border border-sky-500 border-slate-300 hover:border-slate-400 focus-visible:outline-0 focus-visible:border-blue-500 focus-visible:shadow focus-visible:shadow-blue-500
-                    shadow-[inset_0_0.0625em_0.125em_#91929280]"
-                    type="text"
-                    name="editar-categoria-input"
-                  />
-                </div>
-              </div>
-
-              <div
-                class="botones-volver-editar flex justify-end items-center flex-wrap mt-12 -mb-2"
-              >
-                <button
-                  class="mb-2 mr-2 bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef hover:bg-slate-200"
-                  id="volver-categ"
-                >
-                  Volver
-                </button>
-
-                <button
-                  class="bg-Emerald_botonAgCat mb-2 mr-2 bg-Wild_sand_body border-transparent text-Preview border cursor-pointer justify-center text-center rounded pb-customPb pt-customPt px-pRigLef hover:bg-green-500"
-                  id="editar-categ"
-                >
-                  Editar
-                </button>
-              </div>
-            </div>
-          </div>
+        <div class="caja-contenedora box-border bg-white rounded-md text-Tundora p-pSecCateg"
+          style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80">
+          <h2
+            class="titulo-h2-reporte text-left mb-6 mt-4 font-bold break-words text-MineShaftTextos text-sizeH2 leading-alturaLinea pb-2">
+            Reportes
+          </h2>
+          <div id="sin-reportes"></div>
+          <div id="con-reportes"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- SECCION REPORTES PANTALLA PRINCIPAL-->
-      <section class="reporte object-cover py-12 px-6 mt-6" id="reportes">
-        <div class="cont-gral-reportes m-0 relative lg:w-5/6 lg:ml-20 xl:w-4/6 xl:ml-56	">
+  </main>
 
-              <div
-                class="caja-contenedora box-border bg-white rounded-md text-Tundora p-pSecCateg"
-                style="box-shadow: inset 0 0.0625em 0.125em #0a0a0a80"
-              >
-                <h2
-                  class="titulo-h2-reporte text-left mb-6 mt-4 font-bold break-words text-MineShaftTextos text-sizeH2 leading-alturaLinea pb-2"
-                >
-                  Reportes
-                </h2>
-                <div id="sin-reportes"></div>
-                <div id="con-reportes"></div>
-              </div>
-      </section>
-      
-    </main>
+  <script src="main.js"></script>
 
-    <script src="main.js"></script>
-   
-  </body>
+</body>
+
 </html>
