@@ -194,7 +194,27 @@ function mostrarCategorias() {
     const btnEliminar = document.createElement("button");
     btnEliminar.className = "btnElimEdit hover:text-Tundora";
     btnEliminar.textContent = "Eliminar";
-    btnEliminar.addEventListener("click", () => eliminarCategoria(indice));
+
+    btnEliminar.addEventListener("click", () => 
+      Swal.fire({  //se utiliza alert de sweetalert2
+        title: "Esta seguro que desea eliminar?",
+        text: "¡No podrás revertir esto!!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "¡Sí, bórralo!!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "¡Eliminado!",
+            text: "Su archivo ha sido eliminado..",
+            icon: "DE ACUERDO"
+          });
+        }
+        eliminarCategoria(indice);
+      
+      }));
 
     divCategory.appendChild(pCategory);
     divButtons.appendChild(btnEditar);
