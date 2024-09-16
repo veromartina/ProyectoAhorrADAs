@@ -445,7 +445,7 @@ function mostrarOperaciones() {
       <td class="px-3 py-3 "><span class="bg-ClearDay_listBg rounded text-green-600">${operacionFiltrada.categoria}</span></td>
       <td class="px-3 py-3 ">${operacionFiltrada.fecha}</td>
       <td class="px-3 py-3 ${colorMonto}">
-      ${montoNumerico}
+       ${simboloMonto} 
     </td>
       
       <td class="px-3 py-3 ">
